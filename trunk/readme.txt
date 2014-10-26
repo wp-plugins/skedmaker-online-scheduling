@@ -4,11 +4,11 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .73
+Stable tag: .76
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Skedmaker's Plugin for Wordpress is an online appointment schedule and booking system that lets your clients make a reservation with you via the internet 24/7/365.
+Skedmaker is an online appointment booking system that lets your clients make a reservation with you via the internet, 24/7/365.
 
 == Description ==
 
