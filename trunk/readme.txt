@@ -75,7 +75,24 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .76 =
+* Remove unneeded files, clean up, prepare for release 
 
+= .73 =
+* Change all function names to be prefixed with "SM_" - to stop any conflicts with other plugins 
+
+= .72 =
+* Add ability to shut off sending notifications to admin
+* Add ability to shut off sending notifications to client
+* Add ability to shut off sending notifications to BCC 
+
+= .71 =
+*Add ability to send copies of notices to 3 different BCC emails 
+
+= .7 =
+* Added option to select color scheme.
+* Fixed bug in dynamic CSS 
+ 
 = .6 =
 * Fix bug in image display for "When is My Appointment" and "Print" buttons on calendar
 
