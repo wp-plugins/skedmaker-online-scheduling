@@ -213,7 +213,7 @@ if($op=="sked" || $op==""){
 				if($client_email!=""){?>
 					<tr><td class='pad14'>You may cancel and reschedule your appointment by clicking the link below.</td></tr>
 					<tr><td class='pad14'>
-					<div class='navCancel' style='width:225px;'><a href='<?php echo $smpageid;?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;' class='cancel'><img src='<?php $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
+					<div class='navCancel' style='width:225px;'><a href='<?php echo $smpageid;?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;' class='cancel'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
 					</td></tr>
 					<?php if($cancelpolicy!=""){echo "<tr><td class='pad14'><span class='redText'>".$cancelpolicy."</span></td></tr>";} ?>
 			   <?php } ?>
