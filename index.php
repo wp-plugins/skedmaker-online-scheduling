@@ -241,7 +241,7 @@ if($op=="sked" || $op==""){
 				$biz_info=SM_biz_info();
 				$bodyData.=$biz_info."</td></tr></table>";
 
-				if(SM_emailIt(SM_d($client_email), $adminemail, "", "Appointment Scheduled- ".d($client_name), $bodyData)===false){
+				if(SM_emailIt(SM_d($client_email), $adminemail, "", "Appointment Scheduled- ".SM_d($client_name), $bodyData)===false){
 					SM_redBox("Sorry, the e-mail could not be sent. Please try again later.", 800, 18);
 				}
 				$success="y";
