@@ -353,7 +353,7 @@ if($errorMessage!="y"){
 				</script>";
 		}
 		
-		SM_redirect("?page=skedmaker/admin_home.php&v=home&", 5000);
+		SM_redirect("?page=skedmaker-online-scheduling/admin_home.php&v=home&", 5000);
 		die();
 	}
 }
