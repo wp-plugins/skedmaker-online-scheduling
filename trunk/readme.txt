@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .76
+Stable tag: .77
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,7 +47,7 @@ You can also enter specific color codes to create a more customized scheme for y
 
 == Installation ==
 1. Download and unzip the Skedmaker Wordpress Plugin.
-2. Copy the "skedmaker-online-scheduling" folder to the Wordpress directory: "/wp-content/plugins/".
+2. Copy the "skedmaker-online-scheduling" folder to the Wordpress directory: "/wp-content/plugins/". NOTE! - do not copy the folder with the version number.
 3. Upload the "skedmaker-online-scheduling" folder to your server.
 4. Log in to your Wordpress admin page.
 5. Click "Plugins" from your admin menu.
@@ -89,26 +89,29 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .77 =
+* Fix error with admin dashboard link to admin home page.
+
 = .76 =
-* Remove unneeded files, clean up, prepare for release 
+* Remove unneeded files, clean up, prepare for release.
 
 = .73 =
-* Change all function names to be prefixed with "SM_" - to stop any conflicts with other plugins 
+* Change all function names to be prefixed with "SM_" - to stop any conflicts with other plugins.
 
 = .72 =
-* Add ability to shut off sending notifications to admin
-* Add ability to shut off sending notifications to client
-* Add ability to shut off sending notifications to BCC 
+* Add ability to shut off sending notifications to admin.
+* Add ability to shut off sending notifications to client.
+* Add ability to shut off sending notifications to BCC.
 
 = .71 =
-*Add ability to send copies of notices to 3 different BCC emails 
+*Add ability to send copies of notices to 3 different BCC emails. 
 
 = .7 =
 * Added option to select color scheme.
-* Fixed bug in dynamic CSS 
+* Fixed bug in dynamic CSS. 
  
 = .6 =
-* Fix bug in image display for "When is My Appointment" and "Print" buttons on calendar
+* Fix bug in image display for "When is My Appointment" and "Print" buttons on calendar.
 
 = 0.5 =
-* Update calendar and create days functions
+* Update calendar and create days functions.

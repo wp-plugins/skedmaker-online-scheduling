@@ -1,6 +1,6 @@
 <?php
 if(!function_exists('SM_d')){function SM_d($DBvar){return stripslashes(urldecode($DBvar));}}
-$smadmin=admin_url()."?page=skedmaker/admin_home.php";
+$smadmin=admin_url()."?page=skedmaker-online-scheduling/admin_home.php";
 $smpageid="?page_id=".$_GET['page_id'];
 $sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 $site=plugins_url( __FILE__ );

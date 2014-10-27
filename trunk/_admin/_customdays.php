@@ -6,6 +6,7 @@ $month=$_GET['month'];
 $day=$_GET['day'];
 $weekday=$_GET['weekday'];
 
+
 //======= DELETE CONFIRM
 if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="deleteconfirm"){
 	if($_GET['dc']!=""){
@@ -150,7 +151,7 @@ if($total>0){ ?>
 		echo "<td class='list_center' style='width:25%;'>".$total_timeframes." time frames</td>";
 		echo "<td class='list_center' style='width:20%;'>".$starttime."</td>";
 		echo "<td class='list_center' style='width:20%;'>".$endtime."</td>";
-		echo "<td class='nopad' style='padding-left:3px; width:3%;'><a href='".$smadmin."&amp;v=customtimes&amp;dc=".$DBdatecode."&amp;' title='Add Time Frames' class='sked'><img src='".$sm_btns_dir."btn_timeframe16_reg.png' border='0px'></a></td>";
+		echo "<td class='nopad' style='padding-left:3px; width:3%;'><a href='".$smadmin."&amp;v=customtimes&amp;dc=".$DBdatecode."&amp;' title='Add Time Frames' class='sked'><img src='".$sm_btns_dir."btn_timeframes16_reg.png' border='0px'></a></td>";
 		echo "<td class='nopad' style='width:3%;'><a href='".$smadmin."&amp;v=customdays&amp;op=edit&amp;c=".$DBdatecode."&amp;' title='Edit Name' class='sked'><img src='".$sm_btns_dir."btn_edit16_reg.png' style='border:0px;' alt='Edit'></a></td>";
 		echo "<td class='nopad' style='width:4%;'><a href='".$smadmin."&amp;v=customdays&amp;op=delete&amp;dc=".$DBdatecode."&amp;' title='Delete' class='sked'><img src='".$sm_btns_dir."btn_delete16_reg.png' style='border:0px;' alt='Delete'></a></td></tr>";
 	} ?>
