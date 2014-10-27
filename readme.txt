@@ -31,8 +31,8 @@ You can also enter specific color codes to create a more customized scheme for y
 
 == Installation ==
 1. Download and unzip the Skedmaker Wordpress Plugin.
-2. Copy the "skedmaker" folder to the Wordpress directory: "/wp-content/plugins/".
-3. Upload the "skedmaker" folder to your server.
+2. Copy the "skedmaker-online-scheduling" folder to the Wordpress directory: "/wp-content/plugins/".
+3. Upload the "skedmaker-online-scheduling" folder to your server.
 4. Log in to your Wordpress admin page.
 5. Click "Plugins" from your admin menu.
 6. Find "Skedmaker" on your list of plugins.
