@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Corey Kingsbury
 Donate link: http://www.skedmaker.com/?op=wordpress
-Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule
+Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
 Stable tag: .76
