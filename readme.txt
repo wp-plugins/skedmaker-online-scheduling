@@ -4,11 +4,11 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .76 
+Stable tag: .76
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Skedmaker is an online appointment booking system that lets your clients make a reservation with you via the internet, 24/7/365.
+Skedmaker is an online appointment booking system that lets your clients make a reservation with you via the internet, 24/7/365. 
 
 == Description ==
 
@@ -30,20 +30,20 @@ Edit the color scheme of Skedmaker to fit your Wordpress theme by selecting from
 You can also enter specific color codes to create a more customized scheme for your schedule.
 
 == Installation ==
-1) Download and unzip the Skedmaker Wordpress Plugin.
-2) Copy the "skedmaker" folder to the Wordpress directory: "/wp-content/plugins/".
-3) Upload the "skedmaker" folder to your server.
-4) Log in to your Wordpress admin page.
-5) Click "Plugins" from your admin menu.
-6) Find "Skedmaker" on your list of plugins.
-7) Click Activate.
-8) A Skedmaker menu item will appear on your admin menu.
-9) Click Skedmaker from your admin menu.
-10) Skedmaker will automatically build the database tables required to run the plugin.
-11) After the tables are built, your Skedmaker Administration page will load.
-12) Follow the prompts at the top of the Admin page to get started building your schedule. 
-13) It is IMPORTANT that you follow the prompts to set your timezone and set e-mail address to receive appointment notifications.
-14) To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed.
+1. Download and unzip the Skedmaker Wordpress Plugin.
+2. Copy the "skedmaker" folder to the Wordpress directory: "/wp-content/plugins/".
+3. Upload the "skedmaker" folder to your server.
+4. Log in to your Wordpress admin page.
+5. Click "Plugins" from your admin menu.
+6. Find "Skedmaker" on your list of plugins.
+7. Click Activate.
+8. A Skedmaker menu item will appear on your admin menu.
+9. Click Skedmaker from your admin menu.
+10. Skedmaker will automatically build the database tables required to run the plugin.
+11. After the tables are built, your Skedmaker Administration page will load.
+12. Follow the prompts at the top of the Admin page to get started building your schedule. 
+13. It is IMPORTANT that you follow the prompts to set your timezone and set e-mail address to receive appointment notifications.
+14. To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed.
 
 == Frequently Asked Questions ==
 
