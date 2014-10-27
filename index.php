@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
         <tr><td class='blueBanner2' style='padding:21px;'>
 		<b>If you have upcoming appointments, a list has been sent to: <?php echo SM_d($findemail);?></b>
 		<br /><br />
-		<div class='navMenuRound' style='width:200px;'><a href='<?php echo $smpageid;?>&amp;op=sked&amp;' class='sked'><img src='<?php $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
+		<div class='navMenuRound' style='width:200px;'><a href='<?php echo $smpageid;?>&amp;op=sked&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
 		</td></tr></table>
 		<?php 
 		SM_foot();
