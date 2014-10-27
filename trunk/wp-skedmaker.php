@@ -8,7 +8,7 @@ Plugin Name: Skedmaker
 Plugin URI: http://www.skedmaker.com/?op=skedmaker&amp;
 Description: Online Appointment Scheduling
 Version: 0.76
-Author URI: Corey Kingsbury
+Author URI: Corey Kingsbury 
 */
 
 add_action('activated_plugin','save_error');
