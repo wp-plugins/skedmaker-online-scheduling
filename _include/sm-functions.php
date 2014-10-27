@@ -2,6 +2,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //=======  Coding and decoding
 //////////////////////////////////////////////////////////////////////////////////////////////////
+if(!function_exists('SM_d')){function SM_d($DBvar){return stripslashes(urldecode($DBvar));}}
+
 if(!function_exists('SM_e')){function SM_e($DBvar){return urlencode(nl2br(trim($DBvar)));}}
 if(!function_exists('SM_dcontent')){function SM_dcontent($DBvar){return str_replace("<br />", "", stripslashes(urldecode($DBvar)));}}
 
