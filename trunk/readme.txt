@@ -14,19 +14,35 @@ Skedmaker is an online appointment booking system that lets your clients make a 
 
 Skedmaker's Plugin for Wordpress is an online schedule and appointment system that lets your clients make an appointment with you via the internet 24 hours a day, 7 days a week, 365 days a year.
 Create your own schedule, and get e-mail notices when clients make an appointment with you.
+
+[Click here to try Skedmaker from your clients' perspective.](http://oxzom.com/w/?page_id=2&).
+
 You don't have to know a drop of code to use skedmaker. Activate the Skedmaker Wordpress Plugin and start customizing your schedule in minutes.
+
 Select the duration of your appointments on any day, from 15 minute sessions to full-day appointments.
+
 Allow for multiple appointments at the same time.
+
 Block specific timeframes or disable entire days from being available.
+
 You can also select a range of dates to block out, which helps you to disable your schedule for holidays etc.
+
 Give your clients the ability to schedule themselves at their own convenience — at any time of the day.
+
 Have a complex schedule? Skedmaker allows you to create "Custom Days" with varying timeframes and number of available appointments.
+
 Enter detailed information about your business including map directions, phone numbers, website physical address and more -- which is all emailed to your client when they schedule an appointment with you.
+
 You control every part of your schedule with our easy-to-use administrator pages which you can access through your Wordpress Admin page.
+
 List all your future or past appointments on one page with actions to manage your clients appointments. 
+
 Send no-show notices by e-mail asking your clients to reschedule if they fail to arrive for their appointments.
+
 If your schedule is sensitive and (for example) only for your employees or yourself, you may select to use a password to protect it.
+
 Edit the color scheme of Skedmaker to fit your Wordpress theme by selecting from a list of predefined patterns. 
+
 You can also enter specific color codes to create a more customized scheme for your schedule.
 
 == Installation ==
