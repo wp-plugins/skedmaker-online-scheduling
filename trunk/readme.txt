@@ -8,7 +8,7 @@ Stable tag: .76
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Skedmaker is an online appointment booking system that lets your clients make a reservation with you via the internet, 24/7/365.
+Skedmaker is an online appointment booking system that lets your clients make a reservation with you via the internet, 24/7/365. 
 
 == Description ==
 
