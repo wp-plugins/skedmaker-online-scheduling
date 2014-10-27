@@ -1665,10 +1665,10 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
    			<tr><td class='pad7' colspan='2'><img src='<?php echo $sm_btns_dir;?>btn_warn22_reg.png' class='btn' alt='Warning'><span class='redText'>This can NOT be undone.</span></td></tr>
 			<tr><td class='pad7' colspan='2'>
 			<?php if($isAdmin=='admin'){ ?>
-				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;ts=<?php echo $_GET['ts'];?>&amp;list=future&amp;' class='sked'><img src='<?php echo  $sm_btns_dir;?>btn_future16_reg.png' class='btn'>Back to List</a></div>  
+				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;ts=<?php echo $_GET['ts'];?>&amp;list=future&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_future16_reg.png' class='btn'>Back to List</a></div>  
 				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;ts=<?php echo $_GET['ts'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_home16_reg.png' class='btn'>Admin Home</a></div>
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='<?php echo $smpageid;?>' class='sked'><img src='<?php $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='<?php echo $smpageid;?>' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
 
