@@ -19,8 +19,8 @@ Select the duration of your appointments on any day, from 15 minute sessions to 
 Allow for multiple appointments at the same time.
 Block specific timeframes or disable entire days from being available.
 You can also select a range of dates to block out, which helps you to disable your schedule for holidays etc.
-Give your clients the ability to shchedule themselves at their own convenience — at any time of the day.
-Have a complex schedule? Skedmaker allows you to create "Custom Days" with varying timeframes and number of availabile appointments.
+Give your clients the ability to schedule themselves at their own convenience — at any time of the day.
+Have a complex schedule? Skedmaker allows you to create "Custom Days" with varying timeframes and number of available appointments.
 Enter detailed information about your business including map directions, phone numbers, website physical address and more -- which is all emailed to your client when they schedule an appointment with you.
 You control every part of your schedule with our easy-to-use administrator pages which you can access through your Wordpress Admin page.
 List all your future or past appointments on one page with actions to manage your clients appointments. 
@@ -48,21 +48,19 @@ You can also enter specific color codes to create a more customized scheme for y
 == Frequently Asked Questions ==
 
 = How do I set up my schedule? =
+1. From the Administration Home page menu, click on "Default Days".
+2. Select from the options to set up a basic schedule.
 
-From the Administration Home page menu, click on "Default Days".
-Select from the options to set up a basic schedule.
-
-= How do I set up a more complex schedule that what is available on the Default Days? =
-
-From the Administration Home page menu, click on "Custom Days".
-Choose a name for your custom day, for example: Holiday Schedule.
-Click on the name of your Custom Day from the list.
-Add timeframes and number of available appointments to the Custom Day in the next page.
-Once you have your Custom Day completed, click "Apply Custom Day".
-You will be directed to a page that lists out all the days for the next 2 years.
-Check off the days you want to aplly your new Custom day to, and click save.
-The admin view of your calendar will now reflect the Custom Day you have applied by showing a logo on those days.
-To remove a custom day, select "Remove Custom Day" at the top of the appointments list on the Admin Home page.
+= How do I set up a more complex schedule than what is available on the Default Days? =
+1. From the Administration Home page menu, click on "Custom Days".
+2. Choose a name for your custom day, for example: Holiday Schedule.
+3. Click on the name of your Custom Day from the list.
+4. Add timeframes and number of available appointments to the Custom Day in the next page.
+5. Once you have your Custom Day completed, click "Apply Custom Day".
+6. You will be directed to a page that lists out all the days for the next 2 years.
+7. Check off the days you want to apply your new Custom day to, and click save.
+8. The admin view of your calendar will now reflect the Custom Day you have applied by showing a logo on those days.
+9. To remove a custom day, select "Remove Custom Day" at the top of the appointments list on the Admin Home page.
 
 = How do I suggest a new feature to add to Skedmaker? =
 
