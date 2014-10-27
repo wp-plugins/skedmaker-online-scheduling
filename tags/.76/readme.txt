@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Corey Kingsbury
 Donate link: http://www.skedmaker.com/?op=wordpress
-Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule
+Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
 Stable tag: .76
@@ -17,7 +17,7 @@ Create your own schedule, and get e-mail notices when clients make an appointmen
 
 [Click here to try Skedmaker from your clients' perspective.](http://oxzom.com/w/?page_id=2&).
 
-You don't have to know a drop of code to use skedmaker. Activate the Skedmaker Wordpress Plugin and start customizing your schedule in minutes.
+You don't have to know a drop of code to use Skedmaker in your Wordpress site. Activate the Skedmaker Wordpress Plugin and start customizing your schedule in minutes.
 
 Select the duration of your appointments on any day, from 15 minute sessions to full-day appointments.
 
