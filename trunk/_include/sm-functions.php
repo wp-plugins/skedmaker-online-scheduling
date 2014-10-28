@@ -287,7 +287,7 @@ if(!function_exists('SM_day_settings')){function SM_day_settings($weekday, $erro
 <a name="<?php echo $weekday; ?>"></a>
 <?php if($errorMessage!="" && $weekday==$posted_weekday){ echo "<br>"; SM_redBox("There was an error saving ".ucwords($posted_weekday).".<br><span style='font-size:16px'>Please correct the settings marked in red.</span>", 800, 21);} echo "<br>";?>
 <br />
-<form enctype="multipart/form-data" id="form1" name="form1" method="post" action="?page=skedmaker/admin_home.php&amp;v=default&amp;op=set<?php echo $weekday;?>&amp;#<?php echo $weekday;?>">
+<form enctype="multipart/form-data" id="form1" name="form1" method="post" action="?page=skedmaker-online-scheduling/admin_home.php&amp;v=default&amp;op=set<?php echo $weekday;?>&amp;#<?php echo $weekday;?>">
 <table class='cc800'><tr><td class='blueBanner1' style='padding:0px;'>
 <input type="hidden" name="this_weekday" value="<?php echo $weekday; ?>" />
 <table class='cc100'>
@@ -1511,7 +1511,7 @@ if(!function_exists('SM_capture_create')){function SM_capture_create($errorCaptu
 		$capture_image=$capture_image."<img src='".plugin_dir_url(dirname( __FILE__) )."_cap_lets/".$letter.".png' style='margin:0px;'>";
 	}?>
     <table class='cc100' style='margin:0px; padding:0px;'>
-    <tr><td class='b2-only' style='width:200px; padding:0px; margin:0px; background: url(wp-content/plugins/skedmaker/_cap_lets/cap_back.png) center; text-align:center;'>
+    <tr><td class='b2-only' style='width:200px; padding:0px; margin:0px; background: url(wp-content/plugins/skedmaker-online-scheduling/_cap_lets/cap_back.png) center; text-align:center;'>
     <?php echo $capture_image;?></td>
     <td class='pad7'><?php SM_check_text_small("Enter the letters", $errorCapture);?>
 	<input name='capture_word' type='hidden' value="<?php echo $capture_word;?>"/>
@@ -1533,19 +1533,19 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 	if($_GET['op']=="cancel"){
 		if($isAdmin=="admin" && $_GET['deletingcust']==1){
 			$this_page=$smadmin;
-			$imgdir=WP_PLUGIN_URL."/skedmaker/";
+			$imgdir=WP_PLUGIN_URL."/skedmaker-online-scheduling/";
 			$redirect=$smadmin."&v=customdays&op=delete&dc=".$_GET['dc']."&";
 		}else if($isAdmin=="admin" && $_GET['removingcust']==1){
 			$this_page=$smadmin;
-			$imgdir=WP_PLUGIN_URL."/skedmaker/";
+			$imgdir=WP_PLUGIN_URL."/skedmaker-online-scheduling/";
 			$redirect=$smadmin."&op=removecustom&csc=".$_GET['csc']."&dc=".$_GET['dc']."&";
 		}else if($isAdmin=="admin"){
 			$this_page=$smadmin;
-			$imgdir=WP_PLUGIN_URL."/skedmaker/";
+			$imgdir=WP_PLUGIN_URL."/skedmaker-online-scheduling/";
 			$redirect=$smadmin."&ts=".$_GET['ts'];
 		}else{
 			$this_page="?page_id=".$_GET['page_id'];
-			$imgdir="wp-content/plugins/skedmaker/";
+			$imgdir="wp-content/plugins/skedmaker-online-scheduling/";
 			$redirect="?page_id=".$_GET['page_id']."&ts=".$_GET['ts'];
 		}
 
