@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && ($_GET['op']=="new" || $_GET['op']=="e
 	}else{
 		$code=$_GET['c'];
 		$saveIt=mysql_query("UPDATE skedmaker_custom SET name='$name' WHERE datecode='$code'")or die(mysql_error());
+		mysql_query("UPDATE skedmaker_custom_sked SET name='$name' WHERE datecode='$code'")or die(mysql_error());
 		$save_message="Saved Edits!";
 		$redirect=$smadmin."&v=customdays&";
 	}
@@ -194,7 +195,7 @@ if($_GET['c']!=""){
 <div class='navMenuRound'><a href='<?php echo $smadmin;?>&amp;v=home&amp;a' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_home16_reg.png' class='btn'/>Admin Home</a></div>
 <?php }else{ echo "&nbsp;";}?>
 </td>
-<td class='pad7'><input type="submit" name="button2" id="button" value="Save New Custom Day"></td></tr>
+<td class='pad7'><input type="submit" name="button2" id="button" value="<?php if($_GET['c']!=""){ ?>Save Edits <?php }else{ ?>Save New Custom Day<?php } ?>"></td></tr>
 </table>
 </td></tr></table>
 </form>

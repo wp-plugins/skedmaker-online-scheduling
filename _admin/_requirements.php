@@ -40,7 +40,7 @@ Adding a check to these items will make sure they have been filled in before the
 <br><br>
 </td></tr>
 
-<tr><td class='label50'><input name="requireregistration" type="checkbox" id="requireregistration" value="y" <?php if ($requireregistration=="y") {?> checked='checked' <?php }?>/></td>
+<tr><td class='label50'>&nbsp;</td>
 <td class='pad7'><label for="requireregistration"><b>Require Registration</b></label></td></tr>
 <tr><td class='pad7'>&nbsp;</td>
 <td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Your clients must create a user account and log in before the calendar can be accessed..</span><br />

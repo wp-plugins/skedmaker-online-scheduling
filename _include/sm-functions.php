@@ -790,7 +790,7 @@ while($day_num <= $days_in_month){
 	//======= CHECK IF ITS A CUSTOM DAY	
 	$check_custom=$year."-".$month."-".$day_num;
 	$result=mysql_query("SELECT * FROM skedmaker_custom_sked WHERE date='$check_custom'");
-	while($row=mysql_fetch_array($result)){$datecode_Calendar=SM_d($row['datecode']);}
+	while($row=mysql_fetch_array($result)){$datecode_Calendar=SM_d($row['datecode']); $dc_name_for_cal_rollover=SM_d($row['name']);}
 	if($datecode_Calendar!=""){$datecode_to_Pass="&amp;dc=".$datecode_Calendar; $found_custom="y";}else{$datecode_to_Pass=""; $found_custom="";}
 
 	$countIt=mysql_query("SELECT * FROM skedmaker_custom_sked WHERE date='$check_custom'");
@@ -830,7 +830,7 @@ while($day_num <= $days_in_month){
 		$test=2;
 		$calClass="calendarDay";
 		$calDiv="<div class='navCustom'>";
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Set to Custom'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Set to Custom: ".$dc_name_for_cal_rollover."'>";
 		$calDivClose="</a></div>";
 
 	}else if($total_custom_found>0 && $loginValid!='admin'){

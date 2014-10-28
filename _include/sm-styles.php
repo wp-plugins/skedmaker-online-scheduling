@@ -246,7 +246,6 @@ td.calendarBlocked	{<?php echo $smCALbasics;?> background-color:#FCC;    border:
 td.calendarBlockedBlackouts	{text-align:center; font-weight:bold; margin:0px; background-color:#FCC;    border:1px solid #F00; color:#F00; padding:14px; }
 
 
-
 td.menumonths{
 	background-color:#<?php echo $b1_color;?>;
 	padding:0px !important;
@@ -280,10 +279,10 @@ td.menumonths{
 .navBlackouts a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #F00; padding:14px; background-color:#F00; }
 .navBlackouts a:active	{display:block;	color:#FFF; text-decoration:none; border:1px solid #00; padding:14px; background-color:#F00; }
 
-.navCustom a:link		{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:14px; background-color:#<?php echo $b3_color;?>; background-image:url("<?php echo $css_img_dir;?>btn_custom16_reg.png"); background-repeat:no-repeat; background-position:right;}
-.navCustom a:visited	{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:14px; background-color:#<?php echo $b3_color;?>;}
-.navCustom a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:14px; background-color:#<?php echo $b1_highlight;?>;}
-.navCustom a:active		{display:block;	color:#FFF; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:14px; background-color:#<?php echo $b1_highlight;?>;}
+.navCustom a:link		{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:14px; background-color:#6C6; background-image:url("<?php echo $css_img_dir;?>btn_custom16_reg.png"); background-repeat:no-repeat; background-position:right;}
+.navCustom a:visited	{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:14px; background-color:#6C6;}
+.navCustom a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:14px; background-color:#096;}
+.navCustom a:active		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:14px; background-color:#096;}
 
 
 

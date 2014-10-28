@@ -40,11 +40,8 @@ List all your future or past appointments on one page with actions to manage you
 
 Send no-show notices by e-mail asking your clients to reschedule if they fail to arrive for their appointments.
 
-If your schedule is sensitive and (for example) only for your employees or yourself, you may select to use a password to protect it.
-
 Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from a list of predefined patterns. 
 
-You can also enter specific color codes to create a more customized scheme for your schedule.
 
 == Installation ==
 1. Download and unzip the Skedmaker WordPress Plugin.
