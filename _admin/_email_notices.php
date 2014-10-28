@@ -75,16 +75,6 @@ Admin E-mail will be used to send appointment confirmations and cancellations to
 <tr><td class='label200'><?php SM_check_text("Admin E-mail:", $errorEmail);?></td><td class='pad7' style='width:600px;'><input name="notice_email" type="text" class='smform_textfield' id="notice_email" style='width:400px;' value="<?php if($notice_email!=""){echo $notice_email;}else{echo $adminemail;}?>" maxlength="99"/></td></tr>
 <?php if($errorValid=="y"){?><tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:650px; padding-top:0px;'><span class='smallRed'>This is not a valid e-mail address</span></td></tr><?php } ?>
 
-<tr><td class='label200'><?php SM_check_text("Copy to 1:", $errorBCC1);?></td><td class='pad7' style='width:600px;'><input name="notice_BCC1" type="text" class='smform_textfield' id="notice_BCC1" style='width:400px;' value="<?php if($notice_BCC1!=""){echo $notice_BCC1;}else{echo $BCC1;}?>" maxlength="99"/></td></tr>
-<?php if($errorBCC1Valid=="y"){?><tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:650px; padding-top:0px;'><span class='smallRed'>This is not a valid e-mail address</span></td></tr><?php } ?>
-
-<tr><td class='label200'><?php SM_check_text("Copy to 2:", $errorBCC2);?></td><td class='pad7' style='width:600px;'><input name="notice_BCC2" type="text" class='smform_textfield' id="notice_BCC2" style='width:400px;' value="<?php if($notice_BCC2!=""){echo $notice_BCC2;}else{echo $BCC2;}?>" maxlength="99"/></td></tr>
-<?php if($errorBCC2Valid=="y"){?><tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:650px; padding-top:0px;'><span class='smallRed'>This is not a valid e-mail address</span></td></tr><?php } ?>
-
-<tr><td class='label200'><?php SM_check_text("Copy to 3:", $errorBCC3);?></td><td class='pad7' style='width:600px;'><input name="notice_BCC3" type="text" class='smform_textfield' id="notice_BCC3" style='width:400px;' value="<?php if($notice_BCC3!=""){echo $notice_BCC3;}else{echo $BCC3;}?>" maxlength="99"/></td></tr>
-<?php if($errorBCC3Valid=="y"){?><tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:650px; padding-top:0px;'><span class='smallRed'>This is not a valid e-mail address</span></td></tr><?php } ?>
-
-
 <tr><td class='label50'><input name="send_notices_to_admin" type="checkbox" id="send_notices_to_admin" value="y" <?php if ($send_notices_to_admin=="y") {?> checked='checked' <?php }?>/></td>
 <td class='pad7'><label for="send_notices_to_admin"><b>E-mail Notices to Admin</b></label></td></tr>
 <tr><td class='pad7'>&nbsp;</td>
@@ -95,13 +85,6 @@ Admin E-mail will be used to send appointment confirmations and cancellations to
 <td class='pad7'><label for="send_notices_to_client"><b>E-mail Notices to Clients</b></label></td></tr>
 <tr><td class='pad7'>&nbsp;</td>
 <td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Check if you want to send appointment confirmations and cancellations to your clients.</span></td>
-</tr>
-
-
-<tr><td class='label50'><input name="send_notices_to_BCC" type="checkbox" id="send_notices_to_BCC" value="y" <?php if ($send_notices_to_BCC=="y") {?> checked='checked' <?php }?>/></td>
-<td class='pad7'><label for="send_notices_to_BCC"><b>E-mail Notices to Copy Addresses</b></label></td></tr>
-<tr><td class='pad7'>&nbsp;</td>
-<td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Check if you want to include the Copy e-mails on all in-coming and out-going notices.</span></td>
 </tr>
 
 <tr><td class='label150'><?php echo $back_to_admin;?></td><td class='pad7'><input type="submit" name="button" id="button" value="Save Changes to Admin E-mail Address" /></td>

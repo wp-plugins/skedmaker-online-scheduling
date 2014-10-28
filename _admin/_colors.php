@@ -86,32 +86,3 @@ while($row = mysql_fetch_array($result)) {
 </td></tr></table>
 </form>
 <br />
-
-<form enctype="multipart/form-data" name="skins" method="post" action="<?php echo $smadmin;?>&amp;v=colors&amp;op=customcolor&amp;" style='margin-top:7px'>
-<table class='cc800'>
-<tr><td class='blueBanner1'>Custom Colors</td></tr>
-<tr><td class='blueBanner2'>
-<table width='100%'>
-<tr>
-<td class='pad7' colspan='2'><b>Enter the hexidecimal color codes you want to use:</b></td></tr>
-
-<tr><td class='label200'>Top Bar Color:</td>
-<td class='pad7'>#
-  <input type="text" name="color1" class='form_textfield' value="<?php echo SM_d($color1);?>" style='width:200px;' maxlength="40"/></td></tr>
-<tr><td class='label200'>Box Background:</td>
-<td class='pad7'>#
-  <input type="text" name="color2" class='form_textfield' value="<?php echo SM_d($color2);?>" style='width:200px;' maxlength="40"/></td></tr>
-<tr><td class='label200'>Button Highlight:</td>
-<td class='pad7'>#
-  <input type="text" name="highlight" class='form_textfield' value="<?php echo SM_d($highlight);?>" style='width:200px;' maxlength="40"/></td></tr>
-<tr><td class='label200'>Calendar Day Highlight:</td>
-<td class='pad7'>#
-  <input type="text" name="color3" class='form_textfield' value="<?php echo SM_d($color3);?>" style='width:200px;' maxlength="40"/></td></tr>
-<tr>
-  <td class='label200'><input type="checkbox" name="delete_codes" id="delete_codes" value="y" /></td>
-<td class='pad7'><label for="delete_codes">Check here to delete color codes</label></td></tr>
-
-<tr><td class='label200'>&nbsp;</td><td class='pad7'><input type="submit" name="button" id="button" value="Save Color Scheme"></td></tr></table>
-</td></tr></table>
-</form>
-<br />

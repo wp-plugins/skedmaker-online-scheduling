@@ -88,7 +88,8 @@ SM_title("Booking Options", "btn_options32_reg.png", $smadmin."&amp;v=options&am
 <input name="protectInput" type="password" class="form_textfield" id="protectInput" value="<?php echo $protect; ?>" size="35" maxlength="50" /><br />
 <span class='smallG'>If you would like to protect your schedule, so only those who know the password can see it, enter a password here. This is a different field than your account password and is used commonly for protecting employee work schedules or other non-public schedules.</span>
 </td></tr>
-            
+
+           
 <tr><td class='pad14'>
 <b>Appointment Available</b><br />
 <input name="availableInput" type="text" class="form_textfield" id="availableInput" value="<?php echo $appointmentAvailable; ?>" size="35" maxlength="100" /><br />

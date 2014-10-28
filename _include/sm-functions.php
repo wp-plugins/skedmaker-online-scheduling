@@ -790,7 +790,7 @@ while($day_num <= $days_in_month){
 	//======= CHECK IF ITS A CUSTOM DAY	
 	$check_custom=$year."-".$month."-".$day_num;
 	$result=mysql_query("SELECT * FROM skedmaker_custom_sked WHERE date='$check_custom'");
-	while($row=mysql_fetch_array($result)){$datecode_Calendar=SM_d($row['datecode']);}
+	while($row=mysql_fetch_array($result)){$datecode_Calendar=SM_d($row['datecode']); $dc_name_for_cal_rollover=SM_d($row['name']);}
 	if($datecode_Calendar!=""){$datecode_to_Pass="&amp;dc=".$datecode_Calendar; $found_custom="y";}else{$datecode_to_Pass=""; $found_custom="";}
 
 	$countIt=mysql_query("SELECT * FROM skedmaker_custom_sked WHERE date='$check_custom'");
@@ -830,7 +830,7 @@ while($day_num <= $days_in_month){
 		$test=2;
 		$calClass="calendarDay";
 		$calDiv="<div class='navCustom'>";
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Set to Custom'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Set to Custom: ".$dc_name_for_cal_rollover."'>";
 		$calDivClose="</a></div>";
 
 	}else if($total_custom_found>0 && $loginValid!='admin'){
@@ -2089,7 +2089,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	global $loginValid;
 	 ?>
      </div>
-    <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker Wordpress Plugin version 0.73 (beta) © Copyright Skedmaker Online Scheduling</span></td></tr></table>
+    <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .77 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 	}
