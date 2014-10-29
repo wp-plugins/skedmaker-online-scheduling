@@ -26,6 +26,7 @@ while($row=mysql_fetch_array($sm_settings_result)){
 	$content=SM_d($row['content']);
 	$content_for_photo=SM_d($row['content']); // was not displaying properly on admin page, because of edit box
 	$calendarcaption=SM_d($row['calendarcaption']);
+	$prefix_content=SM_d($row['prefix_content']);
 	$premium=SM_d($row['premium']);
 	$timezone=SM_d($row['timezone']);
 	$cancel=SM_d($row['cancel']);

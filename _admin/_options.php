@@ -11,10 +11,11 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='options'){
 	$unavailableInput=SM_e($_POST['unavailableInput']);
 	$cancelpolicy=SM_e($_POST['cancelpolicy']);
 	$calendarcaption=SM_e($_POST['calendarcaption']);
+	$prefix_content=SM_e($_POST['prefix_content']);
 
 	//======= SAVE IT
 	if($errorMessage==""){
-		$saveIt=mysql_query("UPDATE skedmaker_users SET keep_profile_open='$keep_profile_open', sitepublic='$sitepublic', allowsameday='$allowsameday', appointmentpadding='$setappointmentpadding', publicschedule='$publicscheduleinput', protect='$protectInput', appointmentAvailable='$availableInput', appointmentUnavailable='$unavailableInput', cancelpolicy='$cancelpolicy', calendarcaption='$calendarcaption'");	
+		$saveIt=mysql_query("UPDATE skedmaker_users SET keep_profile_open='$keep_profile_open', sitepublic='$sitepublic', allowsameday='$allowsameday', appointmentpadding='$setappointmentpadding', publicschedule='$publicscheduleinput', protect='$protectInput', appointmentAvailable='$availableInput', appointmentUnavailable='$unavailableInput', cancelpolicy='$cancelpolicy', calendarcaption='$calendarcaption', prefix_content='$prefix_content'");	
 		if(!$saveIt){
 			SM_redBox("Error saving, try again later.", 800, 21);
 		}else{
@@ -103,17 +104,18 @@ SM_title("Booking Options", "btn_options32_reg.png", $smadmin."&amp;v=options&am
 </td></tr>
 
 <tr><td class='pad14'>
+<b>Calendar Content</b><br />
+<span class='smallG'>This text will appear above your calendar. You can leave this blank if you don't want to include any text.</span>
+<br />
+<textarea name="prefix_content" id="prefix_content" cols="49" rows="7" class='form_area' style='width:725px;'><?php echo SM_dcontent($prefix_content); ?></textarea>
+</td></tr>
+
+
+<tr><td class='pad14'>
 <b>Cancellation Policy</b><br />
 <span class='smallG'>If your business has a cancellation policy, enter it here and the message will be displayed when your client makes an appointment.</span>
 <br />
 <textarea name="cancelpolicy" id="cancelpolicy" cols="49" rows="7" class='form_area' style='width:725px;'><?php echo $cancelpolicy; ?></textarea>
-</td></tr>
-
-<tr><td class='pad14'>
-<b>Calendar Caption</b><br />
-<span class='smallG'>Add a caption of text to display under your schedule.</span>
-<br />
-<textarea name="calendarcaption" id="calendarcaption" cols="49" rows="7" class='form_area' style='width:725px;'><?php echo SM_dcontent($calendarcaption); ?></textarea>
 </td></tr>
 
 <tr><td class='pad14'><input type="submit" name="button" id="button" value="Save Changes to Booking Options" /></td></tr>

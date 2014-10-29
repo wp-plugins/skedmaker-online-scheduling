@@ -323,6 +323,7 @@ CREATE TABLE IF NOT EXISTS `skedmaker_users` (
   `BCC1` varchar(100) NOT NULL,  
   `BCC2` varchar(100) NOT NULL,  
   `BCC3` varchar(100) NOT NULL,  
+  `prefix_content` text NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;";
 $saveIt=mysql_query($users);
@@ -337,7 +338,7 @@ if($errorMessage!="y"){
 	$SM_site_title=get_bloginfo('name');  // get the user defined name for the website, add to 'name '
 
 	$insert_new_user="
-	INSERT INTO `skedmaker_users` VALUES(0, '', '$genSC', '$genUC', 'cjkagent', 'sked250', '$genTS', 'y', 0, '$SM_site_title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$genTS', '', '', '$genTS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'y', '', '', 'y', '', '', '', 'y', '', '', '', 'Available', 'Unavailable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'noBCC', '', '', '');";
+	INSERT INTO `skedmaker_users` VALUES(0, '', '$genSC', '$genUC', 'cjkagent', 'sked250', '$genTS', 'y', 0, '$SM_site_title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$genTS', '', '', '$genTS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'y', '', '', 'y', '', '', '', 'y', '', '', '', 'Available', 'Unavailable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'noBCC', '', '', '', '');";
 	
 	$saveIt=mysql_query($insert_new_user);
 	if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create new user record. Try to re-load this page.</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:28px;'>".$conf_img." Created new user successfully!</p>";}

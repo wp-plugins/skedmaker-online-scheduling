@@ -93,6 +93,9 @@ if($op=="when" && $success!="y"){
 //=================================================
 if($op=="sked" || $op==""){
 	//------- calendar
+	if($prefix_content!=""){
+		echo "<table class='cc100' style='margin:0px; width:500px;'><tr><td class='pad7' style='margin:0px;'>".$prefix_content."</td></tr></table>";
+	}
 	SM_create_calendar("clientView");
 	//------- day and hours list
 	SM_create_day();

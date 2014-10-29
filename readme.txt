@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .77
+Stable tag: .78
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,6 @@ Send no-show notices by e-mail asking your clients to reschedule if they fail to
 Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from a list of predefined patterns. 
 
 
-
 == Installation ==
 1. Download and unzip the Skedmaker WordPress Plugin.
 2. Copy the "skedmaker-online-scheduling" folder to the WordPress directory: "/wp-content/plugins/". NOTE! - do not copy the folder with the version number.
@@ -79,7 +78,6 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 9. To remove a custom day, select "Remove Custom Day" at the top of the appointments list on the Admin Home page.
 
 = How do I suggest a new feature to add to Skedmaker? =
-
 visit http://www.skedmaker.com and select "Contact" to send us your comments and suggestions.
 
 == Screenshots ==
@@ -89,6 +87,9 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .78 =
+* Added text area to Admin" Booking Options" page. This will allow admins to enter some text to be displayed at the top of their calendar.
+
 = .77 =
 * Fix error with admin dashboard link to admin home page.
 
