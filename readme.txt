@@ -43,6 +43,7 @@ Send no-show notices by e-mail asking your clients to reschedule if they fail to
 Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from a list of predefined patterns. 
 
 
+
 == Installation ==
 1. Download and unzip the Skedmaker WordPress Plugin.
 2. Copy the "skedmaker-online-scheduling" folder to the WordPress directory: "/wp-content/plugins/". NOTE! - do not copy the folder with the version number.
