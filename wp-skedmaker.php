@@ -1,13 +1,13 @@
 <?php
 /**
  * @package DB Explorer
- * @version 0.77
+ * @version 0.78
  */
 /*
 Plugin Name: Skedmaker
 Plugin URI: http://www.skedmaker.com/?op=skedmaker&amp;
 Description: Online Appointment Scheduling
-Version: 0.77
+Version: 0.78
 Author URI: http://www.skedmaker.com/
 */
 
@@ -30,13 +30,7 @@ function my_enqueue($hook) {
   wp_register_style('skedmaker', plugins_url('skedmaker-online-scheduling/_includes/sm-styles.php'));
   wp_enqueue_style('skedmaker');
 
-// wp_enqueue_script('pluginscript', plugins_url('skedmaker/includes/sm-javascript.php', __FILE__ ), array('jquery'));
 }
-
-//--- WP JQUERY
-//function SM_inc_jquery() {wp_enqueue_script('jquery');}
-//add_action('init', 'SM_inc_jquery');
-
 
 //-- Start session if not already started
 function register_session(){if( !session_id() )session_start();}
