@@ -77,6 +77,13 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 8. The admin view of your calendar will now reflect the Custom Day you have applied by showing a logo on those days.
 9. To remove a custom day, select "Remove Custom Day" at the top of the appointments list on the Admin Home page.
 
+= How do I block off a series of days without affecting the rest of my schedule? =
+1. From the Administration Home page menu, click on "Blackout Dates".
+2. On the calendar, pick the day you want to start blocking appointments.
+3. Next, pick the day you want to blocking to end.
+4. Click the "Save Blackout Dates" button.
+5. Your calendar will now block appointments from being scheduled inside the range you selected.
+
 = How do I suggest a new feature to add to Skedmaker? =
 visit http://www.skedmaker.com and select "Contact" to send us your comments and suggestions.
 
@@ -116,3 +123,4 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 = 0.5 =
 * Update calendar and create days functions.
+
