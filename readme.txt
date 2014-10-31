@@ -91,6 +91,8 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 1. skedmaker-screenshot-1.png
 2. skedmaker-screenshot-2.png
 3. skedmaker-screenshot-3.png
+4. skedmaker-screenshot-4.png
+5. skedmaker-screenshot-5.png
 
 
 == Changelog ==
