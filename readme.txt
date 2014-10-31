@@ -77,6 +77,12 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 8. The admin view of your calendar will now reflect the Custom Day you have applied by showing a logo on those days.
 9. To remove a custom day, select "Remove Custom Day" at the top of the appointments list on the Admin Home page.
 
+= Can you schedule more than one client at a time? How? =
+* Yes, you can have up to 10 appointments in one time frame.
+1. For "Default Days" -- select from the "Multiple Appointments" drop down list and pick the number you want to have.
+2. For "Custom Days" -- When you are building an individual time frame, select the number of appointments you want to have available for that one time frame. 
+3. Your schedule will show the number of available appointments, and this will decrease when a new client books with you.
+
 = How do I block off a series of days without affecting the rest of my schedule? =
 1. From the Administration Home page menu, click on "Blackout Dates".
 2. On the calendar, pick the day you want to start blocking appointments.
