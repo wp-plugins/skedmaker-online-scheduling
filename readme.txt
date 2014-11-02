@@ -60,6 +60,7 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 14. To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed.
 15. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
 
+
 == Frequently Asked Questions ==
 
 = How do I set up my schedule? =
