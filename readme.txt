@@ -102,7 +102,7 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
-=.79=
+= .79 =
 *Fixed glitch in confirmation email to direct client to proper cancellation link.
 *Fixed glitch in confirmation email where it was not including the business description.
 
