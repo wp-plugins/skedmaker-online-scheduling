@@ -102,6 +102,7 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 5. skedmaker-screenshot-5.png
 
 
+
 == Changelog ==
 = .79 =
 *Fixed glitch in confirmation email to direct client to proper cancellation link.
