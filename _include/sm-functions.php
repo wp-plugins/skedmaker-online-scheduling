@@ -105,10 +105,14 @@ if(!function_exists('SM_biz_info')){function SM_biz_info(){
 			if($phone!=""){$FINAL.="<b>Phone: </b>".$phone."<br>";}
 			if($cellphone!=""){$FINAL.="<b>Cell: </b>".$cellphone."<br>";}
 			if($fax!=""){$FINAL.="<b>Fax: </b>".$fax."<br>";}
-			if($website!=""){$FINAL.="<div class='navMenu'><a href='".$site."' target='_blank'>Go to Website</a></div><br>";}
+			if($website!=""){$FINAL.="<div class='navMenu'><a href='".$website."' target='_blank'>Go to Website</a></div>";}
 			$FINAL.="</td>";
 		}
-		$FINAL.="</tr></table>";
+		$FINAL.="</tr>";
+
+		if($content!=""){$FINAL.="<tr><td colspan='2' class='pad14'>".$content."</td></tr>";}
+		
+		$FINAL.="</table>";
 		$FINAL.="</td></tr></table>";
 	} 
 	return $FINAL;
@@ -1593,7 +1597,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				<tr><td class='label150'>Name: </td><td class='pad7' style='width:650px;'>".$canName."</td></tr>
 				<tr><td class='label150'>Phone: </td><td class='pad7' style='width:650px;'>".$canPhone."</td></tr>
 				<tr><td class='label150'>E-mail: </td><td class='pad7' style='width:650px;'>".$canEmail."</td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$reschedule_link."'>Please click here to schedule a new appointment.</td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".get_site_url()."/?page_id=".$_GET['page_id']."&amp;'>Please click here to schedule a new appointment.</td></tr>
 				</table>
 				</td></tr></table>";
 				if(SM_emailIt($canEmail, $adminemail, $adminemail, "Appointment Cancelled: ".$canName, $bodyData)!=true){
@@ -1668,7 +1672,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;ts=<?php echo $_GET['ts'];?>&amp;list=future&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_future16_reg.png' class='btn'>Back to List</a></div>  
 				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;ts=<?php echo $_GET['ts'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_home16_reg.png' class='btn'>Admin Home</a></div>
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='<?php echo $smpageid;?>' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='?page_id=<?php echo $_GET['page_id'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
 

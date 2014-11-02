@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 			while($row = mysql_fetch_array($result)) {
 				$aptCode=SM_d($row['code']);
 				$aptDate=SM_apt(SM_d($row['startdate']));
-				$apt_cancel="<a href='".$site."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
+				$apt_cancel="<a href='".get_site_url()."/?page_id=".$_GET['page_id']."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
 				$apt_data.=$apt_cancel."<br>";
 			}
 
@@ -202,12 +202,12 @@ if($op=="sked" || $op==""){
                 
                 <table class='cc100' style='border-collapse:separate;'><tr>
                 <td class='nopad' style='width:50%; text-align:center;'>
-				<div class='navMenuRound' style='width:200px'><a href='<?php echo $smpageid;?>?op=sked&amp;amp;ts=<?php echo $_GET['ts'];?>' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:200px'><a href='?page_id=<?php echo $_GET['page_id'];?>&amp;ts=<?php echo $_GET['ts'];?>' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
                 </td>
                 <td class='nopad' style='width:50%'>
                 <div class='navMenuRound' style='width:220px'><a href='#' onClick='window.print();' title='Print' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_print16_reg.png' style='border:0px; margin-right:7px;'>Print this Appointment</a></div>
                 </td></tr></table>
-                
+
 				</td></tr>
 				<?php } ?>
 				<tr><td class='nopad'></td></tr>
@@ -238,11 +238,11 @@ if($op=="sked" || $op==""){
 				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
 				<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
 				<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$site."/".$smpageid."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".get_site_url()."/?page_id=".$_GET['page_id']."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
 				$biz_info=SM_biz_info();
-				$bodyData.=$biz_info."</td></tr></table>";
+				$bodyData=$bodyData.$biz_info."</td></tr></table>";
 
 				if(SM_emailIt(SM_d($client_email), $adminemail, "", "Appointment Scheduled- ".SM_d($client_name), $bodyData)===false){
 					SM_redBox("Sorry, the e-mail could not be sent. Please try again later.", 800, 18);
@@ -272,7 +272,7 @@ if($op=="sked" || $op==""){
 	
 	if($success!="y"){
 	?>
-	<form id="form1" name="form1" method="post" action="<?php echo $smpageid;?>&amp;op=confirm&amp;ts=<?php echo $_GET['ts']; echo $viewURL; ?>&amp;">
+	<form id="form1" name="form1" method="post" action="<?php echo $smpageid;?>&amp;op=confirm&amp;ts=<?php echo $_GET['ts'];?>&amp;">
 	<?php SM_uni_create();?>
     
    <table class='cc800' style='border:none; width:600px; margin:0px;'><tr><td class='pad7' style='vertical-align:middle; text-align:left;'><a href='' class='header'><img src='<?php echo $sm_btns_dir;?>btn_settings32_reg.png' class='btn'>Confirm Appointment</a></td></tr></table>
