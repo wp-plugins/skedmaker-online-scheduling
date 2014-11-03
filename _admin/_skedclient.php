@@ -110,6 +110,12 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
             </td></tr></table>
 
 <?php
+
+			$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+			while($row = mysql_fetch_array($result)) {
+				$sked_page_id=SM_d($row['ID']);				
+			}
+
 			if($client_name==""){$client_name="n/a";}
 			if($client_phone==""){$client_phone="n/a";}
 			if($num_in_party==""){$num_in_party="1";}
@@ -125,13 +131,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 			<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
 			<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
 			<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-			<tr><td class='pad7' colspan='2'><a href='".$site.$smpageid."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
+			<tr><td class='pad7' colspan='2'><a href='".get_site_url()."/?page_id=".$sked_page_id."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
 			<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 			</table>";
 			$biz_info=SM_biz_info();
 			$bodyData.=$biz_info."</td></tr></table>";
 
-			if(SM_emailIt(SM_d($client_email), "$adminemail", "", "Appointment Scheduled: ".$client_name, $bodyData)==false){}
+			if(SM_emailIt(SM_d($client_email), "$adminemail", "", "Appointment Scheduled: ".SM_d($client_name), $bodyData)==false){}
 			SM_foot();
 		}
 	}
