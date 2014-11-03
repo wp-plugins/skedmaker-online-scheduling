@@ -462,180 +462,178 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 
 #button {
     background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_save16_g.png") no-repeat scroll 5px center;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_save16_g.png") no-repeat scroll 5px center !important;
 }
 #button:hover {
-    border:none;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_save16_reg.png") no-repeat scroll 5px center;
-
-    box-shadow:0px 0px 1px #777;
+    border:none !important;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_save16_reg.png") no-repeat scroll 5px center !important;
+    box-shadow:0px 0px 1px #777 !important;
 }
-
 
 #purge {
-	border:2px solid #F00;
-	padding:7px;
-	color:#fff;
-	font-weight:bold; cursor:pointer;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#C30 url("<?php echo $css_img_dir;?>btn_purge16_g.png") no-repeat scroll 5px center;
+	border:2px solid #F00 !important;
+	padding:7px !important;
+	color:#fff !important;
+	font-weight:bold; cursor:pointer !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#C30 url("<?php echo $css_img_dir;?>btn_purge16_g.png") no-repeat scroll 5px center !important;
 }
 #purge:hover {
-    border:none;
-    box-shadow:0px 0px 1px #777;
-	background:#F60 url("<?php echo $css_img_dir;?>btn_purge16_reg.png") no-repeat scroll 5px center;
+    border:none !important;
+    box-shadow:0px 0px 1px #777 !important;
+	background:#F60 url("<?php echo $css_img_dir;?>btn_purge16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #mainSave {
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_confirm16_g.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_confirm16_g.png") no-repeat scroll 5px center !important;
 }
 
 #mainSave:hover {
-    border:none;
-    box-shadow:0px 0px 1px #777;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_confirm16_reg.png") no-repeat scroll 5px center;
+    border:none !important;
+    box-shadow:0px 0px 1px #777 !important;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_confirm16_reg.png") no-repeat scroll 5px center !important;
 
 }
 
 #block {
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_block16_g.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_block16_g.png") no-repeat scroll 5px center !important;
 }
 
 #block:hover {
-    border:none;
-    box-shadow:0px 0px 1px #777;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_block16_reg.png") no-repeat scroll 5px center;
+    border:none !important;
+    box-shadow:0px 0px 1px #777 !important;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_block16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #login {
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_key16_reg.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_key16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #login:hover {
-    border:none;
-	background-color:#<?php echo $b1_highlight;?>;
-    box-shadow:0px 0px 1px #777;
+    border:none !important;
+	background-color:#<?php echo $b1_highlight;?> !important;
+    box-shadow:0px 0px 1px #777 !important;
 }
 
 #contact {
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_sendmail16_reg.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_sendmail16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #contact:hover {
-    border:none;
-	background-color:#<?php echo $b1_highlight;?>;
-    box-shadow:0px 0px 1px #777;
+    border:none !important;
+	background-color:#<?php echo $b1_highlight;?> !important;
+    box-shadow:0px 0px 1px #777 !important;
 }
 
 #trash {
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding-left:28px;
-	padding-right:14px;
-	background:#900 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#900 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #trash:hover {
-    border:none;
-    box-shadow:0px 0px 1px #777;
-	background:#F00 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center;
+    border:none !important;
+    box-shadow:0px 0px 1px #777 !important;
+	background:#F00 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #embed{
-    background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:6px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
-	padding:7px;
-	padding-left:28px;
-	padding-right:14px;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center;
+    background-color:#<?php echo $b1_color;?> !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    border-radius:6px !important;
+    color:#fff !important;
+    font-size:14px !important;
+    text-decoration:none !important;
+    cursor:pointer !important;
+    border:none !important;
+	padding:7px !important;
+	padding-left:28px !important;
+	padding-right:14px !important;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center !important;
 }
 
 #embed:hover {
-    border:none;
-    box-shadow:0px 0px 1px #777;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center;
+    border:none !important;
+    box-shadow:0px 0px 1px #777 !important;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center !important;
 }
 
 /* *********************************************************************************************************END STYLES **********************************************************************/
