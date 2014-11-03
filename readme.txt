@@ -16,7 +16,7 @@ Skedmaker's Plugin for WordPress is an online schedule and appointment system th
 
 Create your own schedule, and get e-mail notices when clients make an appointment with you.
 
-[Click here to try Skedmaker from your clients' perspective.](http://oxzom.com/w/?page_id=2&).
+[Click here to try Skedmaker from your clients' perspective.](http://www.skedmaker.com/wordpress/?page_id=2&).
 
 You don't have to know a drop of code to use Skedmaker in your WordPress site. Activate the Skedmaker WordPress Plugin and start customizing your schedule in minutes.
 
