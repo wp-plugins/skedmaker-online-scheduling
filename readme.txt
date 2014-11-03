@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .80
+Stable tag: .81
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,7 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 12. Follow the prompts at the top of the Admin page to get started building your schedule. 
 13. It is IMPORTANT that you follow the prompts to set your timezone and set e-mail address to receive appointment notifications.
 14. To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed.
+* NOTE: Skedmaker will only work when included on pages set to default or permalinks.
 15. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
 
 
@@ -104,6 +105,9 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .81 =
+* Update to allow for permalinks and default setting options.
+
 = .80 =
 * Fixed glitch error in converting to, from Standard and Daylight Savings times.
 

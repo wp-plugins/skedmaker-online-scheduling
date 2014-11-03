@@ -1591,6 +1591,32 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				if($canPhone==""){$canPhone="n/a";}
 				if($canEmail==""){$canEmail="1";}
 				$reschedule_link=get_option('siteurl');
+				
+			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
+			$uses_perm=mysql_num_rows($countIt);
+			
+			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
+			$uses_default=mysql_num_rows($countIt);
+				
+				// check if using permalinks
+				if($uses_perm>0){
+					$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+					while($row = mysql_fetch_array($result)) {
+						$SM_ID=SM_d($row['post_name']);		
+						$SM_permalink=get_site_url()."/".$SM_ID;		
+					}
+	
+				// check if using default
+				}else if($uses_default>0){
+					$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+					while($row = mysql_fetch_array($result)) {
+						$SM_ID=SM_d($row['ID']);
+						$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
+					}	
+				}
+				
+				
+				
 				//================================================= 
 				//======= PREPARE THE HTML EMAIL =======
 				//================================================= 
@@ -1602,7 +1628,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				<tr><td class='label150'>Name: </td><td class='pad7' style='width:650px;'>".$canName."</td></tr>
 				<tr><td class='label150'>Phone: </td><td class='pad7' style='width:650px;'>".$canPhone."</td></tr>
 				<tr><td class='label150'>E-mail: </td><td class='pad7' style='width:650px;'>".$canEmail."</td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".get_site_url()."/?page_id=".$_GET['page_id']."&amp;'>Please click here to schedule a new appointment.</td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;'>Please click here to schedule a new appointment.</td></tr>
 				</table>
 				</td></tr></table>";
 				if(SM_emailIt($canEmail, $adminemail, $adminemail, "Appointment Cancelled: ".$canName, $bodyData)!=true){
