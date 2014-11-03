@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 			$biz_info=SM_biz_info();
 			$bodyData.=$biz_info."</td></tr></table>";
 
-			if(SM_emailIt(SM_d($client_email), "$adminemail", "", "Appointment Scheduled: ".$client_name, $bodyData)==false){}
+			if(SM_emailIt(SM_d($client_email), "$adminemail", "", "Appointment Scheduled: ".SM_d($client_name), $bodyData)==false){}
 			SM_foot();
 		}
 	}
