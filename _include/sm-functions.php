@@ -1134,16 +1134,21 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 	$total_blocked=mysql_num_rows($countIt);
 
 	$result=mysql_query("SELECT * FROM skedmaker_users");
-	while($row = mysql_fetch_array($result)){$timezone=SM_d($row['timezone']);}
-	
+	while($row = mysql_fetch_array($result)){$timezone=SM_d($row['timezone']); $daylight_savings=SM_d($row['daylight_savings']);}
+
 	//======= time passed calculations
 	$d1=date('Y-m-d H:i.s');
 	$d2=SM_timestamp($d1);
+
+	$check_DST=date("I", time());
+//	$check_DST=1;
+	if($check_DST==1 && $daylight_savings=="y"){$d2=$d2+3600;}
+
 	$d3=strtotime("$timezone hours", $d2);
 
 	//------- if appointment padding exists, add it to time
 	if($appointmentpadding!=""){$dayCheck=strtotime("+ ".$appointmentpadding." hours", $d3);}else{$dayCheck=$d3;}
-	
+
 	if($dayCheck>$dayTS){$time_passed='y';}else{$time_passed='n';}
 
 	if($_GET['dc']!=""){$URLdc="&amp;dc=".$_GET['dc'];}else{$URLdc="";}
@@ -1963,8 +1968,13 @@ if(!function_exists('SM_purge_btn')){function SM_purge_btn(){
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_purge_past_check')){function SM_purge_past_check(){
 	if ($_GET['op']=='purge'){
-		global $timezone; global $smadmin; global $sm_btns_dir;
+		global $timezone; global $smadmin; global $sm_btns_dir; global $daylight_savings;
 		$today=SM_ts();
+
+		$check_DST=date("I", time());
+//		$check_DST=1;
+		if($check_DST==1 && $daylight_savings=="y"){$today=$today+3600;}
+
 		if($timezone!=""){
 			$add_timezone=$timezone." hours";
 			$today=strtotime($add_timezone, $today);
@@ -1973,12 +1983,6 @@ if(!function_exists('SM_purge_past_check')){function SM_purge_past_check(){
 		$totalPast=mysql_num_rows($countPast);
 		if($totalPast==1){$apt_word="appointment";}else{$apt_word="appointments";}
 		
-/*		$result=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate<'$today'  AND usercode!='Admin Blocked' ORDER BY startdate $desc");
-		while($row = mysql_fetch_array($result)) {
-			$name=SM_d($row['name']);
-			if($name==""){$name=SM_d($row['reason']);}
-		}
-*/
 		echo "<br><br>";
 		SM_title("Purge Past Appointments", "btn_purge32_reg.png", "");
 		?>
@@ -2072,6 +2076,11 @@ if(!function_exists('SM_purge_past_confirm')){function SM_purge_past_confirm(){
 	if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=='purge_confirm'){
 		global $timezone; global $smadmin;
 		$today=SM_ts();
+		
+		$check_DST=date("I", time());
+	//	$check_DST=1;
+		if($check_DST==1 && $daylight_savings=="y"){$today=$today+3600;}
+		
 		if($timezone!=""){
 			$add_timezone=$timezone." hours";
 			$today=strtotime($add_timezone, $today);

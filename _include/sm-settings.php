@@ -16,7 +16,7 @@ while($row=mysql_fetch_array($sm_settings_result)){
 	$zipcode=SM_d($row['zipcode']);
 	$fax=SM_d($row['fax']);
 	$skin=SM_d($row['skin']);
-	
+
 	$b1_color=SM_d($row['color1']);
 	$b2_color=SM_d($row['color2']);
 	$b3_color=SM_d($row['color3']);
@@ -28,7 +28,13 @@ while($row=mysql_fetch_array($sm_settings_result)){
 	$calendarcaption=SM_d($row['calendarcaption']);
 	$prefix_content=SM_d($row['prefix_content']);
 	$premium=SM_d($row['premium']);
+
 	$timezone=SM_d($row['timezone']);
+	$daylight_savings=SM_d($row['daylight_savings']);
+
+//	$check_DST=date("I", time());
+//	if($check_DST==1 && $daylight_savings=="y"){$timezone=$timezone+1;}
+
 	$cancel=SM_d($row['cancel']);
 	$cancelpolicy=SM_d($row['cancelpolicy']);
 	$confirmation=SM_d($row['confirmation']);

@@ -21,6 +21,9 @@ if($_GET['list']=="future" || $_GET['list']=="past"){
 	SM_foot();
 }
 
+$check_DST=date("I", time());
+if($check_DST==1 && $daylight_savings=="y"){$today=$today+3600;}
+
 if($timezone!=""){
 	$add_timezone=$timezone." hours";
 	$today=strtotime($add_timezone, $today);

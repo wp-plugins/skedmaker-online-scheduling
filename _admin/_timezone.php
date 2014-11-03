@@ -2,10 +2,11 @@
 if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="timezone"){
 	$errorMessage="";
 	$new_timezone=$_POST['timezone'];
+	$daylight_savings=$_POST['daylight_savings'];
 	if($new_timezone==""){$errorMessage="y"; $errorTimezone='y';}
-	
+
 	if($errorMessage==""){
-		$saveIt=mysql_query("UPDATE skedmaker_users SET timezone='$new_timezone'");
+		$saveIt=mysql_query("UPDATE skedmaker_users SET timezone='$new_timezone', daylight_savings='$daylight_savings'");
 		if(!$saveIt){
 			SM_redBox("Error! Could not save timezone, try again later.", 800, 21);
 		}else{
@@ -34,8 +35,7 @@ if($timezone!=""){
 }
 echo SM_apt($d3);?></td></tr>
 
-<tr>
-<td class='label200'>
+<tr><td class='label200'>
 <?php if($errorTimezone!=""){echo "<span class='redText'>Modify Time by:</span>";}else{echo "<b>Modify Time by:</b>";}?>
 </td>
 <td colspan="2" class='pad7'>
@@ -46,7 +46,17 @@ echo SM_apt($d3);?></td></tr>
       <option <?php if($timezone==$tzval){?> selected="selected" <?php }?> ><?php echo $tzval; ?></option>
 <?php } ?>
     </select> Hours
-    </td></tr>
+</td></tr>
+
+
+<tr><td class='label200'><?php SM_check_text("Use Daylight Savings:", $errorDaylightSavings);?></td>
+<td colspan="2" class='pad7'><input type="checkbox" name="daylight_savings" id="daylight_savings" value='y' <?php if($daylight_savings=="y"){?> checked='checked' <?php } ?>/> <label for="daylight_savings">Check here to automatically apply Daylight Savings Time.</label></td></tr>
+
+<tr>
+<td class='label200'>PLEASE NOTE: <?php $is_in_DST=date("I", time());?></td>
+<td colspan="2" class='pad7'><?php if($is_in_DST==0){echo "You are in currently in Standard Time. Check the box above to automatically make changes when you get into Daylight Savings Time.";}else{echo "You are currently in Daylight Savings Time.";}?></td></tr>
+
+    
 <tr><td>&nbsp;</td><td class='pad7'><input type="submit" name="button" id="button" value="Save Changes" /></td></tr></table>
 </td></tr></table>
 	</form>

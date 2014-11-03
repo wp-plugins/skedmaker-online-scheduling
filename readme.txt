@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .79
+Stable tag: .80
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Skedmaker's Plugin for WordPress is an online schedule and appointment system th
 
 Create your own schedule, and get e-mail notices when clients make an appointment with you.
 
-[Click here to try Skedmaker from your clients' perspective.](http://www.skedmaker.com/wordpress/).
+[Click here to try Skedmaker from your clients' perspective.](http://oxzom.com/w/?page_id=2&).
 
 You don't have to know a drop of code to use Skedmaker in your WordPress site. Activate the Skedmaker WordPress Plugin and start customizing your schedule in minutes.
 
@@ -104,6 +104,9 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .80 =
+*Fixed glitch error in converting to, from Standard and Daylight Savings times.
+
 = .79 =
 *Fixed glitch in confirmation email to direct client to proper cancellation link.
 *Fixed glitch in confirmation email where it was not including the business description.

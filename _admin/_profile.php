@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='profile'){
 		$region=SM_e($_POST['region']);
 		$zipcode=SM_e($_POST['zipcode']);
 		$country=SM_e($_POST['country']);
-		$settimezone=$_POST['timezone'];
 		$directionsURL=SM_e($_POST['directionsURL']);
 
 		if($errorMessage==""){
