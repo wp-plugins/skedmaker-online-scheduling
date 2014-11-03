@@ -223,10 +223,13 @@ if($op=="sked" || $op==""){
 				</table>
 				</td></tr></table>
 				<?php
-				
-				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
-				while($row = mysql_fetch_array($result)) {$cancel_link_root=SM_d($row['guid']);}
-				
+
+//				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+//				while($row = mysql_fetch_array($result)) {$cancel_link_root=SM_d($row['guid']);}
+
+				global $wp;
+				$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+
 				if($client_name==""){$client_name="n/a";}
 				if($client_phone==""){$client_phone="n/a";}
 				if($num_in_party==""){$num_in_party="1";}
@@ -242,7 +245,7 @@ if($op=="sked" || $op==""){
 				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
 				<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
 				<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$cancel_link_root."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".$current_url."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
 				$biz_info=SM_biz_info();
