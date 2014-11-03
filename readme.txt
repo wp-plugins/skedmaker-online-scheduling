@@ -105,11 +105,11 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 == Changelog ==
 = .80 =
-*Fixed glitch error in converting to, from Standard and Daylight Savings times.
+* Fixed glitch error in converting to, from Standard and Daylight Savings times.
 
 = .79 =
-*Fixed glitch in confirmation email to direct client to proper cancellation link.
-*Fixed glitch in confirmation email where it was not including the business description.
+* Fixed glitch in confirmation email to direct client to proper cancellation link.
+* Fixed glitch in confirmation email where it was not including the business description.
 
 = .78 =
 * Added text area to Admin" Booking Options" page. This will allow admins to enter some text to be displayed at the top of their calendar.
