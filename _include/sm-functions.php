@@ -551,14 +551,13 @@ if(!function_exists('SM_minutes')){function SM_minutes($minutevar, $its_a_break)
 	<option <?php if($minutevar=="45"){ ?>selected="selected" <?php } ?>>45</option>
 <?php }}
 
-if(!function_exists('SM_increment')){function SM_increment($incrementvar){
-	echo "<option value=''>Select...</option>";
-	echo "<option value='quarter'"; if($incrementvar=="quarter"){print "selected=\"selected\"";} echo">Quarter Hour</option>";
-	echo "<option value='halfhour'"; if($incrementvar=="halfhour"){print "selected=\"selected\"";} echo">Half Hour</option>";
-	echo "<option value='hour'"; if($incrementvar=="hour"){print "selected=\"selected\"";} echo">1 Hour</option>";
-	for($inc=2; $inc<25; $inc++){ 
-		echo "<option value='"; echo $inc."hours'"; if($incrementvar==$inc."hours"){print "selected=\"selected\"";} echo ">".$inc." Hours</option>";
-	}
+if(!function_exists('SM_increment')){function SM_increment($incrementvar){ ?>
+	<option value='quarter' <?php  if($incrementvar=="quarter"){ ?> selected="selected" <?php } ?>>Quarter Hour</option>
+	<option value='halfhour' <?php  if($incrementvar=="halfhour"){ ?> selected="selected" <?php } ?>>Half Hour</option>
+	<option value='hour' <?php if($incrementvar=="hour"){ ?> selected="selected" <?php } ?> >1 Hour</option>
+	<?php for($inc=2; $inc<25; $inc++){ ?>
+		<option value='<?php echo $inc."hours";?>' <?php if($incrementvar==$inc."hours"){ ?> selected="selected" <?php } ?> ><?php echo $inc." Hours";?></option>
+<?php }
 }}
 
 if(!function_exists('SM_multiple')){function SM_multiple($multiple){
