@@ -224,9 +224,28 @@ if($op=="sked" || $op==""){
 				</td></tr></table>
 				<?php
 
-//				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
-//				while($row = mysql_fetch_array($result)) {$cancel_link_root=SM_d($row['guid']);}
+			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
+			$uses_perm=mysql_num_rows($countIt);
+			
+			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
+			$uses_default=mysql_num_rows($countIt);
 
+			// check if using permalinks
+			if($uses_perm>0){
+				$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+				while($row = mysql_fetch_array($result)) {
+					$SM_ID=SM_d($row['post_name']);		
+					$SM_permalink=get_site_url()."/".$SM_ID."?";		
+				}
+
+			// check if using default
+			}else if($uses_default>0){
+				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+				while($row = mysql_fetch_array($result)) {
+					$SM_ID=SM_d($row['ID']);
+					$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
+				}	
+			}
 				global $wp;
 				$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
 
@@ -245,7 +264,7 @@ if($op=="sked" || $op==""){
 				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
 				<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
 				<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$current_url."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
 				$biz_info=SM_biz_info();
