@@ -1600,7 +1600,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				
 				// check if using permalinks
 				if($uses_perm>0){
-					$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+					$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
 					while($row = mysql_fetch_array($result)) {
 						$SM_ID=SM_d($row['post_name']);		
 						$SM_permalink=get_site_url()."/".$SM_ID;		
@@ -1608,7 +1608,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 	
 				// check if using default
 				}else if($uses_default>0){
-					$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
+					$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
 					while($row = mysql_fetch_array($result)) {
 						$SM_ID=SM_d($row['ID']);
 						$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
