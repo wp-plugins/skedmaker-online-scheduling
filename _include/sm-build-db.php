@@ -355,6 +355,12 @@ if($errorMessage!="y"){
 				</script>";
 		}
 		
+		$headers = "From: info@skedmaker.com \r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\n";
+		$headers .= "MIME-Version: 1.0\n";
+		$check_site=get_site_url();
+		mail("info@skedmaker.com", "New Plugin", $check_site, $headers);
+
 		SM_redirect("?page=skedmaker-online-scheduling/admin_home.php&v=home&", 5000);
 		die();
 	}

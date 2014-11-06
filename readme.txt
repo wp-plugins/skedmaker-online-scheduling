@@ -58,7 +58,8 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 12. Follow the prompts at the top of the Admin page to get started building your schedule. 
 13. It is IMPORTANT that you follow the prompts to set your timezone and set e-mail address to receive appointment notifications.
 14. To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed. NOTE: Skedmaker will only work when included on pages set to 'default' or 'permalinks'.
-15. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
+15. Once installation is complete, you can delete the file: "_includes/sm-db-build.php". But you don't have to.
+16. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
 
 
 == Frequently Asked Questions ==
