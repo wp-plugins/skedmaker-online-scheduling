@@ -14,6 +14,36 @@ if(!function_exists('SM_pick_date_1')){function SM_pick_date_1($created_date){
 <?php }}
 
 
+
+
+if(!function_exists('SM_permalink')){function SM_permalink(){
+	$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
+	$uses_perm=mysql_num_rows($countIt);
+
+	$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
+	$uses_default=mysql_num_rows($countIt);
+	
+	// check if using permalinks
+	if($uses_perm>0){
+		$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+		while($row = mysql_fetch_array($result)) {
+			$SM_ID=SM_d($row['post_name']);		
+			$SM_permalink=get_site_url()."/".$SM_ID."?";		
+		}
+
+	// check if using default
+	}else if($uses_default>0){
+		$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+		while($row = mysql_fetch_array($result)) {
+			$SM_ID=SM_d($row['ID']);
+			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
+		}	
+	}
+}}
+
+
+
+
 if(!function_exists('SM_pick_date_2')){function SM_pick_date_2($follow_up_by){
 	?>
     <input name="clear_follow_up" type="hidden" value="<?php if($follow_up_by==""){echo 'y';}?>" id="clear_follow_up"/>
