@@ -47,11 +47,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='profile'){
 			SM_redBox("Error saving, try again later.", 800, 21);
 		}else{
 			SM_greenBox($save_message, 800, 21);
-			if(($newName!="" && $photo!="") || ($deletephoto=="y" && $photo!="")){
-				@unlink("_files/".$photo);
-				@unlink("_thumbs/".$photo);
-				@unlink("_small/".$photo);
-			}
 			SM_redirect($redirect_to, 500);
 			die();
 		}
@@ -91,7 +86,7 @@ Add your company name, location, contact information and a description of the bu
 <!-- <tr><td class='pad10'  colspan='2'>You may leave any of these fields blank, and they will not be included in your profile.</td></tr> -->
 
 <tr><td class='label150'>Company Name:</td>
-<td class='pad7'><input name="sitename" type="text" id="sitename" value="<?php echo $sitename; ?>" maxlength="450" class="smform_textfield" style='width:500px;'/></td></tr>
+<td class='pad7'><input name="sitename" type="text" id="sitename" value="<?php echo $sitename; ?>" maxlength="450" class="form_textfield" style='width:500px;'/></td></tr>
 
 <tr><td class='label150'>Phone Number:</td>
 <td class='pad7'><input name="phone" type="text" id="phone" value="<?php echo $phone; ?>" size="50" maxlength="100" class="form_textfield" style='width:500px;'/></td></tr>

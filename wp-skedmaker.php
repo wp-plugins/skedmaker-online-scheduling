@@ -1,20 +1,18 @@
 <?php
 /**
  * @package DB Explorer
- * @version 0.81
+ * @version 0.90
  */
 /*
 Plugin Name: Skedmaker
 Plugin URI: http://www.skedmaker.com/?op=skedmaker&amp;
 Description: Online Appointment Scheduling
-Version: 0.81
+Version: 0.90
 Author URI: http://www.skedmaker.com/
 */
 
 add_action('activated_plugin','save_error');
 function save_error(){file_put_contents(plugin_dir_path( __FILE__ ) . '/error.html', ob_get_contents());}
-
-//http://codex.wordpress.org/Function_Reference/add_menu_page
 
 function plugin_admin_add_page() {
 	add_menu_page( 'Skedmaker Admin', 'Skedmaker', 'manage_options', plugin_dir_path( __FILE__ ) . 'admin_home.php', '', 'dashicons-calendar-alt', 81);
@@ -38,7 +36,7 @@ add_action('init','register_session');
 
 add_action('admin_enqueue_scripts', 'my_enqueue');
 
-//[skedmaker]
+//[wp-skedmaker]
 function skedmaker_shortcode($atts){include_once(plugin_dir_path( __FILE__ ) . "index.php");}
-add_shortcode( 'skedmaker', 'skedmaker_shortcode' );
+add_shortcode( 'wp-skedmaker', 'skedmaker_shortcode' );
 ?>

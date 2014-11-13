@@ -4,7 +4,6 @@ $datecode=$_GET['dc'];
 $countIt=mysql_query("SELECT * FROM skedmaker_custom WHERE datecode='$datecode'");
 $total_dc=mysql_num_rows($countIt);
 
-
 $countIt=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$datecode'");
 $total_tc=mysql_num_rows($countIt);
 
@@ -126,8 +125,9 @@ if($errorMessage!=""){SM_redBox("There was an error, correct the fields in red b
 </select>
 </td></tr>
 
-<tr><td class="label150"># Appointments:</td>
-<td class="pad7" style='width:650px;'><select name="setmultiple" id="setmultiple" class='form_select'><?php SM_multiple($setmultiple); ?></select></td>
+<tr><td class="label150"># Apts:</td>
+<td class="pad7" style='width:650px;'><select name="setmultiple" id="setmultiple" class='form_select'><?php SM_multiple($setmultiple); ?></select> 
+Select the number of appointmetns you want to make available</td>
 </tr>
 
 <tr><td class='label150' style='padding-bottom:21px;'><a href='<?php echo $smadmin;?>&amp;v=customdays&amp;op=new&amp;' class='sked'><span class='smallG'>< Back to list</span></a></td>

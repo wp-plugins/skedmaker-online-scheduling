@@ -5,14 +5,23 @@ $smpageid="?page_id=".$_GET['page_id'];
 $sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 $site=plugins_url( __FILE__ );
 
+// -- deactivate cron 
+register_deactivation_hook(__FILE__, 'my_deactivation');
+function my_deactivation() {wp_clear_scheduled_hook('my_hourly_event');}
+/////////////////////////////////////////////////////////////////////////////
+
 include(plugin_dir_path( __FILE__ ) . "sm-build-db.php");
 include(plugin_dir_path( __FILE__ ) . "sm-settings.php"); //  load user defined settings
 include(plugin_dir_path( __FILE__ ) . "sm-functions.php"); // load functions
 include(plugin_dir_path( __FILE__ ) . "sm-styles.php");
-// include(plugin_dir_path( __FILE__ ) . "sm-javascript.php"); // load javascript
 ?>
 <div id='body' align='center'>
 <?php
+
+$username=$_SESSION['username'];
+$usercode=$_SESSION['usercode'];
+$loginValidClient=$_SESSION['loginValidClient'];
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //-- If password protected, display the client login 
 //////////////////////////////////////////////////////////////////////////////////////////////////

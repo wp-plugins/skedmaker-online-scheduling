@@ -34,14 +34,6 @@ SM_title("Booking Options", "btn_options32_reg.png", $smadmin."&amp;v=options&am
 <br />
 <table class='cc100' style='margin-left:14px;'>
 
-<!--
-<tr><td class='pad7'><input name="keep_profile_open" type="checkbox" id="keep_profile_open" value="y" <?php if ($keep_profile_open=="y") { ?> checked='checked' <?php }?>/></td>
-<td class='pad7'><label for='keep_profile_open'><b>Keep Business Profile Open/Displayed</b></label></td></tr>
-<tr><td class='pad7'>&nbsp;</td><td style='padding:0px 14px 14px 7px;'>
-<span class='smallG'>Checking this box allows visitors to make appointments. Some users may prefer to enter the scheduling information themselves. If this is not checked, clients will be able to see when you have appointmetns available, but not be able to reserve them online.</span>
-</td></tr>
--->
-
 <tr><td class='pad7'><input name="sitepublic" type="checkbox" id="sitepublic" value="y" <?php if ($sitepublic=="y") {echo "checked='checked'"; }?>/></td>
 <td class='pad7'><label for="sitepublic"><b>Make Appointments Public</b></label></td></tr>
 <tr><td class='pad7'><a name='sameday'></a></td><td style='padding:0px 14px 14px 7px;'>

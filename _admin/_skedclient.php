@@ -23,6 +23,20 @@ while($row = mysql_fetch_array($result)){$max_apts=SM_d($row[$multiplerow]);}
 $countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
 $total_taken=mysql_num_rows($countIt);
 
+/*
+//======= remaining
+$remaining=$max_apts-$total_taken;
+	
+if($remaining<1){
+	echo $total_taken."<br>".$remaining;
+	echo "<br><bR>";
+	SM_redBox("Sorry, this appointment has been taken.", 800, 21);
+	echo "<br><bR>";
+	echo "<a href='".$smpageid."&amp;op=sked&amp;ts=".$_GET['ts']."'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' style='border:0px; margin-right:7px'>Back to Schedule</a>";
+	SM_foot();
+}
+*/
+
 if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 	$errorMessage="";
 	$errorMessage=SM_uni_check();
@@ -96,7 +110,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
             </td></tr></table>
 
 <?php
-			//////// PERMALINKS CHECKS
 			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
 			$uses_perm=mysql_num_rows($countIt);
 			
@@ -105,15 +118,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 
 			// check if using permalinks
 			if($uses_perm>0){
-				$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+				$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
 				while($row = mysql_fetch_array($result)) {
 					$SM_ID=SM_d($row['post_name']);		
-					$SM_permalink=get_site_url()."/".$SM_ID."?";		
+					$SM_permalink=get_site_url()."/".$SM_ID;		
 				}
 
 			// check if using default
 			}else if($uses_default>0){
-				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%skedmaker%' AND post_status='publish' LIMIT 1");
+				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
 				while($row = mysql_fetch_array($result)) {
 					$SM_ID=SM_d($row['ID']);
 					$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
@@ -169,34 +182,34 @@ if($_GET['v']!=""){
 <?php SM_uni_create();?>
 <?php SM_title("Confirm Appointment", "btn_settings32_reg.png", "");?>
 <table class='cc800'>
-<tr><td class='nopad'><?php SM_greenBox($showApt, 800, 21); ?></td></tr>
+<tr><td class='pad7'><?php SM_greenBox($showApt, 800, 21); ?></td></tr>
 <?php if($errorMessage!=""){?><tr><td class='nopad'><?php SM_redBox("There was an error. Please correct the fields in red below...", 800, 21); ?></td></tr><?php } ?>
 <tr><td class="blueBanner1">Would you like to reserve this appointment?</td></tr>
-<tr><td class="blueBanner2" style='padding:21px; text-align:center;'>
+<tr><td class="blueBanner2" style='text-align:center;'>
 <table class='cc100'>
-<tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:600px;'><b>Complete the form below to reserve this appointment.</b></td></tr>
+<tr><td class='pad14' colspan='2'><b>Complete the form below to reserve this appointment.</b></td></tr>
 
-<tr><td class='label150'><?php SM_check_text("Name: ", $errorName);?></td>
-<td class='pad7' style='width:600px;'><input name="client_name" type="text" class='form_textfield' value="<?php echo SM_d($client_name);?>" maxlength="100" style='width:500px;'/></td></tr>
+<tr><td class='label200'><?php SM_check_text("Name: ", $errorName);?></td>
+<td class='pad7' style='width:600px;'><input name="client_name" type="text" class='form_textfield' value="<?php echo SM_d($client_name);?>" maxlength="100" style='width:400px' /></td></tr>
 
 <?php if($requireemail=="y"){?>
-<tr><td class='label150'><?php SM_check_text("E-mail: ", $errorEmail);?></td>
-<td class='pad7' style='width:600px;'><input name="client_email" type="text" class='form_textfield' value="<?php echo SM_d($client_email);?>" maxlength="100" style='width:500px;'/></td></tr>
+<tr><td class='label200'><?php SM_check_text("E-mail: ", $errorEmail);?></td>
+<td class='pad7' style='width:600px;'><input name="client_email" type="text" class='form_textfield' value="<?php echo SM_d($client_email);?>" maxlength="100"  style='width:400px' /></td></tr>
 <?php } ?>
 
-<?php if($errorValid=="y"){echo "<tr><td class='label150'>&nbsp;</td><td class='pad7' style='padding-top:0px;'><span class='smallRed'>Enter a valid email address.</td></tr>";}?>
+<?php if($errorValid=="y"){echo "<tr><td class='label200'>&nbsp;</td><td class='pad7' style='padding-top:0px;'><span class='smallRed'>Enter a valid email address.</td></tr>";}?>
 
 <?php if($requireconfirm=="y"){?>
-<tr><td class='label150'><?php SM_check_text("Confirm E-mail: ", $errorConfirmEmail);?></td>
-<td class='pad7' style='width:600px;'><input name="confirm_email" type="text" class='form_textfield' value="<?php echo SM_d($confirm_email);?>" maxlength="100" style='width:500px;'/></td></tr>
+<tr><td class='label200'><?php SM_check_text("Confirm E-mail: ", $errorConfirmEmail);?></td>
+<td class='pad7' style='width:600px;'><input name="confirm_email" type="text" class='form_textfield' value="<?php echo SM_d($confirm_email);?>" maxlength="100"  style='width:400px' /></td></tr>
 <?php } ?>
 <?php if($requirephone=='y'){ ?>
-<tr><td class='label150'><?php SM_check_text("Phone: ", $errorPhone);?></td>
-<td class='pad7' style='width:600px;'><input name="client_phone" type="text" class='form_textfield' value="<?php echo SM_d($client_phone);?>" maxlength="100" style='width:500px;'/></td></tr>
+<tr><td class='label200'><?php SM_check_text("Phone: ", $errorPhone);?></td>
+<td class='pad7' style='width:600px;'><input name="client_phone" type="text" class='form_textfield' value="<?php echo SM_d($client_phone);?>" maxlength="100" style='width:400px' /></td></tr>
 <?php } ?>
 
 <?php if($requirenumberinparty=='y'){ ?>
-<tr><td class='label150'><?php SM_check_text("# in Party", $errorNumInParty);?>
+<tr><td class='label200'><?php SM_check_text("# in Party", $errorNumInParty);?>
 </td>
 <td class='pad7' style='width:600px;'>
 <select name='num_in_party' class='form_select'>
@@ -208,15 +221,15 @@ if($_GET['v']!=""){
 <?php } ?>
 
 <?php if($requiremessage=='y'){ ?>
-<tr><td class='label150'><?php SM_check_text("Message:", $errorContent);?></td><td class='pad7' style='width:600px;'>
-<textarea name="client_content" id="textarea" cols="45" rows="5" class='form_area' style='width:500px;'><?php echo SM_d($client_content);?></textarea></td></tr>
+<tr><td class='label200'><?php SM_check_text("Message:", $errorContent);?></td><td class='pad7' style='width:600px;'>
+<textarea name="client_content" id="textarea" cols="45" rows="5" class='form_area' ><?php echo SM_d($client_content);?></textarea></td></tr>
 <?php } ?>
 
-<tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:600px;'><input type="submit" name="button" onclick='savingShow()' id="mainSave" value="Reserve This Appointment"/>
+<tr><td class='label200'>&nbsp;</td><td class='pad7' style='width:600px;'><input type="submit" name="button" onclick='savingShow()' id="mainSave" value="Reserve This Appointment"/>
 <div id='savingShow' style='display:none; padding:0px;'>Saving...</div>
 </td></tr>
-<tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:600px;'><div class='navMenuRound' style='width:350px;'><a href="<?php echo $back; ?>" class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />I want to pick a different appointment</a></div></td></tr>
-<tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:600px;'><?php if($cancelpolicy!=""){echo "<p><span class='redText'>".$cancelpolicy."</span></p>";}?></td></tr>
+<tr><td class='label200'>&nbsp;</td><td class='pad7' style='width:600px;'><div class='navMenuRound' style='width:400px;'><a href="<?php echo $back; ?>" class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Pick a different appointment</a></div></td></tr>
+<tr><td class='label200'>&nbsp;</td><td class='pad7' style='width:600px;'><?php if($cancelpolicy!=""){echo "<p><span class='redText'>".$cancelpolicy."</span></p>";}?></td></tr>
 </table>
 </td></tr></table>
 </form>

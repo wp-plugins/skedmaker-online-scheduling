@@ -125,8 +125,8 @@ if($total>0){ ?>
 	<tr style='background-color:#666;'>
     <td class='pad7' style='padding-left:14px'><span style='font-weight:bold; color:#fff;'>Name</span></td>
     <td class='pad7'><span style='font-weight:bold; color:#fff;'># Time frames</span></td>
-	<td class='pad7'><span style='font-weight:bold; color:#fff;'>First Apt.</span></td>
-	<td class='pad7'><span style='font-weight:bold; color:#fff;'>Last Apt.</span></td>    
+	<td class='pad7'><span style='font-weight:bold; color:#fff;'>First Available</span></td>
+	<td class='pad7'><span style='font-weight:bold; color:#fff;'>Last Available</span></td>    
     <td class='pad7' colspan='3'><span class='whiteBold'>Actions</span></td>    
     </tr>
 	<?php
@@ -138,14 +138,19 @@ if($total>0){ ?>
 		$countIt=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$DBdatecode'")or die(mysql_query());
 		$total_timeframes=mysql_num_rows($countIt);
 
-	    $result_START=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$DBdatecode' ORDER BY starthour LIMIT 1");
-		while($row_START=mysql_fetch_array($result_START)){$TS_START=strtotime("6/6/1975 ".SM_d($row_START['starthour']).":".SM_d($row_START['startminute']));}
-		
-	    $result_END=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$DBdatecode' ORDER BY starthour DESC LIMIT 1");
-		while($row_END=mysql_fetch_array($result_END)){$TS_END=strtotime("6/6/1975 ".SM_d($row_END['starthour']).":".SM_d($row_END['startminute']));}
-
-		$starttime=date("g:i a", $TS_START);
-		$endtime=date("g:i a", $TS_END);
+		if($total_timeframes>0){
+			$result_START=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$DBdatecode' ORDER BY starthour LIMIT 1");
+			while($row_START=mysql_fetch_array($result_START)){$TS_START=strtotime("6/6/1975 ".SM_d($row_START['starthour']).":".SM_d($row_START['startminute']));}
+			
+			$result_END=mysql_query("SELECT * FROM skedmaker_custom_timeframes WHERE datecode='$DBdatecode' ORDER BY starthour DESC LIMIT 1");
+			while($row_END=mysql_fetch_array($result_END)){$TS_END=strtotime("6/6/1975 ".SM_d($row_END['starthour']).":".SM_d($row_END['startminute']));}
+	
+			$starttime=date("g:i a", $TS_START);
+			$endtime=date("g:i a", $TS_END);
+		}else{
+			$starttime="<span class='smallG12'>no start time</span>";
+			$endtime="<span class='smallG12'>no end time</span>";
+		}
 
 		$stagger=SM_stagger($stagger);
 		echo "<td class='list_left' style='border-left:0px; width:25%;'><div class='navMenuSM'><a href='".$smadmin."&amp;v=customtimes&amp;dc=".$DBdatecode."&amp;' class='b2w'><span style='font-weight:normal;'>$name</span></a></div></td>";

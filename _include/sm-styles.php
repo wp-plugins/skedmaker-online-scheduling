@@ -1,19 +1,12 @@
 <?php 
 /// color defaults are saved in sm-settings.php 
 $sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
-
 $css_img_dir=$sm_btns_dir;
-
 $round=" -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;";
 ?>
 <style type="text/css">
 /* *********************************************************************************************************START STYLES **********************************************************************/
 
-.ui-datepicker-trigger { margin-left:7px; color:#AFE1FA}
-
-/*=================================================
-======= Suggestion box for expenses =======
-=================================================*/
 body,td,th {font-family:Verdana, Geneva, sans-serif;font-size:14px; color:#000; margin:0px}
 h3 {margin:0px;padding:0px;}
 
@@ -30,19 +23,19 @@ img.btn {border:none; margin-right:7px; vertical-align:middle;}
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
 	color:#333333;
-	width:250px;
+	<?php if(!wp_is_mobile()){ ?>width:450px; <?php }else{ ?>width:100%; <?php } ?>
 	padding:7px;
 	height:35px;
 	vertical-align:middle;
 	<?php echo $round;?>
 }
 
-.smform_textfield{
+.form_textfield_cap{
 	border:1px solid #999 !important;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
 	color:#333333;
-	width:250px;
+	<?php if(!wp_is_mobile()){ ?>width:100px; <?php }else{ ?>width:100%; <?php } ?>
 	padding:7px;
 	height:35px;
 	vertical-align:middle;
@@ -55,7 +48,7 @@ img.btn {border:none; margin-right:7px; vertical-align:middle;}
 	font-size:14px;
 	color:#333333;
 	padding:14px;
-	width:450px;
+	<?php if(!wp_is_mobile()){ ?>width:450px; <?php }else{ ?>width:100%; <?php } ?>
 	<?php echo $round;?>
 }
 
@@ -90,11 +83,6 @@ a.b2w :visited	{color:#000; text-decoration:none; font-weight:regular;}
 a.b2w :hover	{color:#fff; text-decoration:none; font-weight:regular;}
 a.b2w :active	{color:#fff; text-decoration:none; font-weight:regular;}
 
-a.whenmyapt :link 		{color:#ccc; text-decoration:none; font-weight:regular;}
-a.whenmyapt :visited	{color:#ccc; text-decoration:none; font-weight:regular;}
-a.whenmyapt :hover		{color:#fff; text-decoration:none; font-weight:regular;}
-a.whenmyapt :active		{color:#fff; text-decoration:none; font-weight:regular;}
-
 a.cancel:link {color:#F00;text-decoration:none; font-weight:normal;}
 a.cancel:visited {text-decoration:none;color:#F00; font-weight:normal;}
 a.cancel:hover {text-decoration:none;color:#F00; font-weight:normal;}
@@ -110,6 +98,7 @@ a.smallG:visited {color:#666;text-decoration:none; font-weight:normal; font-size
 a.smallG:hover {color:#233C49;text-decoration:none; font-weight:normal; font-size:10px}
 a.smallG:active {color:#233C49;text-decoration:none; font-weight:normal; font-size:10px}
 
+<!-- used only for the months menu on calendar -->
 a.small:link {color:#000;text-decoration:none; font-weight:normal; font-size:10px}
 a.small:visited {color:#000;text-decoration:none; font-weight:normal; font-size:10px}
 a.small:hover {color:#000;text-decoration:none; font-weight:normal; font-size:10px}
@@ -135,11 +124,18 @@ hr {background-color:#366; color:#366; height:2px; border:0;}
 /*=================================================
 ======= TABLES =======
 =================================================*/
-table.cc0{padding:0px; border-collapse:collapse; margin:0px;}
-table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; border-collapse:collapse; margin:0px;}
-table.cc100bc{border:none; padding:0px; border-spacing:0px; width:100%; border-collapse:collapse; margin:0px;}
-table.cc800{border:none; padding:0px; border-spacing:0px; width:800px; *border-collapse:expression('separate', cellSpacing = '0px'); margin:0px;}
-table.cc800bc{border:none; padding:0px; border-spacing:0px; width:800px;  *border-collapse:expression('separate', cellSpacing = '0px'); margin:0px;}
+<?php 
+if ( wp_is_mobile() ){ ?>
+table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important;  margin:0px !important;}
+table.cc600{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
+table.cc800{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
+
+<?php }else{ ?>
+table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
+table.cc600{border:none; padding:0px; border-spacing:0px; width:600px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
+table.cc800{border:none; padding:0px; border-spacing:0px; width:800px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
+
+<?php } ?>
 
 /*=================================================
 ======= TR =======
@@ -152,7 +148,7 @@ tr.menu{background-color:#ccc; border-bottom:1px dotted #666;}
 =================================================*/
 td.menu{border-bottom:1px dotted #666; padding:0px;}
 .gBox{ background-color:#E6E6E6; text-align:left; padding:5;}
-td.redBox{background-color:#FCC;padding:14px;border:3px solid #F00; 	<?php echo $round;?>}
+td.redBox{background-color:#FCC;padding:14px;border:3px solid #F00; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;}
 td.greenBox{background-color:#CFC; padding:14px; border:3px solid #093; <?php echo $round;?>}
 td.blueBox{padding:14px; text-align:center; background-color:#E2F8FE; border:3px solid #06F;<?php echo $round;?>}
 td.btn{background-color:#88B3CA; border:1px solid #233C49; padding:0px; vertical-align:middle;}
@@ -166,7 +162,8 @@ td.blueBanner1{
     -webkit-border-top-right-radius:7px;
     border-top-right-radius:7px;	
 	overflow:hidden;
-	background-color:#<?php echo $b1_color;?>;padding:7px 7px 7px 14px;color:#fff; font-weight:bold;font-size:18px; text-align:left;
+	background-color:#<?php echo $b1_color;?>;padding:7px 7px 7px 14px;color:#fff; font-weight:bold;
+	<?php if(wp_is_mobile()){?>font-size:16px;<?php }else{?> font-size:18px; <?php } ?>text-align:left;
 	border:none !important;
 }
 
@@ -198,10 +195,18 @@ td.pad21{padding:21px; text-align:left;border:none; }
 /*=================================================
 ======= FORM LABEL TDs
 =================================================*/
+
+<?php if(wp_is_mobile()){
+	$label150="15%";
+}else{
+	$label150="150px";	
+}
+?>
+
 td.label50{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:50px; font-size:10px;border:none; }
 td.label100{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:100px; font-size:14px;border:none; }
 td.label100top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:100px;border:none; }
-td.label150{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:150px;border:none; }
+td.label150{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:15%;border:none; }
 td.label150top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:150px;border:none; }
 td.label150s{padding:5px; text-align:right; font-weight:bold; vertical-align:middle; width:150px; font-size:10px;border:none; }
 td.label200{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:200px; font-size:14px;border:none; }
@@ -236,14 +241,21 @@ td.dot800{padding:7px; border-bottom:1px dotted #666;width:800px}
 /*=================================================
 ======= CALENDAR STYLES
 =================================================*/
-<?php $smCALbasics="width:70px !important; text-align:center; font-weight:bold; margin:0px;";?>
-td.weekday			{padding:5px; width:70px; text-align:center;}
-td.calendarDay		{<?php echo $smCALbasics;?> background-color:#<?php echo $b3_color;?>; border:1px solid #<?php echo $b1_color;?>; padding:0px; }
-td.calendarBlank	{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:14px;}
-td.calendarAdminBlank	{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:0px;}
-td.calendarPassed	{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:14px;}
-td.calendarBlocked	{<?php echo $smCALbasics;?> background-color:#FCC;    border:1px solid #F00; color:#F00; padding:0px; }
-td.calendarBlockedBlackouts	{text-align:center; font-weight:bold; margin:0px; background-color:#FCC;    border:1px solid #F00; color:#F00; padding:14px; }
+<?php 
+if(wp_is_mobile()){
+	$smCALbasics="width:10% !important; text-align:center; font-weight:bold; margin:0px;";
+	$day_pad="7px";
+}else{
+	$day_pad="14px";
+	$smCALbasics="width:72px !important; text-align:center; font-weight:bold; margin:0px;";
+}?>
+td.weekday					{padding:5px; width:10%; text-align:center;}
+td.calendarDay				{<?php echo $smCALbasics;?> background-color:#<?php echo $b3_color;?>; border:1px solid #<?php echo $b1_color;?>; padding:0px; }
+td.calendarBlank			{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:<?php echo $day_pad;?>;}
+td.calendarAdminBlank		{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:0px;}
+td.calendarPassed			{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:<?php echo $day_pad;?>;}
+td.calendarBlocked			{<?php echo $smCALbasics;?> background-color:#FCC;    border:1px solid #F00; color:#F00; padding:0px; }
+td.calendarBlockedBlackouts	{text-align:center; font-weight:bold; margin:0px; background-color:#FCC;    border:1px solid #F00; color:#F00; padding:<?php echo $day_pad;?>; }
 
 
 td.menumonths{
@@ -254,36 +266,35 @@ td.menumonths{
 	margin:0px !important;
 }
 
-.navDay a:link				{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:14px; background-color:#<?php echo $b3_color;?>; margin:0px;}
-.navDay a:visited			{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:14px; background-color:#<?php echo $b3_color;?>; margin:0px;}
-.navDay a:hover				{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:14px; background-color:#<?php echo $b1_highlight;?>; color:#fff; margin:0px !important;}
-.navDay a:active			{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:14px; background-color:#<?php echo $b1_highlight;?>; color:#fff; margin:0px;}
+.navDay a:link				{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:<?php echo $day_pad;?>; background-color:#<?php echo $b3_color;?>; margin:0px;}
+.navDay a:visited			{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b3_color;?>; padding:<?php echo $day_pad;?>; background-color:#<?php echo $b3_color;?>; margin:0px;}
+.navDay a:hover				{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:<?php echo $day_pad;?>; background-color:#<?php echo $b1_highlight;?>; color:#fff; margin:0px !important;}
+.navDay a:active			{display:block;	color:#000; text-decoration:none; border:1px solid #<?php echo $b1_highlight;?>; padding:<?php echo $day_pad;?>; background-color:#<?php echo $b1_highlight;?>; color:#fff; margin:0px;}
 
 .navDayUnavail a:link		{display:block;	color:#000; text-decoration:none; padding:none; background-color:#ccc}
 .navDayUnavail a:visited	{display:block;	color:#000; text-decoration:none; padding:none; background-color:#ccc}
 .navDayUnavail a:hover		{display:block;	color:#000; text-decoration:none; padding:none; background-color:#ccc;}
 .navDayUnavail a:active		{display:block;	color:#000; text-decoration:none; padding:none; background-color:#ccc;}
 
-.navCalBlank a:link		{display:block;	color:#000; text-decoration:none; padding:14px; background-color:#ccc; border:1px solid #ccc; margin:0px;}
-.navCalBlank a:visited	{display:block;	color:#000; text-decoration:none; padding:14px; background-color:#ccc; border:1px solid #ccc; margin:0px;}
-.navCalBlank a:hover	{display:block;	color:#fff; text-decoration:none; padding:14px; background-color:#666; border:1px solid #666; margin:0px;}
-.navCalBlank a:active	{display:block;	color:#fff; text-decoration:none; padding:14px; background-color:#666; border:1px solid #666; margin:0px;}
+.navCalBlank a:link		{display:block;	color:#000; text-decoration:none; padding:<?php echo $day_pad;?>; background-color:#ccc; border:1px solid #ccc; margin:0px;}
+.navCalBlank a:visited	{display:block;	color:#000; text-decoration:none; padding:<?php echo $day_pad;?>; background-color:#ccc; border:1px solid #ccc; margin:0px;}
+.navCalBlank a:hover	{display:block;	color:#fff; text-decoration:none; padding:<?php echo $day_pad;?>; background-color:#666; border:1px solid #666; margin:0px;}
+.navCalBlank a:active	{display:block;	color:#fff; text-decoration:none; padding:<?php echo $day_pad;?>; background-color:#666; border:1px solid #666; margin:0px;}
 
-.navBlocked a:link		{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:14px; background-color:#FCC; background-image:url("<?php echo $css_img_dir;?>btn_block16_reg.png"); background-repeat:no-repeat; background-position:right;}
-.navBlocked a:visited	{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:14px; background-color:#FCC; }
-.navBlocked a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #F00; padding:14px; background-color:#F00; }
-.navBlocked a:active	{display:block;	color:#FFF; text-decoration:none; border:1px solid #00; padding:14px; background-color:#F00; }
+.navBlocked a:link		{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:<?php echo $day_pad;?>; background-color:#FCC; background-image:url("<?php echo $css_img_dir;?>btn_block16_reg.png"); background-repeat:no-repeat; background-position:right;}
+.navBlocked a:visited	{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:<?php echo $day_pad;?>; background-color:#FCC; }
+.navBlocked a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #F00; padding:<?php echo $day_pad;?>; background-color:#F00; }
+.navBlocked a:active	{display:block;	color:#FFF; text-decoration:none; border:1px solid #00; padding:<?php echo $day_pad;?>; background-color:#F00; }
 
-.navBlackouts a:link		{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:14px; background-color:#FCC; background-image:url("<?php echo $css_img_dir;?>btn_blackout16_reg.png"); background-repeat:no-repeat; background-position:right;}
-.navBlackouts a:visited	{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:14px; background-color:#FCC; }
-.navBlackouts a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #F00; padding:14px; background-color:#F00; }
-.navBlackouts a:active	{display:block;	color:#FFF; text-decoration:none; border:1px solid #00; padding:14px; background-color:#F00; }
+.navBlackouts a:link		{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:<?php echo $day_pad;?>; background-color:#FCC; background-image:url("<?php echo $css_img_dir;?>btn_blackout16_reg.png"); background-repeat:no-repeat; background-position:right;}
+.navBlackouts a:visited	{display:block;	color:#F00; text-decoration:none; border:1px solid #FCC; padding:<?php echo $day_pad;?>; background-color:#FCC; }
+.navBlackouts a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #F00; padding:<?php echo $day_pad;?>; background-color:#F00; }
+.navBlackouts a:active	{display:block;	color:#FFF; text-decoration:none; border:1px solid #00; padding:<?php echo $day_pad;?>; background-color:#F00; }
 
-.navCustom a:link		{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:14px; background-color:#6C6; background-image:url("<?php echo $css_img_dir;?>btn_custom16_reg.png"); background-repeat:no-repeat; background-position:right;}
-.navCustom a:visited	{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:14px; background-color:#6C6;}
-.navCustom a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:14px; background-color:#096;}
-.navCustom a:active		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:14px; background-color:#096;}
-
+.navCustom a:link		{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:<?php echo $day_pad;?>; background-color:#6C6; background-image:url("<?php echo $css_img_dir;?>btn_custom16_reg.png"); background-repeat:no-repeat; background-position:right;}
+.navCustom a:visited	{display:block;	color:#000; text-decoration:none; border:1px solid #090; padding:<?php echo $day_pad;?>; background-color:#6C6;}
+.navCustom a:hover		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:<?php echo $day_pad;?>; background-color:#096;}
+.navCustom a:active		{display:block;	color:#FFF; text-decoration:none; border:1px solid #090; padding:<?php echo $day_pad;?>; background-color:#096;}
 
 
 /*=================================================
@@ -366,7 +377,6 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 ======= TEXT =======
 =================================================*/
 .header {font-size:28px; font-weight:normal; color:#000;}
-.bannerText {font-family:Verdana; font-size:14px; font-weight:bold; color:#FFF;}
 .redText {font-family:Verdana; font-size:14px; color:#F00; font-weight:bold;}
 .greenText {font-family:Verdana; font-size:14px; color:#009900;font-weight:bold;}
 .blueText {font-family:Verdana; font-size:14px; color:#06F;font-weight:bold;}
@@ -377,22 +387,18 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 .smallBold {font-family:Verdana; font-size:10px; color:#000; font-weight:bold;}
 .smallG{font-family:Verdana; font-size:10px; color:#666;}
 .smallG12{font-family:Verdana; font-size:12px; color:#666;}
-.smallLG{font-family:Verdana; font-size:10px; color:#ccc;}
-.small11 {font-family:Verdana; font-size:11px; color:#000;}
 .whiteText {font-family:Verdana; font-size:14px; color:#FFF; font-weight:bold;}
 .smallWhite{font-family:Verdana; font-size:10px; color:#FFF;}
-.brightGreenText {font-family:Verdana; font-size:14px; color:#3C3; font-weight:bold;}
 .whiteBold{font-family:Verdana; font-size:14px;color:#FFF; font-weight:bold;}
 .headerBold{font-family:Verdana, Geneva, sans-serif; font-size:18px;font-weight:bold;color:#000;}
-.headerReg{font-family:Verdana, Geneva, sans-serif; font-size:18px;color:#666;}
 
 /*=================================================
 ======= NAVS =======
 =================================================*/
-.navb1 a:link			{display:block;	background-color:#<?php echo $b1_color;?>; 			color:#fff; text-decoration:none; padding:7px; padding-left:14px;text-align:left;}
-.navb1 a:visited		{display:block;	background-color:#<?php echo $b1_color;?>; 			color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;}
-.navb1 a:hover			{display:block;	background-color:#<?php echo $b1_highlight;?>;		color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;}
-.navb1 a:active			{display:block;	background-color:#<?php echo $b1_highlight;?>;		color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;}
+.navb1 a:link			{display:block;	background-color:#<?php echo $b1_color;?>; 			color:#fff; text-decoration:none; padding:7px; padding-left:14px;text-align:left;<?php echo $round; ?>}
+.navb1 a:visited		{display:block;	background-color:#<?php echo $b1_color;?>; 			color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;<?php echo $round; ?>}
+.navb1 a:hover			{display:block;	background-color:#<?php echo $b1_highlight;?>;		color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;<?php echo $round; ?>}
+.navb1 a:active			{display:block;	background-color:#<?php echo $b1_highlight;?>;		color:#fff; text-decoration:none; padding:7px; padding-left:14px; text-align:left;<?php echo $round; ?>}
 
 .navNotes a:link	{display:block;	background-color:none; text-decoration:none; color:#fff; padding:7px; padding-left:14px;}
 .navNotes a:visited	{display:block;	background-color:none; text-decoration:none; color:#fff; padding:7px; padding-left:14px;}
@@ -439,7 +445,6 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 .navCancel a:hover		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 .navCancel a:active		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 
-
 .navPurge a:link	{height:100%; display:block; text-decoration:none; background-color:#none; padding:7px; color:#000;<?php echo $round;?>} 
 .navPurge a:visited	{height:100%; display:block; text-decoration:none; background-color:#none; padding:7px; color:#000;<?php echo $round;?>} 
 .navPurge a:hover	{height:100%; display:block; text-decoration:none; background-color:#F00; color:#fff; padding:7px;<?php echo $round;?>} 
@@ -460,181 +465,202 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 .navYellow a:hover		{display:block;	background-color:#FFC;	text-decoration:none; padding:7px; color:#000;}
 .navYellow a:active		{display:block;	background-color:#FFC;	text-decoration:none; padding:7px; color:#000;}
 
-#button {
+#button{
     background-color:#<?php echo $b1_color;?>;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_save16_g.png") no-repeat scroll 5px center !important;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_save16_g.png") no-repeat scroll 5px center;
 }
 #button:hover {
-    border:none !important;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_save16_reg.png") no-repeat scroll 5px center !important;
-    box-shadow:0px 0px 1px #777 !important;
+    border:none;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_save16_reg.png") no-repeat scroll 5px center;
+    box-shadow:0px 0px 1px #777;
 }
 
+
 #purge {
-	border:2px solid #F00 !important;
-	padding:7px !important;
-	color:#fff !important;
-	font-weight:bold; cursor:pointer !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#C30 url("<?php echo $css_img_dir;?>btn_purge16_g.png") no-repeat scroll 5px center !important;
+	border:2px solid #F00;
+	padding:7px;
+	color:#fff;
+	font-weight:bold; cursor:pointer;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#C30 url("<?php echo $css_img_dir;?>btn_purge16_g.png") no-repeat scroll 5px center;
 }
 #purge:hover {
-    border:none !important;
-    box-shadow:0px 0px 1px #777 !important;
-	background:#F60 url("<?php echo $css_img_dir;?>btn_purge16_reg.png") no-repeat scroll 5px center !important;
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#F60 url("<?php echo $css_img_dir;?>btn_purge16_reg.png") no-repeat scroll 5px center;
 }
 
 #mainSave {
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_confirm16_g.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_confirm16_g.png") no-repeat scroll 5px center;
 }
-
 #mainSave:hover {
-    border:none !important;
-    box-shadow:0px 0px 1px #777 !important;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_confirm16_reg.png") no-repeat scroll 5px center !important;
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_confirm16_reg.png") no-repeat scroll 5px center;
 
 }
 
 #block {
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_block16_g.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_block16_g.png") no-repeat scroll 5px center;
 }
 
 #block:hover {
-    border:none !important;
-    box-shadow:0px 0px 1px #777 !important;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_block16_reg.png") no-repeat scroll 5px center !important;
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_block16_reg.png") no-repeat scroll 5px center;
+}
+
+#cancel {
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_cancel16_g.png") no-repeat scroll 5px center;
+}
+
+#cancel:hover {
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_cancel16_reg.png") no-repeat scroll 5px center;
 }
 
 #login {
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_key16_reg.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_key16_reg.png") no-repeat scroll 5px center;
 }
 
 #login:hover {
-    border:none !important;
-	background-color:#<?php echo $b1_highlight;?> !important;
-    box-shadow:0px 0px 1px #777 !important;
+    border:none;
+	background-color:#<?php echo $b1_highlight;?>;
+    box-shadow:0px 0px 1px #777;
 }
 
 #contact {
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_sendmail16_reg.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_sendmail16_reg.png") no-repeat scroll 5px center;
 }
 
 #contact:hover {
-    border:none !important;
-	background-color:#<?php echo $b1_highlight;?> !important;
-    box-shadow:0px 0px 1px #777 !important;
+    border:none;
+	background-color:#<?php echo $b1_highlight;?>;
+    box-shadow:0px 0px 1px #777;
 }
 
 #trash {
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#900 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding-left:28px;
+	padding-right:14px;
+	background:#900 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center;
 }
 
 #trash:hover {
-    border:none !important;
-    box-shadow:0px 0px 1px #777 !important;
-	background:#F00 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center !important;
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#F00 url("<?php echo $css_img_dir;?>btn_delete16_reg.png") no-repeat scroll 5px center;
 }
 
 #embed{
-    background-color:#<?php echo $b1_color;?> !important;
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-    border-radius:6px !important;
-    color:#fff !important;
-    font-size:14px !important;
-    text-decoration:none !important;
-    cursor:pointer !important;
-    border:none !important;
-	padding:7px !important;
-	padding-left:28px !important;
-	padding-right:14px !important;
-	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center !important;
+    background-color:#<?php echo $b1_color;?>;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+	padding:7px;
+	padding-left:28px;
+	padding-right:14px;
+	background:#<?php echo $b1_color;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center;
 }
 
 #embed:hover {
-    border:none !important;
-    box-shadow:0px 0px 1px #777 !important;
-	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center !important;
+    border:none;
+    box-shadow:0px 0px 1px #777;
+	background:#<?php echo $b1_highlight;?> url("<?php echo $css_img_dir;?>btn_copy16_reg.png") no-repeat scroll 5px center;
 }
-
 /* *********************************************************************************************************END STYLES **********************************************************************/
 </style>

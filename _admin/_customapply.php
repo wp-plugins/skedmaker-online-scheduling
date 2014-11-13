@@ -268,7 +268,8 @@ while($row = mysql_fetch_array($result)){$customName=SM_d($row['name']);}
 
 <?php 
 function SM_create_bulk_calendar($month, $year, $second_year, $customName){ 
-	global $smadmin; global $sm_btns_dir;
+	global $smadmin; 
+	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 if($second_year=='y'){$use_for_loop_month=1;}else{$use_for_loop_month=$month;}
 
 for($loopMonth=$use_for_loop_month; $loopMonth<13; $loopMonth++){

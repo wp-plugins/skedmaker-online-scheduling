@@ -53,6 +53,7 @@ while($row=mysql_fetch_array($sm_settings_result)){
 	$requirephone=SM_d($row['requirephone']);
 	$requiremessage=SM_d($row['requiremessage']);
 	$requireregistration=SM_d($row['requireregistration']);
+	$requirevalidation=SM_d($row['requirevalidation']);
 	
 	$requirenumberinparty=SM_d($row['requirenumberinparty']);
 	$partymax=SM_d($row['partymax']);

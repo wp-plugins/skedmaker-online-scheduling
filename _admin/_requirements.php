@@ -2,6 +2,7 @@
 if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='requirements'){
 	$errorMessage="";
 	$requireregistration=$_POST['requireregistration'];
+	$requirevalidation=$_POST['requirevalidation'];
 	$requirename=$_POST['requirename'];
 	$requireemail=$_POST['requireemail'];
 	$requireconfirm=$_POST['requireconfirm'];
@@ -12,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='requirements'){
 	if($requirenumberinparty=='y'){if(!is_numeric($partymax)){$errorMessage='partymax';}}
 
 	if($errorMessage==""){
-		$saveIt=mysql_query("UPDATE skedmaker_users SET requireregistration='$requireregistration', requirename='$requirename', requireemail='$requireemail', requireconfirm='$requireconfirm', requirephone='$requirephone', requiremessage='$requiremessage', requirenumberinparty='$requirenumberinparty', partymax='$partymax'");	
+		$saveIt=mysql_query("UPDATE skedmaker_users SET requirevalidation='$requirevalidation', requireregistration='$requireregistration', requirename='$requirename', requireemail='$requireemail', requireconfirm='$requireconfirm', requirephone='$requirephone', requiremessage='$requiremessage', requirenumberinparty='$requirenumberinparty', partymax='$partymax'");	
 		//======= SAVE IT
 		if($errorMessage==""){
 			if(!$saveIt){
@@ -39,15 +40,22 @@ SM_title("Booking Requirements", "btn_requirements32_reg.png", $smadmin."v=requi
 Adding a check to these items will make sure they have been filled in before the appointment is reserved.
 <br><br>
 </td></tr>
-
-<tr><td class='label50'>&nbsp;</td>
-<td class='pad7'><label for="requireregistration"><b>Require Registration</b></label></td></tr>
-<tr><td class='pad7'>&nbsp;</td>
-<td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Your clients must create a user account and log in before the calendar can be accessed..</span><br />
-<span class='greenText'>Soon to be available in Skedmaker PRO version</span>
-</td>
+<tr><td><img src='<?php echo $sm_btns_dir;?>btn_sked32_reg.png' class='btn' style='float:right;' /></td>
+  <td style='padding:0px 14px 14px 7px;'><b>Require Registration</b><br />
+    <span class='smallG12'>Your clients must create a user account and log in before the calendar can be accessed.</span>
+  <br />
+    <span class='greenText'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Upgrade to Skedmaker PRO</span>
+  </td>
 </tr>
 
+<tr><td><img src='<?php echo $sm_btns_dir;?>btn_sked32_reg.png' class='btn' style='float:right;'/></td>
+<td style='padding:0px 14px 14px 7px;'>
+<b>Require E-mail Validation</b><bR />
+<span class='smallG12'>Your clients must validate their e-mail address by clicking a link sent to them when they complete a required registration.</span>
+<br />
+  <span class='greenText'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Upgrade to Skedmaker PRO</span>
+</td>
+</tr>
 
 <tr><td class='label50'><input name="requirename" type="checkbox" id="requirename" value="y" <?php if ($requirename=="y") {?> checked='checked' <?php }?>/></td>
 <td class='pad7'><label for="requirename"><b>Require Name</b></label></td></tr>

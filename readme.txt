@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .81
+Stable tag: .90
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Skedmaker's Plugin for WordPress is an online schedule and appointment system th
 
 Create your own schedule, and get e-mail notices when clients make an appointment with you.
 
-[Click here to try Skedmaker from your clients' perspective.](http://www.skedmaker.com/wordpress/?page_id=2&).
+[Click here to try Skedmaker from your clients' perspective.](http://www.skedmaker.com/wordpress).
 
 You don't have to know a drop of code to use Skedmaker in your WordPress site. Activate the Skedmaker WordPress Plugin and start customizing your schedule in minutes.
 
@@ -57,7 +57,7 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 11. After the tables are built, your Skedmaker Administration page will load.
 12. Follow the prompts at the top of the Admin page to get started building your schedule. 
 13. It is IMPORTANT that you follow the prompts to set your timezone and set e-mail address to receive appointment notifications.
-14. To display your Skedmaker schedule on your pages, simply use the short code [skedmaker] on each page you want it displayed. NOTE: Skedmaker will only work when included on pages set to 'default' or 'permalinks'.
+14. To display your Skedmaker schedule on your pages, simply use the short code [wp-skedmaker] on each page you want it displayed. NOTE: Skedmaker will only work when included on pages set to 'default' or 'permalinks'.
 15. Once installation is complete, you can delete the file: "_includes/sm-db-build.php". But you don't have to.
 16. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
 
@@ -103,8 +103,10 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 5. skedmaker-screenshot-5.png
 
 
-
 == Changelog ==
+= .90 =
+* Update CSS to adapt on mobile devices.
+
 = .81 =
 * Update to allow for permalinks and default setting options.
 

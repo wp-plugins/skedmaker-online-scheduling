@@ -3,7 +3,6 @@
 $val=mysql_query('select 1 from `skedmaker_users`');
 if($val===FALSE){
 
-
 function SM_code(){
 	$codedate=date('Ymd');
 	$len=10;
@@ -22,6 +21,9 @@ if(!function_exists('SM_ts')){function SM_ts(){$date=strtotime(date("Y-m-d H:i.s
 
 $conf_img="<img src='".$sm_btns_dir."btn_check_green32_reg.png' style='vertical-align:middle; margin-right:7px;'>";
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Blackouts
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $blackouts="
 CREATE TABLE IF NOT EXISTS `skedmaker_blackouts` (
   `id` int(11) NOT NULL auto_increment,
@@ -32,8 +34,12 @@ CREATE TABLE IF NOT EXISTS `skedmaker_blackouts` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;";
 $saveIt=mysql_query($blackouts)or die(mysql_error());
+// $conf_img="<img src='".$sm_btns_dir."btn_blackouts32_reg.png' style='vertical-align:middle; margin-right:7px;'>";
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_blackouts</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_blackouts</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Blocked dates
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $blockeddates="
 CREATE TABLE IF NOT EXISTS `skedmaker_blockeddates` (
   `id` int(20) NOT NULL auto_increment,
@@ -45,8 +51,35 @@ CREATE TABLE IF NOT EXISTS `skedmaker_blockeddates` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;";
 $saveIt=mysql_query($blockeddates);
+// $conf_img="<img src='".$sm_btns_dir."btn_check_block32_reg.png' style='vertical-align:middle; margin-right:7px;'>";
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_blockeddates</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_blockeddates</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Clients
+//////////////////////////////////////////////////////////////////////////////////////////////////
+$clients="
+CREATE TABLE `skedmaker_clients` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `code` varchar(100) NOT NULL,
+  `username` varchar(500) NOT NULL,
+  `email` varchar(500) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `signup_date` varchar(100) NOT NULL,
+  `recent_date` varchar(100) NOT NULL,
+  `signup_ip` varchar(100) NOT NULL,
+  `recent_ip` varchar(100) NOT NULL,
+  `signup_location` varchar(500) NOT NULL,
+  `recent_location` varchar(500) NOT NULL,
+  `valid` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;";
+$saveIt=mysql_query($clients);
+if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_clients</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_clients</p>";}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Custom
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $custom="
 CREATE TABLE IF NOT EXISTS `skedmaker_custom` (
   `id` int(20) NOT NULL auto_increment,
@@ -67,6 +100,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_custom` (
 $saveIt=mysql_query($custom);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_custom</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_custom</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Custom Sked
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $custom_sked="
 CREATE TABLE IF NOT EXISTS `skedmaker_custom_sked` (
   `id` int(20) NOT NULL auto_increment,
@@ -86,6 +122,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_custom_sked` (
 $saveIt=mysql_query($custom_sked);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_custom_sked</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_custom_sked</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Custom Timeframes
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $custom_timeframes="
 CREATE TABLE IF NOT EXISTS `skedmaker_custom_timeframes` (
   `id` int(20) NOT NULL auto_increment,
@@ -105,6 +144,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_custom_timeframes` (
 $saveIt=mysql_query($custom_timeframes);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_timeframes</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_custom_timeframes</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Send Reminders
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $sendreminders="
 CREATE TABLE IF NOT EXISTS `skedmaker_sendreminders` (
   `id` int(29) NOT NULL auto_increment,
@@ -116,6 +158,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_sendreminders` (
 $saveIt=mysql_query($sendreminders);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_sendreminders</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_sendreminders</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- Sked -- this si the schedule table that stores dates tha apts are booked.
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $sked="
 CREATE TABLE IF NOT EXISTS `skedmaker_sked` (
   `id` int(20) NOT NULL auto_increment,
@@ -148,6 +193,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_sked` (
 $saveIt=mysql_query($sked);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_sked</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_sked</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- create a unique code to prevent double posts
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $uni="
 CREATE TABLE IF NOT EXISTS `skedmaker_uni` (
   `id` int(20) NOT NULL auto_increment,
@@ -157,6 +205,9 @@ CREATE TABLE IF NOT EXISTS `skedmaker_uni` (
 $saveIt=mysql_query($uni);
 if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create table: skedmaker_uni</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:18px; '>".$conf_img." Created table: skedmaker_uni</p>";}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// -- admin's user profile, all setting for skedmaker a re stored here.
+//////////////////////////////////////////////////////////////////////////////////////////////////
 $users="
 CREATE TABLE IF NOT EXISTS `skedmaker_users` (
   `id` int(30) NOT NULL auto_increment,
@@ -317,6 +368,7 @@ CREATE TABLE IF NOT EXISTS `skedmaker_users` (
   `color3` varchar(20) NOT NULL,
   `highlight` varchar(20) NOT NULL,
   `requireregistration` varchar(10) NOT NULL,
+  `requirevalidation` varchar(10) NOT NULL,
   `send_notices_to_admin` varchar(10) NOT NULL,
   `send_notices_to_client` varchar(10) NOT NULL,
   `send_notices_to_BCC` varchar(10) NOT NULL,
@@ -338,23 +390,26 @@ if($errorMessage!="y"){
 
 	$SM_site_title=get_bloginfo('name');  // get the user defined name for the website, add to 'name '
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	// -- Create a defaut admin account
+	//////////////////////////////////////////////////////////////////////////////////////////////////
 	$insert_new_user="
-	INSERT INTO `skedmaker_users` VALUES(0, '', '$genSC', '$genUC', 'cjkagent', 'sked250', '$genTS', 'y', 0, '$SM_site_title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$genTS', '', '', '$genTS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'y', '', '', 'y', '', '', '', 'y', '', '', '', 'Available', 'Unavailable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'noBCC', '', '', '', '', 'y');";
+	INSERT INTO `skedmaker_users` VALUES(0, '', '$genSC', '$genUC', 'cjkagent', 'sked250', '$genTS', 'y', 0, '$SM_site_title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$genTS', '', '', '$genTS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'y', '', '', 'y', '', '', '', 'y', '', '', '', 'Available', 'Unavailable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'noBCC', '', '', '', '', 'y');";
 
 	$saveIt=mysql_query($insert_new_user);
-	if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create new user record. Try to re-load this page.</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:28px;'>".$conf_img." Created new user! Opening admin page...</p>";}
+	if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create new user record. Try to re-load this page.</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:28px;'>".$conf_img." Created new user successfully!</p>";}
 
 	if($errorMessage!="y"){
 
 		function SM_redirect($goto, $wait){
-	echo "<script language='javascript'>
+			echo "<script language='javascript'>
 			function direct(){
 			   window.location='".$site.$goto."';
 			   }
 			   setTimeout( 'direct();', ".$wait.");
 				</script>";
 		}
-		
+
 		$headers = "From: info@skedmaker.com \r\n";
 		$headers .= "Content-Type: text/html; charset=ISO-8859-1\n";
 		$headers .= "MIME-Version: 1.0\n";

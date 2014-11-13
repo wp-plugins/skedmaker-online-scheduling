@@ -82,7 +82,6 @@ SM_title("Default Schedule Settings", "btn_settings32_reg.png", $smadmin."&v=def
 
 To set up a more complicated set of timeframes and apply them to specific days of the year, create a <a href='<?php echo $smadmin;?>&amp;v=customdays&amp;' class='sked'>Custom Day Setting here</a>.
 <br />
-<!-- <a href='?op=cntct&amp;sc=home' style='font-weight:normal'><span class='smallG'>Please contact us if you need help.</span></a> -->
 </td></tr></table>
 </td></tr></table>
 
