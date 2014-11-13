@@ -106,6 +106,7 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 == Changelog ==
 = .90 =
 * Update CSS to adapt on mobile devices.
+* IMPORTANT: Change shortcode from [skedmaker] to [wp-skedmaker] -- be sure to update your page.
 
 = .81 =
 * Update to allow for permalinks and default setting options.
