@@ -397,7 +397,7 @@ if($errorMessage!="y"){
 	INSERT INTO `skedmaker_users` VALUES(0, '', '$genSC', '$genUC', 'cjkagent', 'sked250', '$genTS', 'y', 0, '$SM_site_title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$genTS', '', '', '$genTS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'y', '', '', 'y', '', '', '', 'y', '', '', '', 'Available', 'Unavailable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'y', 'y', 'noBCC', '', '', '', '', 'y');";
 
 	$saveIt=mysql_query($insert_new_user);
-	if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create new user record. Try to re-load this page.</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:28px;'>".$conf_img." Created new user successfully!</p>";}
+	if(!$saveIt){echo "<p style='color:#f00;'>Error! Could not create new user record. Try to re-load this page.</p>"; $errorMessage="y";}else{echo "<p style='color:#090; font-weight:bold; font-size:28px;'>".$conf_img." Created new user successfully! Opening admin...</p>";}
 
 	if($errorMessage!="y"){
 
