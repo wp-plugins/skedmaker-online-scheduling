@@ -28,7 +28,7 @@ if(!function_exists('SM_resend_validation')){function SM_resend_validation(){
 			$new_email=SM_d($row['email']);
 			$new_username=SM_d($row['username']);
 		}
-		
+
 		//-- if the email is not blank, then send the validation
 		if($new_email!=""){
 			$bodyData="<table class='cc800'>
@@ -176,6 +176,8 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_ID=SM_d($row['ID']);
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
+	}else{
+		$SM_permalink="?";
 	}
 	return $SM_permalink;
 }}
