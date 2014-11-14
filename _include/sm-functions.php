@@ -1635,7 +1635,7 @@ if(!function_exists('SM_client_apt')){function SM_client_apt($dayTS, $time_start
 }}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//-- If calendar is set to publicm this will display who has the apt
+//-- If calendar is set to public this will display who has the apt
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start, $time_end, $op){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
@@ -1648,7 +1648,6 @@ if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start
 		echo "<td class='pad7' style='border-top:1px dotted #666;'><span style='font-size:11px;'><img src='".$sm_btns_dir."btn_myaccount16_reg.png' class='btn'>".$name."</td><tr>";
 	}
 }}
-
 
 /////// anchor link to get to the top of the page
 if(!function_exists('SM_top')){function SM_top(){
@@ -2336,7 +2335,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	global $loginValid;
 	 ?>
      </div>
-<!--     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .79 © Copyright Skedmaker Online Scheduling</span></td></tr></table> -->
+     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .90 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 }}
