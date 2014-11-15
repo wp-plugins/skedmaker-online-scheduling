@@ -831,7 +831,7 @@ if($ts){
 	$year=date('Y', $ts); // get the year
 }
 
-if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page="?page_id=".$_GET['page_id'];}
+if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page=SM_permalink();}
 
 if($month=="" || $month=="00"){$month=date('m');}
 if($year=="" || $year=="00"){$year=date('Y');}
