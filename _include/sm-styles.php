@@ -131,7 +131,7 @@ table.cc600{border:none; padding:0px; border-spacing:0px; width:100%; *border-co
 table.cc800{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
 
 <?php }else{ ?>
-table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
+table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; max-width:800px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
 table.cc600{border:none; padding:0px; border-spacing:0px; width:600px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
 table.cc800{border:none; padding:0px; border-spacing:0px; width:800px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
 
