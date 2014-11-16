@@ -863,7 +863,7 @@ $days_in_month = cal_days_in_month(0, $month, $year); // how many days are in th
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // ======= Start building the calendar
 //////////////////////////////////////////////////////////////////////////////////////////////////
-echo "<table class='cc100'><tr><td class='nopad'>"; // restrict the table to 500 pixels wide
+echo "<table class='cc100' style='max-width:500px;'><tr><td class='nopad'>"; // restrict the table to 500 pixels wide
 echo "<table class='cc100'><tr><td class='blueBanner1'>";
 if($isAdmin!="y"){SM_logoutBtnR(); SM_printBtnR();SM_whenBtnR();SM_myaccountBtnR();}
 echo $title." ".$year;
@@ -1027,7 +1027,7 @@ while($day_num <= $days_in_month){
 		$calDiv="<div class='navBlocked'>";
 		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='This Day is Blocked'>";
 		$calDivClose="</a></div>";
-	}else if($foundBlocked=='y' && $loginValid!='admin'){
+	}else if(($foundBlocked=='y' || $total_in_range>0) && $loginValid!='admin'){
 		$calClass="calendarBlank"; $calDiv=""; $calLink=""; $calDivClose="";
 		$test=5;
 	}else if($loginValid=='admin'){
@@ -1330,7 +1330,7 @@ if($total_custom>0){
 }
 $cal_width="100%";
 ?>
-<table class='cc100' style='border-collapse:separate;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
+<table class='cc100' style='max-width:500px; border-collapse:separate;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
 <tr><td class='blueBanner2' style='padding:0px; margin:0px;'>
 <?php 
 $BS1=$year.$month.$day."000000";
@@ -1635,7 +1635,7 @@ if(!function_exists('SM_client_apt')){function SM_client_apt($dayTS, $time_start
 }}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//-- If calendar is set to publicm this will display who has the apt
+//-- If calendar is set to public this will display who has the apt
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start, $time_end, $op){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
@@ -1648,7 +1648,6 @@ if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start
 		echo "<td class='pad7' style='border-top:1px dotted #666;'><span style='font-size:11px;'><img src='".$sm_btns_dir."btn_myaccount16_reg.png' class='btn'>".$name."</td><tr>";
 	}
 }}
-
 
 /////// anchor link to get to the top of the page
 if(!function_exists('SM_top')){function SM_top(){
