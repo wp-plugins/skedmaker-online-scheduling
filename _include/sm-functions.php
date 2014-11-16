@@ -2031,7 +2031,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
                 <?php } ?>
 
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='?page_id=<?php echo $_GET['page_id'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='<?php echo SM_permalink();?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
             
