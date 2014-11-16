@@ -831,7 +831,7 @@ if($ts){
 	$year=date('Y', $ts); // get the year
 }
 
-if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page="?page_id=".$_GET['page_id'];}
+if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page=SM_permalink();}
 
 if($month=="" || $month=="00"){$month=date('m');}
 if($year=="" || $year=="00"){$year=date('Y');}
@@ -2032,7 +2032,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
                 <?php } ?>
 
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='?page_id=<?php echo $_GET['page_id'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='<?php echo SM_permalink();?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
             
