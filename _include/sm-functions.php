@@ -28,7 +28,7 @@ if(!function_exists('SM_resend_validation')){function SM_resend_validation(){
 			$new_email=SM_d($row['email']);
 			$new_username=SM_d($row['username']);
 		}
-
+		
 		//-- if the email is not blank, then send the validation
 		if($new_email!=""){
 			$bodyData="<table class='cc800'>
@@ -176,8 +176,6 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_ID=SM_d($row['ID']);
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
-	}else{
-		$SM_permalink="?";
 	}
 	return $SM_permalink;
 }}
@@ -606,22 +604,22 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=='noshow_confirm'){
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_redBox')){function SM_redBox($msg, $width,$redBoxFontSize){	
 	if(wp_is_mobile() || $width=="100%"){$width="100%";}else{$width=$width."px";}
-	echo "<table style='width:".$width."; margin:0px; border:0px; border-collapse:separate;'><tr><td class='redBox' style='text-align:center; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;'><span class='redText' style='font-size:".$redBoxFontSize."px;'>".$msg."</span></td></tr></table>";
+	echo "<table style='width:".$width."; margin:0px; border:0px; max-width:800px; border-collapse:separate;'><tr><td class='redBox' style='text-align:center; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;'><span class='redText' style='font-size:".$redBoxFontSize."px;'>".$msg."</span></td></tr></table>";
 }}
 
 if(!function_exists('SM_greenBox')){function SM_greenBox($msg, $width, $font_size){
 	if(wp_is_mobile() || $width=="100%"){$width="100%";}else{$width=$width."px";}
-	echo "<table style='width:".$width."; margin:0px; border:0px; border-collapse:separate;'><tr><td class='greenBox' style='text-align:center; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;'><span class='greenText' style='font-size:".$font_size."px;'>".$msg."</span></td></tr></table>";
+	echo "<table style='width:".$width."; margin:0px; border:0px;  max-width:800px; border-collapse:separate;'><tr><td class='greenBox' style='text-align:center; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;'><span class='greenText' style='font-size:".$font_size."px;'>".$msg."</span></td></tr></table>";
 }}
 
 if(!function_exists('SM_blueBox')){function SM_blueBox($msg, $width, $fontSize){
 	if(wp_is_mobile() || $width=="100%"){$width="100%";}else{$width=$width."px";}
-	echo "<table style='width:".$width."; margin:0px; border:0px; padding:0px; border-collapse:separate;'><tr><td class='blueBox' style='padding:0px;'><span style='font-size:".$fontSize."px; font-weight:bold; color:#06F;'>".$msg."</span></td></tr></table>";
+	echo "<table style='width:".$width."; margin:0px; border:0px;  max-width:800px; padding:0px; border-collapse:separate;'><tr><td class='blueBox' style='padding:0px;'><span style='font-size:".$fontSize."px; font-weight:bold; color:#06F;'>".$msg."</span></td></tr></table>";
 }}
 
 if(!function_exists('SM_orangeBox')){function SM_orangeBox($msg, $width, $fontSize){	
 	if(wp_is_mobile() || $width=="100%"){$width="100%";}else{$width=$width."px";}
-	echo "<table style='width:".$width."; margin:0px; border:0px; border-collapse:separate;'><tr><td class='orangeBox' align='center'><span style='font-size:".$fontSize."px'>".$msg."</span></td></tr></table>";
+	echo "<table style='width:".$width."; margin:0px; border:0px;  max-width:800px; border-collapse:separate;'><tr><td class='orangeBox' align='center'><span style='font-size:".$fontSize."px'>".$msg."</span></td></tr></table>";
 }}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -831,7 +829,7 @@ if($ts){
 	$year=date('Y', $ts); // get the year
 }
 
-if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page=SM_permalink();}
+if($isAdmin=='y'){$this_CAL_page=$smadmin;}else{$this_CAL_page="?page_id=".$_GET['page_id'];}
 
 if($month=="" || $month=="00"){$month=date('m');}
 if($year=="" || $year=="00"){$year=date('Y');}
@@ -1330,7 +1328,7 @@ if($total_custom>0){
 }
 $cal_width="100%";
 ?>
-<table class='cc100' style='max-width:500px; border-collapse:separate;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
+<table class='cc100' style='border-collapse:separate; max-width:500px;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
 <tr><td class='blueBanner2' style='padding:0px; margin:0px;'>
 <?php 
 $BS1=$year.$month.$day."000000";
@@ -1635,7 +1633,7 @@ if(!function_exists('SM_client_apt')){function SM_client_apt($dayTS, $time_start
 }}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//-- If calendar is set to public this will display who has the apt
+//-- If calendar is set to publicm this will display who has the apt
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start, $time_end, $op){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
@@ -1648,6 +1646,7 @@ if(!function_exists('SM_public_apt')){function SM_public_apt($dayTS, $time_start
 		echo "<td class='pad7' style='border-top:1px dotted #666;'><span style='font-size:11px;'><img src='".$sm_btns_dir."btn_myaccount16_reg.png' class='btn'>".$name."</td><tr>";
 	}
 }}
+
 
 /////// anchor link to get to the top of the page
 if(!function_exists('SM_top')){function SM_top(){
@@ -2031,7 +2030,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
                 <?php } ?>
 
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='<?php echo SM_permalink();?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='?page_id=<?php echo $_GET['page_id'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
             
@@ -2222,7 +2221,7 @@ if(!function_exists('SM_purge_past_check')){function SM_purge_past_check(){
 		<form id="form2" name="form2" method="post" action="<?php echo $smadmin;?>&amp;v=<?php echo $_GET['p'];?>&amp;op=purge_confirm&amp;">
 		<?php SM_redBox("<img src='".$sm_btns_dir."btn_largeex_reg.png' style='float:left; margin-right:-28px;' border='0px'><span style='font-size:21px;'>You are about to purge ".$totalPast." past ".$apt_word.".</span><br><br>This action can NOT be undone.", "100%", 16);?>
 		<br />
-		<table style='width:800px;'><tr><td class='pad5' colspan='3'><span style='font-size:28px;'><?php echo $name; ?></span></td></tr>
+		<table class='cc100'><tr><td class='pad5' colspan='3'><span style='font-size:28px;'><?php echo $name; ?></span></td></tr>
         <tr><td class='pad7' style='width:100px; text-align:center;'><div class='navMenuRound'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;list=past&amp;'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn' />Cancel - Don't Purge</a></div></td>
         <td width='150px' align='right' class='pad7'><input type="submit" name="purge" id="purge" value="Purge All Past Appointments" /></td>
         <tr><td></table>
@@ -2335,7 +2334,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	global $loginValid;
 	 ?>
      </div>
-     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .90 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
+<table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .79 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 }}
