@@ -863,7 +863,7 @@ $days_in_month = cal_days_in_month(0, $month, $year); // how many days are in th
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // ======= Start building the calendar
 //////////////////////////////////////////////////////////////////////////////////////////////////
-echo "<table class='cc100'><tr><td class='nopad'>"; // restrict the table to 500 pixels wide
+echo "<table class='cc100' style='max-width:500px;'><tr><td class='nopad'>"; // restrict the table to 500 pixels wide
 echo "<table class='cc100'><tr><td class='blueBanner1'>";
 if($isAdmin!="y"){SM_logoutBtnR(); SM_printBtnR();SM_whenBtnR();SM_myaccountBtnR();}
 echo $title." ".$year;
@@ -1027,7 +1027,7 @@ while($day_num <= $days_in_month){
 		$calDiv="<div class='navBlocked'>";
 		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='This Day is Blocked'>";
 		$calDivClose="</a></div>";
-	}else if($foundBlocked=='y' && $loginValid!='admin'){
+	}else if(($foundBlocked=='y' || $total_in_range>0) && $loginValid!='admin'){
 		$calClass="calendarBlank"; $calDiv=""; $calLink=""; $calDivClose="";
 		$test=5;
 	}else if($loginValid=='admin'){
@@ -1330,7 +1330,7 @@ if($total_custom>0){
 }
 $cal_width="100%";
 ?>
-<table class='cc100' style='border-collapse:separate;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
+<table class='cc100' style='max-width:500px; border-collapse:separate;'><tr><td class='blueBanner1'><?php echo date("l, F d, Y", $ts);?></td></tr>
 <tr><td class='blueBanner2' style='padding:0px; margin:0px;'>
 <?php 
 $BS1=$year.$month.$day."000000";
