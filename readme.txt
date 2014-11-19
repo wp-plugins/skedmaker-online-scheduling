@@ -92,6 +92,9 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 4. Click the "Save Blackout Dates" button.
 5. Your calendar will now block appointments from being scheduled inside the range you selected.
 
+= How do I change the language? =
+Sorry, Skedmaker is currently only available in English. Future updates will support other languages.
+
 = How do I suggest a new feature to add to Skedmaker? =
 visit http://www.skedmaker.com and select "Contact" to send us your comments and suggestions.
 
