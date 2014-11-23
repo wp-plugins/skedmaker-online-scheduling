@@ -153,5 +153,5 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 == Credits  ==
 = Icons by =
-* www.fatcow.com
+* www.fatcow.com/free-icons
 
