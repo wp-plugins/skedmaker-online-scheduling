@@ -151,7 +151,3 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 = 0.5 =
 * Update calendar and create days functions.
 
-== Credits  ==
-= Icons by =
-* www.fatcow.com/free-icons
-

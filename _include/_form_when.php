@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 			while($row = mysql_fetch_array($result)) {
 				$aptCode=SM_d($row['code']);
 				$aptDate=SM_apt(SM_d($row['startdate']));
-				$apt_cancel="<a href='".get_site_url()."/?page_id=".$_GET['page_id']."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
+				$apt_cancel="<a href='".SM_permalink()."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
 				$apt_data.=$apt_cancel."<br>";
 			}
 

@@ -23,20 +23,6 @@ while($row = mysql_fetch_array($result)){$max_apts=SM_d($row[$multiplerow]);}
 $countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
 $total_taken=mysql_num_rows($countIt);
 
-/*
-//======= remaining
-$remaining=$max_apts-$total_taken;
-	
-if($remaining<1){
-	echo $total_taken."<br>".$remaining;
-	echo "<br><bR>";
-	SM_redBox("Sorry, this appointment has been taken.", 800, 21);
-	echo "<br><bR>";
-	echo "<a href='".$smpageid."&amp;op=sked&amp;ts=".$_GET['ts']."'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' style='border:0px; margin-right:7px'>Back to Schedule</a>";
-	SM_foot();
-}
-*/
-
 if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 	$errorMessage="";
 	$errorMessage=SM_uni_check();
@@ -110,28 +96,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
             </td></tr></table>
 
 <?php
-			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
-			$uses_perm=mysql_num_rows($countIt);
-			
-			$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
-			$uses_default=mysql_num_rows($countIt);
-
-			// check if using permalinks
-			if($uses_perm>0){
-				$result=mysql_query("SELECT post_name FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
-				while($row = mysql_fetch_array($result)) {
-					$SM_ID=SM_d($row['post_name']);		
-					$SM_permalink=get_site_url()."/".$SM_ID;		
-				}
-
-			// check if using default
-			}else if($uses_default>0){
-				$result=mysql_query("SELECT ID FROM wp_posts WHERE post_content LIKE '%[skedmaker]%' AND post_status='publish' LIMIT 1");
-				while($row = mysql_fetch_array($result)) {
-					$SM_ID=SM_d($row['ID']);
-					$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
-				}	
-			}
+			$SM_permalink=SM_permalink();
 
 			if($client_name==""){$client_name="n/a";}
 			if($client_phone==""){$client_phone="n/a";}
@@ -175,7 +140,7 @@ if($_GET['v']!=""){
 	$viewURL="&amp;v=".$_GET['v'];
 }else{
 	$viewURL="";
-	$back=$smpageid."&amp;op=sked&amp;ts=".$_GET['ts'];
+	$back=SM_permalink()."&amp;op=sked&amp;ts=".$_GET['ts'];
 }
 ?>
 <form id="form1" name="form1" method="post" style='margin:0px;' action="<?php if($loginValid=="admin"){echo $smadmin;}else{die("error not admin");}?>&amp;op=confirm&amp;ts=<?php echo $_GET['ts']; echo $viewURL; ?>&amp;">

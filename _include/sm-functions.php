@@ -176,6 +176,8 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_ID=SM_d($row['ID']);
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
+	}else{
+		$SM_permalink="?";
 	}
 	return $SM_permalink;
 }}
@@ -741,7 +743,7 @@ if(!function_exists('SM_code')){function SM_code(){
 //-- Create Calendar
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_create_calendar')){function SM_create_calendar($isAdmin){
-global $smadmin; global $smpageid; global $b1_color; global $loginValid;
+global $smadmin; global $b1_color; global $loginValid;
 $ts=$_GET['ts']; // if there is a ts variable in the URL get it
 if($_GET['uc']!=""){$ucURL="&amp;uc=".$_GET['uc'];}else{$ucURL="";}
 
@@ -1008,7 +1010,7 @@ echo "<br>";
 //======= Create Blackout Calendar
 //==================================================================================================
 if(!function_exists('SM_create_blackout_cal')){function SM_create_blackout_cal($start_or_end){
-global $smadmin; global $smpageid; global $b1_color; global $loginValid;
+global $smadmin; global $b1_color; global $loginValid;
 $ts=$_GET['ts']; // if there is a ts variable in the URL get it
 
 if($ts){
@@ -1829,7 +1831,7 @@ if(!function_exists('SM_capture_check')){function SM_capture_check(){
 //-- Cancels appointmetns -- used for both clients and admins
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
-	global $sitename; global $smadmin; global $site; global $smpageid; global $adminemail; global $b1_color;
+	global $sitename; global $smadmin; global $site; global $adminemail; global $b1_color;
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 
 	if($_GET['op']=="cancel"){

@@ -1,7 +1,6 @@
 <?php
 if(!function_exists('SM_d')){function SM_d($DBvar){return stripslashes(urldecode($DBvar));}}
 $smadmin=admin_url()."?page=skedmaker-online-scheduling/admin_home.php";
-$smpageid="?page_id=".$_GET['page_id'];
 $sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 $site=plugins_url( __FILE__ );
 
@@ -39,7 +38,7 @@ if($protect!="" && $loginValid!="admin"){
 					$_SESSION['loginClient']="y";
 					echo "<br><br>";
 					SM_greenBox("Logging In...", 400, 21);
-					SM_redirect($smpageid, 500);
+					SM_redirect(SM_permalink(), 500);
 					$success="y";
 					SM_foot();
 				}else{
@@ -49,7 +48,7 @@ if($protect!="" && $loginValid!="admin"){
 		}
 		if($success!="y"){
 			if($not_valid=='y'){echo"<br><br>";SM_redBox("Not Valid!", 400, 21);}?>
-			<form id="form1" name="form1" method="post" action="<?php echo $smpageid;?>&amp;op=login&amp;">
+			<form id="form1" name="form1" method="post" action="<?php echo SM_permalink();?>&amp;op=login&amp;">
 			<table class='cc800' style='width:400px; margin-top:21px;'>
 			<tr><td class='pad7'><span class='header'><img src='<?php echo $sm_btns_dir;?>btn_login32_reg.png' class='btn' alt='Private Schedule'>Private Schedule</span></td></tr>
 			<tr><td class='blueBanner1'>This Schedule is Locked</td></tr>
