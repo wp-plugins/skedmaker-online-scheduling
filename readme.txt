@@ -62,6 +62,7 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 16. If you have any issues or questions, PLEASE leave a support message and I will do my best to help you.
 
 
+
 == Frequently Asked Questions ==
 
 = How do I set up my schedule? =
