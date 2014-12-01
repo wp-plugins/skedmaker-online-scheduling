@@ -37,7 +37,7 @@ if(!function_exists('SM_resend_validation')){function SM_resend_validation(){
 				<tr><td class='blueBanner2' style='padding-left:0px; padding-right:0px;'>
 				<table class='cc100'>
 				<tr><td class='pad7'><b>Click the link below to validate your e-mail address and activate your account.</td></tr>
-				<tr><td class='pad7'><a href='".SM_permalink()."&amp;op=validate&amp;vc=".$valid_code."&amp;'>Click here to validate your account now.</a></td></tr>
+				<tr><td class='pad7'><a href='".SM_permalink()."&amp;op=validate&amp;vc=".$valid_code."&amp;#skedtop'>Click here to validate your account now.</a></td></tr>
 				</table>
 				</td></tr></table>";
 			if(SM_emailIt(SM_d($new_email), $adminemail, "", "Account Validation - ".SM_d($new_username), $bodyData)===false){
@@ -114,7 +114,7 @@ if($_GET['op']=="forgot"){
         <tr><td class='label150'>E-mail:</td>
         <td class='pad7'><input name="forgotemail" type="text" id="forgotemail" class='form_textfield' value="<?php echo $forgotemail; ?>"  maxlength="100"></td></tr>
         <?php if($notReg!=""){echo "<tr><td class='label150'>&nbsp;</td><td class='pad7'>".$notReg."</td></tr>"; }?>
-        <tr><td class='nopad' style='text-align:center; width:30%;'><div class='navMenuRound'><a href='<?php echo SM_permalink();?>'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'><b>Back</b></a></div></td>
+        <tr><td class='nopad' style='text-align:center; width:30%;'><div class='navMenuRound'><a href='<?php echo SM_permalink();?>#skedtop'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'><b>Back</b></a></div></td>
         <td class='pad7'><input type="submit" name="button" id="contact" value="<?php echo $send_btn_text;?>"></td></tr>
         </table>
         </td></tr></table>
@@ -584,7 +584,7 @@ if(!function_exists('SM_myaccountBtnR')){function SM_myaccountBtnR(){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 	$loginValidClient=$_SESSION['loginValidClient'];
 	if($loginValidClient=="y"){
-		echo	"<a href='".SM_permalink()."&amp;op=myaccount&amp;' title='My Account Info' style='float:right'><img src='".$sm_btns_dir."btn_myaccount16_reg.png' style='border:0px; margin-right:7px;'></a>";
+		echo	"<a href='".SM_permalink()."&amp;op=myaccount&amp;#skedtop' title='My Account Info' style='float:right'><img src='".$sm_btns_dir."btn_myaccount16_reg.png' style='border:0px; margin-right:7px;'></a>";
 	}else{
 		// echo "no";
 	}
@@ -595,7 +595,7 @@ if(!function_exists('SM_myaccountBtnR')){function SM_myaccountBtnR(){
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_whenBtnR')){function SM_whenBtnR(){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
-echo	"<a href='".SM_permalink()."&amp;op=when&amp;' title='When is my appointment?' style='float:right'><img src='".$sm_btns_dir."btn_chair16_reg.png' style='border:0px; margin-right:7px;'></a>";
+echo	"<a href='".SM_permalink()."&amp;op=when&amp;#skedtop' title='When is my appointment?' style='float:right'><img src='".$sm_btns_dir."btn_chair16_reg.png' style='border:0px; margin-right:7px;'></a>";
 }}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -826,7 +826,7 @@ for($num=$currentMonth;$num<=$stopMonth;$num++){
 	if($datecode_MenuMonths!=""){$datecode_to_Pass="&amp;dc=".$datecode_MenuMonths;}else{$datecode_to_Pass="&amp;";}
 
 
-	echo "<td class='g666' style='width:8.33%'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts".$datecode_to_Pass.$ucURL.$admin_view."' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
+	echo "<td class='g666' style='width:8.33%'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts".$datecode_to_Pass.$ucURL.$admin_view."#skedtop' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
 }
 
 // -- NEXT YEAR 
@@ -854,7 +854,7 @@ for($num=1;$num<=$stopMonth;$num++){
 
 	$titleString="Go to ".$displayMonth." ".$year_MenuMonths;
 
-	echo "<td class='g666' style='width:8.33%'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts".$datecode_to_Pass.$ucURL.$admin_view."' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
+	echo "<td class='g666' style='width:8.33%'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts".$datecode_to_Pass.$ucURL.$admin_view."#skedtop' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
 }
 echo "</td></tr></table>";  // months menu ends
 
@@ -926,7 +926,7 @@ while($day_num <= $days_in_month){
 	
 	if($total_in_range>0 && $loginValid=="admin"){
 		$calClass="calendarBlocked"; $calDiv="<div class='navBlackouts'>"; 
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Inside Blackout Range'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."&amp;' title='Inside Blackout Range'>";
 		$calDivClose="</div>";
 	}else if($month==$monthLimit && $day_num<$dayLimit){
 		$calClass="calendarPassed"; $calDiv=""; $calLink=""; $calDivClose="";
@@ -935,27 +935,27 @@ while($day_num <= $days_in_month){
 		$test=2;
 		$calClass="calendarDay";
 		$calDiv="<div class='navCustom'>";
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='Set to Custom: ".$dc_name_for_cal_rollover."'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."&amp;' title='Set to Custom: ".$dc_name_for_cal_rollover."'>";
 		$calDivClose="</a></div>";
 
 	}else if($total_custom_found>0 && $loginValid!='admin'){
 		$test="2b";
 		$calClass="calendarDay";
 		$calDiv="<div class='navDay'>";
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='".$titleDisplay."'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."&amp;' title='".$titleDisplay."'>";
 		$calDivClose="</a></div>";
 	}else if($foundBlocked=='y' && $loginValid=='admin'){
 		$test=4;
 		$calClass="calendarBlocked";
 		$calDiv="<div class='navBlocked'>";
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='This Day is Blocked'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."&amp;' title='This Day is Blocked'>";
 		$calDivClose="</a></div>";
 	}else if(($foundBlocked=='y' || $total_in_range>0) && $loginValid!='admin'){
 		$calClass="calendarBlank"; $calDiv=""; $calLink=""; $calDivClose="";
 		$test=5;
 	}else if($loginValid=='admin'){
 		//======= deactivated days 
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."&amp;' title='".$titleDisplay."'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."&amp;' title='".$titleDisplay."'>";
 		$calDivClose="</a></div>";
 		if(
 			($day_count==1 && $sundaylive!="y") || 
@@ -987,7 +987,7 @@ while($day_num <= $days_in_month){
 		}else{
 			$calClass="calendarDay";
 			$calDiv="<div class='navDay'>";
-			$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$datecode_to_Pass."' title='".$titleDisplay."'>";
+			$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;#skedtop".$datecode_to_Pass."' title='".$titleDisplay."'>";
 			$calDivClose="</a></div>";
 			$test=7;
 		}
@@ -1085,7 +1085,7 @@ for($num=$currentMonth;$num<=$stopMonth;$num++){
 	$ts=SM_timestamp($year_MenuMonths.$month_MenuMonths."01");
 	$titleString="Go to ".$displayMonth." ".$year_MenuMonths;
 
-	echo "<td class='g666'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts&amp;start=".$_GET['start']."&amp;end=".$_GET['end']."&amp;' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
+	echo "<td class='g666'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts&amp;start=".$_GET['start']."&amp;end=".$_GET['end']."&amp;#skedtop' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
 }
 
 // -- NEXT YEAR 
@@ -1108,7 +1108,7 @@ for($num=1;$num<=$stopMonth;$num++){
 
 	$titleString="Go to ".$displayMonth." ".$year_MenuMonths;
 
-	echo "<td class='g666'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts&amp;start=".$_GET['start']."&amp;end=".$_GET['end']."&amp;' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
+	echo "<td class='g666'><div class='nav666'><a href='".$this_CAL_page."&amp;ts=$ts&amp;start=".$_GET['start']."&amp;end=".$_GET['end']."&amp;#skedtop' title='".$titleString."'><span class='small'>".$showMonth."</span></a></div></td>";
 }
 echo "</td></tr></table>";  // months menu ends
 
@@ -1161,7 +1161,7 @@ while($day_num <= $days_in_month){
 		$calClass="calendarPassed"; $calDiv=""; $calLink=""; $calDivClose="";
 	}else if($loginValid=='admin'){
 		//======= deactivated days 
-		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$SE."&amp;' title='".$titleDisplay."'>";
+		$calLink="<a href ='".$this_CAL_page."&amp;op=sked&amp;ts=".$tsURL."&amp;".$SE."&amp;#skedtop' title='".$titleDisplay."'>";
 		$calDivClose="</a></div>";
 			$calClass="calendarDay";
 			$calDiv="<div class='navDay'>";
@@ -1175,7 +1175,6 @@ while($day_num <= $days_in_month){
 echo "</tr></table>";
 echo "</td></tr></table>"; // -- end 500px wide
 
-echo "<a name='acal' id='acal'></a>";
 echo "<br>";
 }}
 
@@ -1266,7 +1265,7 @@ while($rowExist = mysql_fetch_array($getExist)){$codeExist=SM_d($rowExist['code'
 if($loginValid=='admin' && $total_custom>0){
 	?>
 	<table class='cc100'><tr><td class='nopad'>
-	<div class='navBlue'><a href="<?php echo $smadmin;?>&amp;op=removecustom&amp;csc=<?php echo $codeExist;?>&amp;dc=<?php echo $datecode;?>"  class='sked' title="Remove Custom"><img src="<?php echo $sm_btns_dir;?>btn_custom16_reg.png" style="vertical-align:middle; margin-right:7px; border:0px" />Custom: "<?php echo $customName; ?>"</a></div>
+	<div class='navBlue'><a href="<?php echo $smadmin;?>&amp;op=removecustom&amp;csc=<?php echo $codeExist;?>&amp;dc=<?php echo $datecode;?>&amp;"  class='sked' title="Remove Custom"><img src="<?php echo $sm_btns_dir;?>btn_custom16_reg.png" style="vertical-align:middle; margin-right:7px; border:0px" />Custom: "<?php echo $customName; ?>"</a></div>
 	</td></tr></table>
 <?php } 
 
@@ -1428,7 +1427,7 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 	if($loginValid=="admin"){
 		$this_page=$smadmin."&amp;v=adminsked&amp;ts=".$dayTS.$URLdc.$URLtc."&amp;";
 	}else{
-		$this_page=SM_permalink()."&amp;op=confirm&amp;ts=".$dayTS.$URLdc.$URLtc."&amp;";
+		$this_page=SM_permalink()."&amp;op=confirm&amp;ts=".$dayTS.$URLdc.$URLtc."&amp;#skedtop";
 	}
 
 	//======= get number taken
@@ -1553,7 +1552,7 @@ if(!function_exists('SM_client_apt')){function SM_client_apt($dayTS, $time_start
 		$stagger=SM_stagger($stagger);
 		$name=SM_d($row['name']);
 		$DBcode=SM_d($row['code']);
-		echo "<td class='nopad'><div class='navYellow'><a href='".$opURL."&amp;aptc=".$DBcode."&amp;ts=".$dayTS."&amp;' span style='font-size:11px;'><img src='".$sm_btns_dir.$btn_img."' class='btn' style='margin-left:14px;'> ".$book_word.": ".$name."</a></div></td><tr>";
+		echo "<td class='nopad'><div class='navYellow'><a href='".$opURL."&amp;aptc=".$DBcode."&amp;ts=".$dayTS."&amp;#skedtop' span style='font-size:11px;'><img src='".$sm_btns_dir.$btn_img."' class='btn' style='margin-left:14px;'> ".$book_word.": ".$name."</a></div></td><tr>";
 	}	
 }}
 
@@ -1912,7 +1911,7 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
 				<tr><td class='label150'>Name: </td><td class='pad7' style='width:650px;'>".$canName."</td></tr>
 				<tr><td class='label150'>Phone: </td><td class='pad7' style='width:650px;'>".$canPhone."</td></tr>
 				<tr><td class='label150'>E-mail: </td><td class='pad7' style='width:650px;'>".$canEmail."</td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;'>Please click here to schedule a new appointment.</td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;#skedtop'>Please click here to schedule a new appointment.</td></tr>
 				</table>
 				</td></tr></table>";
 				if(SM_emailIt($canEmail, $adminemail, $adminemail, "Appointment Cancelled: ".$canName, $bodyData)!=true){
@@ -1948,14 +1947,14 @@ if(!function_exists('SM_cancel_apt')){function SM_cancel_apt($isAdmin){
    			<tr><td class='pad7' colspan='2'><img src='<?php echo $sm_btns_dir;?>btn_warn22_reg.png' class='btn' alt='Warning'><span class='redText'>This can NOT be undone.</span></td></tr>
 			<tr><td class='pad7' colspan='2'>
 			<?php if($isAdmin=='admin'){ ?>
-				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;ts=<?php echo $_GET['ts'];?>&amp;list=future&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_future16_reg.png' class='btn'>Back to List</a></div>  
-				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;ts=<?php echo $_GET['ts'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_home16_reg.png' class='btn'>Admin Home</a></div>
+				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=appointments&amp;ts=<?php echo $_GET['ts'];?>&amp;list=future&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_future16_reg.png' class='btn'>Back to List</a></div>  
+				<div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;ts=<?php echo $_GET['ts'];?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_home16_reg.png' class='btn'>Admin Home</a></div>
                 <?php if($_GET['detail']!=""){?>
-                <div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=clients&amp;detail=<?php echo $_GET['detail'];?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_clients16_reg.png' class='btn'>Back to Client</a></div>
+                <div class='navMenuRound' style='width:150px;'><a href='<?php echo $smadmin;?>&amp;v=clients&amp;detail=<?php echo $_GET['detail'];?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_clients16_reg.png' class='btn'>Back to Client</a></div>
                 <?php } ?>
 
 			<?php }else{?>			
-				<div class='navMenuRound' style='width:190px;'><a href='<?php echo SM_permalink();?>&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
+				<div class='navMenuRound' style='width:190px;'><a href='<?php echo SM_permalink();?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn'>Back to Schedule</a></div>
 			<?php  } ?>
 			</td></tr></table>
             
@@ -2099,7 +2098,7 @@ if(!function_exists('SM_uni_check')){function SM_uni_check(){
 		if($loginValid=="admin"){$uniback=$smadmin;}else{$uniback=SM_permalink()."&amp;ts=".$_GET['ts']."&amp;";}
 		echo "<span class='redText'>Operation halted, the form was posted twice. </span>";
 		echo "<br><br>";
-		echo "<a href='".$uniback."' class='sked'><< Go back</a>";
+		echo "<a href='".$uniback."#skedtop' class='sked'><< Go back</a>";
 		echo "<br><br>";
 		die();
 		return "y";
@@ -2260,7 +2259,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	 ?>
      </div>
 <table style='width:100%; border:0px; margin-top:14px;'><tr>
-  <td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .90 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
+  <td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .93 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 }}

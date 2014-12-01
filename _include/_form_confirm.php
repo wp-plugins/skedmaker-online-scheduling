@@ -92,7 +92,7 @@ if(wp_is_mobile()){
                 
                 <table class='cc100' style='border-collapse:separate;'><tr>
                 <td class='nopad' style='width:50%; text-align:center;'>
-				<div class='navMenuRound' <?php if(wp_is_mobile()){?>style='width:200px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;ts=<?php echo $_GET['ts'];?>' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
+				<div class='navMenuRound' <?php if(wp_is_mobile()){?>style='width:200px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;ts=<?php echo $_GET['ts'];?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
                 </td>
                 <?php if(wp_is_mobile()){ // jump to next line+?>
                 </tr><tr>
@@ -109,7 +109,7 @@ if(wp_is_mobile()){
 				if($client_email!=""){?>
 					<tr><td class='pad14'>You may cancel and reschedule your appointment by clicking the link below.</td></tr>
 					<tr><td class='pad14'>
-					<div class='navCancel'  <?php if(wp_is_mobile()){?>style='width:225px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;' class='cancel'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
+					<div class='navCancel'  <?php if(wp_is_mobile()){?>style='width:225px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;#skedtop' class='cancel'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
 					</td></tr>
 					<?php if($cancelpolicy!=""){echo "<tr><td class='pad14'><span class='redText'>".$cancelpolicy."</span></td></tr>";} ?>
 			   <?php } ?>
@@ -142,7 +142,7 @@ if(wp_is_mobile()){
 				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
 				<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
 				<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;'>Click here if you need to cancel this appointment</a></td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;#skedtop'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
 				$biz_info=SM_biz_info();
@@ -171,7 +171,7 @@ if(wp_is_mobile()){
 		$viewURL="&amp;v=".$_GET['v'];
 	}else{
 		$viewURL="";
-		$back=SM_permalink()."&amp;op=sked&amp;ts=".$_GET['ts'];
+		$back=SM_permalink()."&amp;op=sked&amp;ts=".$_GET['ts']."&amp;#skedtop";
 	}
 
 	if($success!="y"){ ?>

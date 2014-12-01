@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: .90
+Stable tag: .93
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,11 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .93 =
+* Update functions.
+* Fix some CSS bugs.
+* Add anchor to top of calendar and confirmations.
+
 = .90 =
 * Update CSS to adapt on mobile devices.
 * IMPORTANT: Change shortcode from [skedmaker] to [wp-skedmaker] -- be sure to update your page.
@@ -154,3 +159,4 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 == Credits ==
 = Icons by =
 * http://www.fatcow.com/free-icons
+

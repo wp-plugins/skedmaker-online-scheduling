@@ -15,6 +15,7 @@ include(plugin_dir_path( __FILE__ ) . "sm-functions.php"); // load functions
 include(plugin_dir_path( __FILE__ ) . "sm-styles.php");
 ?>
 <div id='body' align='center'>
+<a name='skedtop'></a>
 <?php
 
 $username=$_SESSION['username'];
