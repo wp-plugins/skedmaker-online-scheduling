@@ -70,46 +70,45 @@ if(wp_is_mobile()){
 				//======= SUCCESSFULLY BOOKED!
 				SM_greenBox("Your Appointment is Reserved!", "100%", 21); ?>
 				<table class='cc100' style='border-collapse:separate; margin-top:14px;'>
-				<tr><td class='pad7'><span class='header'><img src='<?php echo $sm_btns_dir;?>btn_chair32_reg.png' style='border:0px; margin-right:14px; vertical-align:middle;' />My Appointment</span></td></tr>
 				<tr><td class='blueBanner1'><?php if($username!=""){echo SM_d($username);}else{echo SM_d($client_name);}?>, your appointment details are below</td></tr>
 				<tr><td class='blueBanner2' style='padding:7px;'>
 				<?php if($loginValid=="admin"){SM_menu();} ?>
 				<table class='cc100' style='border-collapse:separate;'>
-				<tr><td class='pad14' style='padding-bottom:0px;'><span style='font-size:21px; font-weight:bold;'><?php echo $showApt; ?></span></td></tr>
+				<tr><td class='pad14b2' style='padding-bottom:0px;'><img src='<?php echo $sm_btns_dir;?>btn_chair32_reg.png' style='border:0px; margin-right:14px; vertical-align:middle;' /><span style='font-size:21px; font-weight:bold;'><?php echo $showApt; ?></span></td></tr>
 				<?php 
 				if($loginValidClient=="y"){
 					$result=mysql_query("SELECT * FROM skedmaker_clients WHERE code='$usercode' LIMIT 1");
 					while($row = mysql_fetch_array($result)){$client_email=SM_d($row['email']);}
 				}
 				if($client_email!=""){?>
-					<tr><td class='pad14'>
+					<tr><td class='pad14b2'>
 					<span style='font-weight:bold; font-size:18px;'>A confirmation e-mail was sent to: <br /><?php echo SM_d($client_email);?></span><br /><br />
 					<b>This e-mail will also provide a cancellation link, should you need to reschedule.</b>
 					</td></tr>
 				<?php } ?>
 				<?php if($loginValid!="admin"){ ?>
-				<tr><td class='pad7'>
+				<tr><td class='pad7b2'>
                 
                 <table class='cc100' style='border-collapse:separate;'><tr>
-                <td class='nopad' style='width:50%; text-align:center;'>
+                <td class='nopadb2' style='width:50%; text-align:center;'>
 				<div class='navMenuRound' <?php if(wp_is_mobile()){?>style='width:200px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;ts=<?php echo $_GET['ts'];?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
                 </td>
                 <?php if(wp_is_mobile()){ // jump to next line+?>
                 </tr><tr>
                 <?php } ?>
-                <td class='nopad' style='width:50%'>
-                <div class='navMenuRound' <?php if(wp_is_mobile()){?>style='width:220px'<?php } ?>><a href='#' onClick='window.print();' title='Print' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_print16_reg.png' style='border:0px; margin-right:7px;'>Print this Appointment</a></div>
+                <td class='nopadb2' style='width:50%; text-align:center;'>
+                <div class='navMenuRound'><a href='#' onClick='window.print();' title='Print' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_print16_reg.png' class='btn'>Print this Appointment</a></div>
                 </td></tr></table>
 
 				</td></tr>
 				<?php } ?>
-				<tr><td class='nopad'></td></tr>
+				<tr><td class='nopadb2'>&nbsp;</td></tr>
 				<?php 
 				//== no cancel if theres no email
 				if($client_email!=""){?>
-					<tr><td class='pad14'>You may cancel and reschedule your appointment by clicking the link below.</td></tr>
-					<tr><td class='pad14'>
-					<div class='navCancel'  <?php if(wp_is_mobile()){?>style='width:225px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;#skedtop' class='cancel'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
+					<tr><td class='pad14b2'>You may cancel and reschedule your appointment by clicking below.</td></tr>
+					<tr><td class='pad14b2' style='text-align:center;'>
+					<div class='navCancel'  <?php if(wp_is_mobile()){?>style='width:225px'<?php } ?>><a href='<?php echo SM_permalink();?>&amp;op=cancel&amp;aptc=<?php echo $canCode; ?>&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_cancel16_reg.png' class='btn'/>Cancel This Appointment</a></div>
 					</td></tr>
 					<?php if($cancelpolicy!=""){echo "<tr><td class='pad14'><span class='redText'>".$cancelpolicy."</span></td></tr>";} ?>
 			   <?php } ?>
@@ -175,7 +174,7 @@ if(wp_is_mobile()){
 	}
 
 	if($success!="y"){ ?>
-	<form id="form1" name="form1" method="post" action="<?php echo SM_permalink();?>&amp;op=confirm&amp;ts=<?php echo $_GET['ts'];?>&amp;">
+	<form id="form1" name="form1" method="post" action="<?php echo SM_permalink();?>&amp;op=confirm&amp;ts=<?php echo $_GET['ts'];?>&amp;#skedtop">
 	<?php SM_uni_create();?>
 
    <table class='cc100'><tr><td class='pad7' style='vertical-align:middle; text-align:left;'><a href='' class='header'><img src='<?php echo $sm_btns_dir;?>btn_settings32_reg.png' class='btn'><?php echo $main_title_text;?></a></td></tr></table>
@@ -186,7 +185,7 @@ if(wp_is_mobile()){
 	<tr><td class="blueBanner1"><?php echo $b1_text;?></td></tr>
 	<tr><td class="blueBanner2">
 	<table class='cc100'>
-	<tr><td class='pad7' colspan='2'><b>Complete the form below to reserve this appointment.</b></td></tr>
+	<tr><td class='pad7b2' colspan='2'><b>Complete the form below to reserve this appointment.</b></td></tr>
 
 <?php 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -203,39 +202,39 @@ if(wp_is_mobile()){
 	}?>
 	<tr><td class='label150'><?php SM_check_text("Name: ", $errorName);?></td>
 	<?php if($loginValidClient=="y"){?>
-		<td class='pad7' style='width:85%;'><?php echo SM_d($username);?></td></tr>
+		<td class='pad7b2' style='width:85%;'><?php echo SM_d($username);?></td></tr>
 <?php }else{ ?>
-		<td class='pad7' style='width:85%;'><input name="client_name" type="text" class='form_textfield' value="<?php echo SM_d($client_name);?>" maxlength="100"/></td></tr>
+		<td class='pad7b2' style='width:85%;'><input name="client_name" type="text" class='form_textfield' value="<?php echo SM_d($client_name);?>" maxlength="100"/></td></tr>
 <?php }	?>
 
 	<tr><td class='label150'><?php SM_check_text("E-mail: ", $errorEmail);?></td>
 	<?php 
 	if($loginValidClient=="y"){?>
-		<td class='pad7' style='width:85%;'><?php echo $client_email;?></td></tr>
+		<td class='pad7b2' style='width:85%;'><?php echo $client_email;?></td></tr>
 	<?php }else{ ?>
 		<?php if($requireemail=="y"){?>
-	        <td class='pad7' style='width:85%;'><input name="client_email" type="text" class='form_textfield' value="<?php echo SM_d($client_email);?>" maxlength="100" /></td></tr>
+	        <td class='pad7b2' style='width:85%;'><input name="client_email" type="text" class='form_textfield' value="<?php echo SM_d($client_email);?>" maxlength="100" /></td></tr>
     <?php } 
 	}
 	?>
-	<?php if($errorValid=="y"){echo "<tr><td class='label150'>&nbsp;</td><td class='pad7' style='padding-top:0px;'><span class='smallRed'>Enter a valid email address.</td></tr>";}?>
+	<?php if($errorValid=="y"){echo "<tr><td class='label150'>&nbsp;</td><td class='pad7b2' style='padding-top:0px;'><span class='smallRed'>Enter a valid email address.</td></tr>";}?>
 
 	<?php if($requireconfirm=="y" && $loginValidClient!="y"){?>
         <tr><td class='label150'><?php SM_check_text("Confirm E-mail: ", $errorConfirmEmail);?></td>
-        <td class='pad7' style='width:85%;'><input name="confirm_email" type="text" class='form_textfield' value="<?php echo SM_d($confirm_email);?>" maxlength="100"/></td></tr>
+        <td class='pad7b2' style='width:85%;'><input name="confirm_email" type="text" class='form_textfield' value="<?php echo SM_d($confirm_email);?>" maxlength="100"/></td></tr>
 	<?php } ?>
 
 	<?php if($requirephone=='y' && $loginValidClient!="y"){ ?>
             <tr><td class='label150'><?php SM_check_text("Phone: ", $errorPhone);?></td>
-            <td class='pad7' style='width:85%;'><input name="client_phone" type="text" class='form_textfield' value="<?php echo SM_d($client_phone);?>" maxlength="100" /></td></tr>
+            <td class='pad7b2' style='width:85%;'><input name="client_phone" type="text" class='form_textfield' value="<?php echo SM_d($client_phone);?>" maxlength="100" /></td></tr>
 	<?php }else if($requirephone=="y" && $loginValidClient=="y"){ ?>
             <tr><td class='label150'><?php SM_check_text("Phone: ", $errorPhone);?></td>
-            <td class='pad7' style='width:85%;'><?php echo $client_phone;?></td></tr>
+            <td class='pad7b2' style='width:85%;'><?php echo $client_phone;?></td></tr>
 	<?php } ?>	
 	<?php if($requirenumberinparty=='y'){ ?>
 	<tr><td class='label150'><?php SM_check_text("# in Party", $errorNumInParty);?>
 	</td>
-	<td class='pad7' style='width:85%;'>
+	<td class='pad7b2' style='width:85%;'>
 	<select name='num_in_party' class='form_select'>
 	<?php for($x=1; $x<=$partymax; $x++){ ?>
 	<option value="<?php echo $x;?>" <?php if($x==$num_in_party){ ?> selected="selected" <?php } ?> ><?php echo $x;?></option>
@@ -245,15 +244,15 @@ if(wp_is_mobile()){
 	<?php } ?>
 
 	<?php if($requiremessage=='y'){ ?>
-	<tr><td class='label150'><?php SM_check_text("Message:", $errorContent);?></td><td class='pad7' style='width:85%;'>
+	<tr><td class='label150'><?php SM_check_text("Message:", $errorContent);?></td><td class='pad7b2' style='width:85%;'>
 	<textarea name="client_content" id="textarea" <?php if(!wp_is_mobile()){?> cols="45" rows="5" <?php } ?>class='form_area' ><?php echo SM_d($client_content);?></textarea></td></tr>
 	<?php } ?>
 
-	<tr><td class='label150'>&nbsp;</td><td class='pad7' style='width:85%;'><input type="submit" name="button" onclick='savingShow()' id="mainSave" style='text-transform:none;' value="<?php echo $button_text;?>"/>
+	<tr><td class='label150'>&nbsp;</td><td class='pad7b2' style='width:85%;'><input type="submit" name="button" onclick='savingShow()' id="mainSave" style='text-transform:none;' value="<?php echo $button_text;?>"/>
 	<div id='savingShow' style='display:none; padding:0px;'><img src='<?php echo $sm_btns_dir;?>_btns/saving.gif' alt='Saving' style='border:0px; padding:0px;'></div>
 	</td></tr>
-	<tr><td class='label150'>&nbsp;</td><td class='pad7'><div class='navMenuRound' <?php if(!wp_is_mobile()){?> style='width:275px;'<?php } ?>><a href="<?php echo $back; ?>" class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' alt='Pick a different appointment'/><?php echo $go_back_text;?></a></div></td></tr>
-	<?php if($cancelpolicy!=""){echo "<tr><td class='pad7' style='text-align:center;' colspan='2'><span class='redText'>".$cancelpolicy."</td></tr></span>";}?>
+	<tr><td class='label150'>&nbsp;</td><td class='pad7b2'><div class='navMenuRound' <?php if(!wp_is_mobile()){?> style='width:275px;'<?php } ?>><a href="<?php echo $back; ?>" class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' alt='Pick a different appointment'/><?php echo $go_back_text;?></a></div></td></tr>
+	<?php if($cancelpolicy!=""){echo "<tr><td class='pad7b2' style='text-align:center;' colspan='2'><span class='redText'>".$cancelpolicy."</td></tr></span>";}?>
 	</table>
 	</td></tr></table>
 	</form>

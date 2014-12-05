@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
         <tr><td class='blueBanner2' style='padding:21px;'>
 		<b>If you have upcoming appointments, a list has been sent to: <?php echo SM_d($findemail);?></b>
 		<br /><br />
-		<div class='navMenuRound' <?php if(!wp_is_mobile()){?>style='width:200px;'<?php }?>><a href='<?php echo SM_permalink();?>&amp;op=sked&amp;' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
+		<div class='navMenuRound' <?php if(!wp_is_mobile()){?>style='width:200px;'<?php }?>><a href='<?php echo SM_permalink();?>&amp;op=sked&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div>
 		</td></tr></table>
 		<?php 
 		SM_foot();
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 // ======= Search Form
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if($op=="when" && $success!="y" && $loginValidClient!="y"){ 
-	SM_title("My Appointments", "btn_chair32_reg.png", "#");
+	SM_title("My Appointments", "btn_chair32_reg.png", "#skedtop");
 	$findemail=SM_d($findemail);
 	if(wp_is_mobile()){
 		$send_btn_text="Send";
@@ -60,22 +60,22 @@ if($op=="when" && $success!="y" && $loginValidClient!="y"){
 		$send_btn_text="Send E-mail Reminder";
 	}
 	?>
-	<form name="form1" method="post" action="" style="margin:0px; border:0px;">
+	<form name="form1" method="post" action="<?php SM_permalink()."&amp;op=when&amp;#skedtop";?>" style="margin:0px; border:0px;">
 	<?php SM_uni_create();?>
 	<?php if($errorMessage!=""){SM_redBox("Error! Correct the fields in red below...", "100%", 21);} echo "<br>";?>
 	<table class='cc100' style='margin:0px; border-collapse:separate;'>
 	<tr><td class='blueBanner1'><?php echo $sitename;?></td></tr>
 	<tr><td class='blueBanner2' style="padding:14px">
 	<table class='cc100' style='border-collapse:separate;'>
-	<tr><td class='pad7' colspan='2'><b>Enter the e-mail address you used to reserve your appointment.</b></td></tr>
-	<tr><td class='pad7' colspan='2'>A reminder will be sent to that address with your appointment details.</td></tr>
+	<tr><td class='pad7b2' colspan='2'><b>Enter the e-mail address you used to reserve your appointment.</b></td></tr>
+	<tr><td class='pad7b2' colspan='2'>A reminder will be sent to that address with your appointment details.</td></tr>
 
 	<tr><td class='label150' style='width:25%'><?php SM_check_text("E-mail:", $errorEmail);?></td>
-	<td class='pad7'  style='width:75%'><input name="findemail" type="text" class='form_textfield' style='width:75%' id="" value="<?php echo $findemail; ?>" maxlength="100"/></td>
+	<td class='pad7b2'  style='width:75%'><input name="findemail" type="text" class='form_textfield' style='width:75%' id="" value="<?php echo $findemail; ?>" maxlength="100"/></td>
 	</tr>
-	<tr><td class='nopad' colspan='2'><?php SM_capture_create($errorCapture);?></td></tr>
-	<tr><td class='label200' style='text-align:center;'><div class='navMenuRound'><a href='<?php echo SM_permalink();?>&amp;op=sked' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back</a></div></td>
-	<td class='pad7'><input type="submit" name="button" id="contact" value="<?php echo $send_btn_text;?>"/></td>
+	<tr><td class='nopadb2' colspan='2'><?php SM_capture_create($errorCapture);?></td></tr>
+	<tr><td class='label200' style='text-align:center;'><div class='navMenuRound'><a href='<?php echo SM_permalink();?>&amp;op=sked&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back</a></div></td>
+	<td class='pad7b2'><input type="submit" name="button" id="contact" value="<?php echo $send_btn_text;?>"/></td>
 	</tr></table>
 	</td></tr></table>
 	</form>
@@ -87,7 +87,7 @@ if($op=="when" && $success!="y" && $loginValidClient!="y"){
 // ======= REGISTERED Client
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if($op=="when" && $loginValidClient=="y"){ 
-	SM_title("My Appointments", "btn_chair32_reg.png", "#");
+	SM_title("My Appointments", "btn_chair32_reg.png", "#skedtop");
 	$result=mysql_query("SELECT * FROM skedmaker_clients WHERE code='$usercode' LIMIT 1");
 	while($row = mysql_fetch_array($result)) {
 		$username=SM_d($row['username']);
@@ -101,13 +101,13 @@ if($op=="when" && $loginValidClient=="y"){
 	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE usercode='$usercode' AND startdate>'$today' LIMIT 1");
 	$total_upcoming=mysql_num_rows($countIt);
 	if($total_upcoming>0){
-		echo "<tr><td class='pad7' colspan='2'><b>Below is a list of your upcoming appointments.</b></td></tr>";
+		echo "<tr><td class='pad7b2' colspan='2'><b>Below is a list of your upcoming appointments.</b></td></tr>";
 		$result=mysql_query("SELECT * FROM skedmaker_sked WHERE usercode='$usercode' AND startdate>'$today'");
 		while($row = mysql_fetch_array($result)) {
 			$this_apt=SM_d($row['startdate']);
 			$canCode=SM_d($row['code']);
-			echo "<tr><td class='nopad'>";
-			echo "<div class='navCancel'><a href='".SM_permalink()."&op=cancel&amp;aptc=".$canCode."&amp;' title='Cancel this Appointment'><img src='".$sm_btns_dir."btn_cancel16_reg.png' class='btn'>";
+			echo "<tr><td class='nopadb2'>";
+			echo "<div class='navCancel'><a href='".SM_permalink()."&op=cancel&amp;aptc=".$canCode."&amp;#skedtop' title='Cancel this Appointment'><img src='".$sm_btns_dir."btn_cancel16_reg.png' class='btn'>";
 			if(wp_is_mobile()){
 				echo SM_aptShort($this_apt);	
 			}else{
@@ -116,10 +116,10 @@ if($op=="when" && $loginValidClient=="y"){
 			echo "</td></tr>";
 		}
 	}else{
-		echo "<tr><td class='pad7'><b>You have no upcoming appointments.</b></td></tr>";
+		echo "<tr><td class='pad7b2'><b>You have no upcoming appointments.</b></td></tr>";
 	}
 	?>
-	<tr><td class='pad7'><div class='navMenuRound' style='width:200px;'><a href='<?php echo SM_permalink();?>&amp;op=sked' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div></td>
+	<tr><td class='pad7b2'><div class='navMenuRound' style='width:200px;'><a href='<?php echo SM_permalink();?>&amp;op=sked&amp;#skedtop' class='sked'><img src='<?php echo $sm_btns_dir;?>btn_settings16_reg.png' class='btn' />Back to Schedule</a></div></td>
 	</tr></table>
 	</td></tr></table>
 	<?php 

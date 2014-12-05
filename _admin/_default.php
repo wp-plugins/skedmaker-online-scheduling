@@ -51,9 +51,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='default'){
 	if($errorMessage==""){
 		$updateIt=mysql_query("UPDATE skedmaker_users SET ".$weekday."live='$weekday_live', ".$weekday."increment='$weekday_increment', ".$weekday."multiple='$weekday_multiple', ".$weekday."openhour='$weekday_openhour', ".$weekday."openminute='$weekday_openminute', ".$weekday."breakhour='$weekday_breakhour', ".$weekday."breakminute='$weekday_breakminute', ".$weekday."returnhour='$weekday_returnhour', ".$weekday."returnminute='$weekday_returnminute', ".$weekday."closehour='$weekday_closehour', ".$weekday."closeminute='$weekday_closeminute'") or die(mysql_error());
 		if(!$updateIt){
-			SM_redBox("Sorry, could not update your default settings.<br><br>Please try again later.", 800,21);
+			SM_redBox("Sorry, could not update your default settings.<br><br>Please try again later.", "100%",21);
 		}else{
-			SM_greenBox("Saved ".ucwords($weekday)."!", 800, 21);
+			SM_greenBox("Saved ".ucwords($weekday)."!", "100%", 21);
 			SM_redirect($smadmin."&v=default&#".$weekday, 500);
 			die();
 		}
@@ -69,13 +69,13 @@ SM_title("Default Schedule Settings", "btn_settings32_reg.png", $smadmin."&v=def
 <?php SM_menu();?>
 <table class='cc100'><tr><td class='pad14'>
 <table style='border-spacing:7px; border-collapse:separate; width:100%;'><tr>
-<td class='g666'><div class='nav666'><a href='#monday' class='sked'><span style='font-size:12px;'>Monday</span></a></div></td>
-<td class='g666'><div class='nav666'><a href='#tuesday' class='sked'><span style='font-size:12px;'>Tuesday</a></div></td>
-<td class='g666'><div class='nav666'><a href='#wednesday' class='sked'><span style='font-size:12px;'>Wednesday</a></div></td>
-<td class='g666'><div class='nav666'><a href='#thursday' class='sked'><span style='font-size:12px;'>Thursday</a></div></td>
-<td class='g666'><div class='nav666'><a href='#friday' class='sked'><span style='font-size:12px;'>Friday</a></div></td>
-<td class='g666'><div class='nav666'><a href='#saturday' class='sked'><span style='font-size:12px;'>Saturday</a></div></td>
-<td class='g666'><div class='nav666'><a href='#sunday' class='sked'><span style='font-size:12px;'>Sunday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#monday'>Monday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#tuesday'>Tuesday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#wednesday'>Wednesday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#thursday'>Thursday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#friday'>Friday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#saturday'>Saturday</a></div></td>
+<td class='pad7b2' style='text-align:center;'><div class='navDefaultDays'><a href='#sunday'>Sunday</a></div></td>
 </tr>
 </table>
 <br />

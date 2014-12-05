@@ -67,6 +67,8 @@ while($row=mysql_fetch_array($sm_settings_result)){
 	$send_notices_to_client=SM_d($row['send_notices_to_client']);
 	$send_notices_to_BCC=SM_d($row['send_notices_to_BCC']);
 
+	$reminder_interval=SM_d($row['reminder_interval']);
+
 /////////////////////////////////////////////////
 //======= WEEKDAY INFO
 /////////////////////////////////////////////////

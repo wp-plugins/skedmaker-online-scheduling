@@ -7,13 +7,19 @@ $round=" -moz-border-radius:7px !important; -webkit-border-radius:7px !important
 <style type="text/css">
 /* *********************************************************************************************************START STYLES **********************************************************************/
 
-body,td,th {font-family:Verdana, Geneva, sans-serif;font-size:14px; color:#000; margin:0px}
+body,td,th {/*font-family:Verdana, Geneva, sans-serif;font-size:14px; color:#000; margin:0px*/}
 h3 {margin:0px;padding:0px;}
 
 /*=================================================
 ======= IMAGES =======
 =================================================*/
-img.btn {border:none; margin-right:7px; vertical-align:middle;}
+img.btn {border:none; margin-right:7px !important; vertical-align:middle;}
+
+.SM-anchor {
+   position: relative;
+   top: -150px;
+   visibility:hidden;
+}
 
 /*=================================================
 ======= FORMS=======
@@ -21,15 +27,16 @@ img.btn {border:none; margin-right:7px; vertical-align:middle;}
 .form_textfield{
 	border:1px solid #999 !important;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:14px;
-	color:#333333;
+	font-size:14px !important;
+	color:#333333 !important;
 	<?php if(!wp_is_mobile()){ ?>width:450px; <?php }else{ ?>width:100%; <?php } ?>
-	padding:7px;
-	height:35px;
-	vertical-align:middle;
+	padding:7px !important;
+	height:35px !important;
+	vertical-align:middle !important;
 	<?php echo $round;?>
 }
 
+/*specific for the textfield in the text-check capture */
 .form_textfield_cap{
 	border:1px solid #999 !important;
 	font-family:Arial, Helvetica, sans-serif;
@@ -68,10 +75,25 @@ img.btn {border:none; margin-right:7px; vertical-align:middle;}
 /*=================================================
 ======= LINKS =======
 =================================================*/
-a.sked:link 	{color:#000; text-decoration:none; font-weight:bold;}
-a.sked:visited 	{color:#000; text-decoration:none; font-weight:bold;}
-a.sked:hover 	{color:#<?php echo $b1_color;?>; text-decoration:none; font-weight:bold;}
-a.sked:active 	{color:#366; text-decoration:none; font-weight:bold;}
+a.sked:link 	{margin:0px !important; background-color:transparent !important; color:#000 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.sked:visited 	{margin:0px !important; background-color:transparent !important; color:#000 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.sked:hover 	{margin:0px !important; color:#<?php echo $b1_color;?> !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.sked:active 	{margin:0px !important; color:#366 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+
+a.cal-logged-in:link 	{margin:0px !important; background-color:transparent !important; color:#000 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.cal-logged-in:visited {margin:0px !important; background-color:transparent !important; color:#000 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.cal-logged-in:hover 	{margin:0px !important; color:#<?php echo $b1_color;?> !important; text-decoration:none; font-weight:bold; font-size:14px;}
+a.cal-logged-in:active 	{margin:0px !important; color:#366 !important; text-decoration:none; font-weight:bold; font-size:14px;}
+
+a.calDayActive:link 	{color:#000 !important; text-decoration:none; font-weight:bold;}
+a.calDayActive:visited 	{color:#000 !important; text-decoration:none; font-weight:bold;}
+a.calDayActive:hover 	{color:#FFF !important; text-decoration:none; font-weight:bold;}
+a.calDayActive:active 	{color:#FFF !important; text-decoration:none; font-weight:bold;}
+
+a.calMonths:link 	{color:#000 !important; text-decoration:none; font-weight:bold;}
+a.calMonths:visited	{color:#000 !important; text-decoration:none; font-weight:bold;}
+a.calMonths:hover 	{color:#FFF !important; text-decoration:none; font-weight:bold;}
+a.calMonths:active 	{color:#FFF !important; text-decoration:none; font-weight:bold;}
 
 a.skedblue:link 	{color:#06F; text-decoration:none; font-weight:bold;}
 a.skedblue:visited 	{color:#06F; text-decoration:none; font-weight:bold;}
@@ -131,7 +153,7 @@ table.cc600{border:none; padding:0px; border-spacing:0px; width:100%; *border-co
 table.cc800{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
 
 <?php }else{ ?>
-table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; max-width:800px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
+table.cc100{border:none; padding:0px; border-spacing:0px; width:100%; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
 table.cc600{border:none; padding:0px; border-spacing:0px; width:600px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px !important;}
 table.cc800{border:none; padding:0px; border-spacing:0px; width:800px; *border-collapse:expression('separate', cellSpacing = '0px') !important; margin:0px;}
 
@@ -140,14 +162,15 @@ table.cc800{border:none; padding:0px; border-spacing:0px; width:800px; *border-c
 /*=================================================
 ======= TR =======
 =================================================*/
-tr.g666{background-color:#e9e9e9; <?php echo $round;?>}
+tr.g666{background-color:#<?php echo $b1_color;?> !important;  <?php echo $round;?>}
 tr.menu{background-color:#ccc; border-bottom:1px dotted #666;}
+tr.stagger{background-color:#ccc !important;}
 
 /*=================================================
 ======= TD =======
 =================================================*/
 td.menu{border-bottom:1px dotted #666; padding:0px;}
-.gBox{ background-color:#E6E6E6; text-align:left; padding:5;}
+.gBox{ background-color:#E6E6E6 !important; text-align:left; padding:5;}
 td.redBox{background-color:#FCC;padding:14px;border:3px solid #F00; -moz-border-radius:7px !important; -webkit-border-radius:7px !important; border-radius:7px !important; overflow:hidden !important;}
 td.greenBox{background-color:#CFC; padding:14px; border:3px solid #093; <?php echo $round;?>}
 td.blueBox{padding:14px; text-align:center; background-color:#E2F8FE; border:3px solid #06F;<?php echo $round;?>}
@@ -179,17 +202,30 @@ td.blueBanner2{
 	overflow:hidden !important;
 }
 
-td.b2-only{background-color:#<?php echo $b2_color;?>;padding:10px;border:1px solid #<?php echo $b1_color; ?>; text-align:left;<?php echo $round; ?>}
+td.b2-only{background-color:#<?php echo $b2_color;?> !important; padding:10px; border:1px solid #<?php echo $b1_color; ?>; text-align:left;<?php echo $round; ?>}
 
 /*=================================================
 ======= PADDING TD
 =================================================*/
-td.nopad{padding:0px; text-align:left;border:none; }
-td.pad5{padding:5px; text-align:left;border:none; }
-td.pad7{padding:7px; text-align:left;border:none; }
-td.pad10{padding:10px; text-align:left;border:none; }
-td.pad14{padding:14px; text-align:left;border:none; }
-td.pad21{padding:21px; text-align:left;border:none; }
+td.nopad{padding:0px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */ font-size:14px !important;}
+td.pad5{padding:5px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */  font-size:14px !important;}
+td.pad7{padding:7px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */ font-size:14px !important;}
+td.pad10{padding:10px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */ font-size:14px !important;}
+td.pad14{padding:14px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */ font-size:14px !important;}
+td.pad21{padding:21px; text-align:left;border:none; color:#000; /* background-color:#<?php echo $b2_color;?> !important; */ font-size:14px !important;}
+
+td.nopadb1{padding:0px; text-align:left;border:none; color:#000; background-color:#<?php echo $b1_color;?> !important; font-size:14px !important;}
+td.pad7b1{padding:7px; text-align:left;border:none; color:#000; background-color:#<?php echo $b1_color;?> !important; font-size:14px !important;}
+td.pad14b1{padding:14px; text-align:left;border:none; color:#000; background-color:#<?php echo $b1_color;?> !important; font-size:14px !important;}
+td.pad21b1{padding:21px; text-align:left;border:none; color:#000; background-color:#<?php echo $b1_color;?> !important; font-size:14px !important;}
+
+td.nopadb2{padding:0px; text-align:left;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; font-size:14px !important;}
+td.pad7b2{padding:7px; text-align:left;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; font-size:14px !important;}
+td.pad14b2{padding:14px; text-align:left;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; font-size:14px !important;}
+td.pad21b2{padding:21px; text-align:left;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; font-size:14px !important;}
+
+td.nopadg{padding:0px; text-align:left;border:none; color:#000; background-color:#ccc; !important; font-size:14px !important;}
+td.pad7g{padding:7px; text-align:left;border:none; color:#000; background-color:#ccc; !important; font-size:14px !important;}
 
 
 /*=================================================
@@ -203,19 +239,19 @@ td.pad21{padding:21px; text-align:left;border:none; }
 }
 ?>
 
-td.label50{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:50px; font-size:10px;border:none; }
-td.label100{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:100px; font-size:14px;border:none; }
-td.label100top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:100px;border:none; }
-td.label150{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:15%;border:none; }
-td.label150top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:150px;border:none; }
-td.label150s{padding:5px; text-align:right; font-weight:bold; vertical-align:middle; width:150px; font-size:10px;border:none; }
-td.label200{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:200px; font-size:14px;border:none; }
-td.label200s{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:200px; font-size:10px;border:none; }
-td.label200top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:200px; font-size:14px;border:none; }
-td.label250{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:250px;border:none; }
-td.label250top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:250px;border:none; }
-td.label300{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:300px;border:none; }
-td.login_label{padding:7px; text-align:right; font-weight:bold; vertical-align:middle;border:none; }
+td.label50{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:50px; font-size:10px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label100{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:100px; font-size:14px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label100top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:100px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label150{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:15%;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label150top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:150px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label150s{padding:5px; text-align:right; font-weight:bold; vertical-align:middle; width:150px; font-size:10px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label200{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:200px; font-size:14px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label200s{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:200px; font-size:10px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label200top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:200px; font-size:14px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label250{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:250px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label250top{padding:7px; text-align:right; font-weight:bold; vertical-align:top; width:250px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.label300{padding:7px; text-align:right; font-weight:bold; vertical-align:middle; width:300px;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
+td.login_label{padding:7px; text-align:right; font-weight:bold; vertical-align:middle;border:none; color:#000; background-color:#<?php echo $b2_color;?> !important; }
 
 /*=================================================
 ======= DOTTED TDs
@@ -243,13 +279,15 @@ td.dot800{padding:7px; border-bottom:1px dotted #666;width:800px}
 =================================================*/
 <?php 
 if(wp_is_mobile()){
-	$smCALbasics="width:10% !important; text-align:center; font-weight:bold; margin:0px;";
+	$smCALbasics="width:14.285% !important; text-align:center; font-weight:bold; margin:0px;";
 	$day_pad="7px";
+	$weekday_width="10%";
 }else{
 	$day_pad="14px";
-	$smCALbasics="width:72px !important; text-align:center; font-weight:bold; margin:0px;";
+	$weekday_width="14.285%";
+	$smCALbasics="width:14.285% !important; text-align:center; font-weight:bold; margin:0px;";
 }?>
-td.weekday					{padding:5px; width:10%; text-align:center;}
+td.weekday					{background-color:#666; color:#FFF; padding:5px; width:<?php echo $weekday_width;?>; text-align:center;}
 td.calendarDay				{<?php echo $smCALbasics;?> background-color:#<?php echo $b3_color;?>; border:1px solid #<?php echo $b1_color;?>; padding:0px; }
 td.calendarBlank			{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:<?php echo $day_pad;?>;}
 td.calendarAdminBlank		{<?php echo $smCALbasics;?> background-color:#e9e9e9; border:1px solid #666; color:#666; padding:0px;}
@@ -259,10 +297,18 @@ td.calendarBlockedBlackouts	{text-align:center; font-weight:bold; margin:0px; ba
 
 
 td.menumonths{
-	background-color:#<?php echo $b1_color;?>;
+	background-color:#<?php echo $b1_color;?> !important;
 	padding:0px !important;
 	padding-bottom:3px !important;
 	border:none;
+	margin:0px !important;
+}
+
+td.blueBanner1Square{
+	background-color:#<?php echo $b1_color;?> !important;
+	padding:0px !important;
+	padding-bottom:3px !important;
+	border:none !important;
 	margin:0px !important;
 }
 
@@ -371,7 +417,7 @@ td.list_bottom{border-top:1px solid #<?php echo $b1_color;?>; padding:0px;}
 /*=================================================
 ======= SMALL MENU BUTTONS
 =================================================*/
-td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid #000; text-align:center; vertical-align:middle; margin:0px; <?php echo $round;?>}
+td.g666{background-color:#<?php echo $b1_color;?> !important; padding:0px !important; border:1px solid #<?php echo $b1_color;?>!important; text-align:center!important; vertical-align:middle!important; margin:0px!important; <?php // echo $round;?>}
 
 /*=================================================
 ======= TEXT =======
@@ -405,65 +451,75 @@ td.g666{background-color:#<?php echo $b3_color;?>; padding:0px; border:1px solid
 .navNotes a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; padding-left:14px;}
 .navNotes a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; padding-left:14px;}
 
-.navMenu a:link		{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer;margin:0px;}
-.navMenu a:visited	{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer;}
-.navMenu a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer;}
-.navMenu a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer;}
+.navMenu a:link		{display:block;	background-color:none !important; text-decoration:none; color:#000 !important; padding:7px; cursor:pointer;margin:0px;}
+.navMenu a:visited	{display:block;	background-color:none !important; text-decoration:none; color:#000 !important; padding:7px; cursor:pointer;}
+.navMenu a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px; cursor:pointer;}
+.navMenu a:active	{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px; cursor:pointer;}
 
-.navMenuSM a:link		{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer; margin:0px;}
-.navMenuSM a:visited	{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer;}
-.navMenuSM a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer;}
-.navMenuSM a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer;}
+.navMenuSM a:link		{display:block;	background-color:transparent !important; text-decoration:none; color:#000 !important; padding:7px; cursor:pointer; margin:0px;}
+.navMenuSM a:visited	{display:block;	background-color:transparent !important; text-decoration:none; color:#000 !important; padding:7px; cursor:pointer;}
+.navMenuSM a:hover		{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px; cursor:pointer;}
+.navMenuSM a:active		{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px; cursor:pointer;}
 
-.navMenuRound a:link	{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer; <?php echo $round; ?>}
-.navMenuRound a:visited	{display:block;	background-color:none; text-decoration:none; color:#000; padding:7px; cursor:pointer; <?php echo $round; ?>}
-.navMenuRound a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer; <?php echo $round; ?>}
-.navMenuRound a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; color:#fff; padding:7px; cursor:pointer; <?php echo $round; ?>}
+.navMenuRound a:link	{display:block;	background-color:transparent !important; text-decoration:none; color:#000 !important; padding:7px !important; cursor:pointer; <?php echo $round; ?>}
+.navMenuRound a:visited	{display:block;	background-color:transparent !important; text-decoration:none; color:#000 !important; padding:7px !important; cursor:pointer; <?php echo $round; ?>}
+.navMenuRound a:hover	{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px !important; cursor:pointer; <?php echo $round; ?>}
+.navMenuRound a:active	{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; color:#fff !important; padding:7px !important; cursor:pointer; <?php echo $round; ?>}
 
-.nav666 a:link		{display:block;	background-color:none; 		text-decoration:none; padding:4px; color:#e9e9e9; font-size:10px; <?php echo $round;?>}
-.nav666 a:visited	{display:block;	background-color:none; 		text-decoration:none; padding:4px;color:#e9e9e9; font-size:10px; <?php echo $round;?>}
-.nav666 a:hover		{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; padding:4px;color:#fff; font-size:10px; <?php echo $round;?>}
-.nav666 a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; padding:4px;color:#fff; font-size:10px; <?php echo $round;?>}
+.nav666 a:link		{display:block;	background-color:#<?php echo $b3_color;?>; 		text-decoration:none; padding:4px; color:#e9e9e9 !important; font-size:10px; <?php echo $round;?>}
+.nav666 a:visited	{display:block;	background-color:#<?php echo $b3_color;?>; 		text-decoration:none; padding:4px;color:#e9e9e9 !important; font-size:10px; <?php echo $round;?>}
+.nav666 a:hover		{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; padding:4px;color:#fff !important; font-size:10px; <?php echo $round;?>}
+.nav666 a:active	{display:block;	background-color:#<?php echo $b1_highlight;?>;	text-decoration:none; padding:4px;color:#fff !important; font-size:10px; <?php echo $round;?>}
 
-.navGreen a:link	{display:block;	background-color:#090; text-decoration:none; padding:7px; color:#fff;}
-.navGreen a:visited	{display:block;	background-color:#090; text-decoration:none; padding:7px; color:#fff;}
-.navGreen a:hover	{display:block;	background-color:#0C0;	text-decoration:none; padding:7px; color:#fff;}
-.navGreen a:active	{display:block;	background-color:#0C0;	text-decoration:none; padding:7px; color:#fff;}
+.navDefaultDays a:link		{display:block;	background-color:#<?php echo $b1_color;?> !important; 		text-decoration:none; padding:4px; color:#e9e9e9; font-size:14px; <?php echo $round;?>}
+.navDefaultDays a:visited	{display:block;	background-color:#<?php echo $b1_color;?> !important; 		text-decoration:none; padding:4px;color:#e9e9e9; font-size:14px; <?php echo $round;?>}
+.navDefaultDays a:hover		{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; padding:4px;color:#fff; font-size:14px; <?php echo $round;?>}
+.navDefaultDays a:active	{display:block;	background-color:#<?php echo $b1_highlight;?> !important;	text-decoration:none; padding:4px;color:#fff; font-size:14px; <?php echo $round;?>}
 
-.navRed a:link		{height:100%; display:block;	background-color:#900;	text-decoration:none; padding:7px; color:#fff;}
-.navRed a:visited	{height:100%; display:block;	background-color:#900; text-decoration:none; padding:7px; color:#fff;}
-.navRed a:hover		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff;}
-.navRed a:active	{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff;}
+.navGreen a:link	{display:block;	background-color:#090 !important; text-decoration:none; padding:7px; color:#fff !important;}
+.navGreen a:visited	{display:block;	background-color:#090 !important; text-decoration:none; padding:7px; color:#fff !important;}
+.navGreen a:hover	{display:block;	background-color:#0C0 !important;	text-decoration:none; padding:7px; color:#fff !important;}
+.navGreen a:active	{display:block;	background-color:#0C0 !important;	text-decoration:none; padding:7px; color:#fff !important;}
+
+.navRed a:link		{height:100%; display:block;	background-color:#900 !important;	text-decoration:none; padding:7px; color:#fff !important;}
+.navRed a:visited	{height:100%; display:block;	background-color:#900 !important; text-decoration:none; padding:7px; color:#fff !important;}
+.navRed a:hover		{height:100%; display:block;	background-color:#F03 !important;	text-decoration:none; padding:7px; color:#fff !important;}
+.navRed a:active	{height:100%; display:block;	background-color:#F0 !important3;	text-decoration:none; padding:7px; color:#fff !important;}
 
 .navRedRound a:link		{height:100%; display:block;	background-color:#900;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 .navRedRound a:visited	{height:100%; display:block;	background-color:#900; text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 .navRedRound a:hover		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 .navRedRound a:active	{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
 
-.navCancel a:link		{height:100%; display:block;	background-color:none;	text-decoration:none; padding:7px; color:#000; <?php echo $round;?>}
-.navCancel a:visited	{height:100%; display:block;	background-color:none; text-decoration:none; padding:7px; color:#000; <?php echo $round;?>}
-.navCancel a:hover		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
-.navCancel a:active		{height:100%; display:block;	background-color:#F03;	text-decoration:none; padding:7px; color:#fff; <?php echo $round;?>}
+.navRedReminders a:link		{height:100%; display:block;	background-color:#FC9 !important; border:1px solid #F30; color:#C00; text-decoration:none; padding:7px;<?php echo $round;?>}
+.navRedReminders a:visited	{height:100%; display:block;	background-color:#FC9 !important; border:1px solid #F30; color:#C00; text-decoration:none; padding:7px;<?php echo $round;?>}
+.navRedReminders a:hover	{height:100%; display:block;	background-color:#F36 !important; border:1px solid #930; color:#FFF; text-decoration:none; padding:7px;<?php echo $round;?>}
+.navRedReminders a:active	{height:100%; display:block;	background-color:#F36 !important; border:1px solid #930; color:#FFF; text-decoration:none; padding:7px;<?php echo $round;?>}
 
-.navPurge a:link	{height:100%; display:block; text-decoration:none; background-color:#none; padding:7px; color:#000;<?php echo $round;?>} 
-.navPurge a:visited	{height:100%; display:block; text-decoration:none; background-color:#none; padding:7px; color:#000;<?php echo $round;?>} 
-.navPurge a:hover	{height:100%; display:block; text-decoration:none; background-color:#F00; color:#fff; padding:7px;<?php echo $round;?>} 
-.navPurge a:active	{height:100%; display:block; text-decoration:none; background-color:#<?php echo $b1_highlight;?>; color:#FFF; padding:7px <?php echo $round;?>}
+.navCancel a:link		{height:100%; display:block;	background-color:transparent !important;	text-decoration:none; padding:7px; color:#000 !important; <?php echo $round;?>}
+.navCancel a:visited	{height:100%; display:block;	background-color:transparent !important;	text-decoration:none; padding:7px; color:#000 !important; <?php echo $round;?>}
+.navCancel a:hover		{height:100%; display:block;	background-color:#F03 !important;	text-decoration:none; padding:7px; color:#fff !important; <?php echo $round;?>}
+.navCancel a:active		{height:100%; display:block;	background-color:#F03 !important;	text-decoration:none; padding:7px; color:#fff !important; <?php echo $round;?>}
 
-.navBlue a:link		{height:100%; display:block;	background-color:#09F;	text-decoration:none; padding:7px; color:#fff;}
-.navBlue a:visited	{height:100%; display:block;	background-color:#09F; text-decoration:none; padding:7px; color:#fff;}
-.navBlue a:hover	{height:100%; display:block;	background-color:#0CF;	text-decoration:none; padding:7px; color:#fff;}
-.navBlue a:active	{height:100%; display:block;	background-color:#0CF;	text-decoration:none; padding:7px; color:#fff;}
+.navPurge a:link	{height:100%; display:block; text-decoration:none; background-color:#none !important; padding:7px; color:#000;<?php echo $round;?>} 
+.navPurge a:visited	{height:100%; display:block; text-decoration:none; background-color:#none !important; padding:7px; color:#000;<?php echo $round;?>} 
+.navPurge a:hover	{height:100%; display:block; text-decoration:none; background-color:#F00 !important; color:#fff; padding:7px;<?php echo $round;?>} 
+.navPurge a:active	{height:100%; display:block; text-decoration:none; background-color:#F00 !important; color:#FFF; padding:7px <?php echo $round;?>}
 
-.navPurple a:link		{display:block;	background-color:#636; 	text-decoration:none; padding:7px; color:#fff; }
-.navPurple a:visited	{display:block;	background-color:#636; 	text-decoration:none; padding:7px color:#fff; }
-.navPurple a:hover		{display:block;	background-color:#bd0df0;	text-decoration:none; padding:7px color:#fff; }
-.navPurple a:active		{display:block;	background-color:#bd0df0;	text-decoration:none; padding:7px color:#fff; }
+.navBlue a:link		{height:100%; display:block;	background-color:#09F !important;	text-decoration:none; padding:7px; color:#fff !important;}
+.navBlue a:visited	{height:100%; display:block;	background-color:#09F !important; text-decoration:none; padding:7px; color:#fff !important;}
+.navBlue a:hover	{height:100%; display:block;	background-color:#0CF !important;	text-decoration:none; padding:7px; color:#fff !important;}
+.navBlue a:active	{height:100%; display:block;	background-color:#0CF !important;	text-decoration:none; padding:7px; color:#fff !important;}
 
-.navYellow a:link		{display:block;	background-color:#FC6;	text-decoration:none; padding:7px; color:#000;}
-.navYellow a:visited	{display:block;	background-color:#FC6;	text-decoration:none; padding:7px; color:#000;}
-.navYellow a:hover		{display:block;	background-color:#FFC;	text-decoration:none; padding:7px; color:#000;}
-.navYellow a:active		{display:block;	background-color:#FFC;	text-decoration:none; padding:7px; color:#000;}
+.navPurple a:link		{display:block;	background-color:#636 !important; 	text-decoration:none; padding:7px; color:#fff; }
+.navPurple a:visited	{display:block;	background-color:#636 !important; 	text-decoration:none; padding:7px color:#fff; }
+.navPurple a:hover		{display:block;	background-color:#bd0df0 !important;	text-decoration:none; padding:7px color:#fff; }
+.navPurple a:active		{display:block;	background-color:#bd0df0 !important;	text-decoration:none; padding:7px color:#fff; }
+
+.navYellow a:link		{display:block;	background-color:#FC6 !important;	text-decoration:none; padding:7px; color:#000;}
+.navYellow a:visited	{display:block;	background-color:#FC6 !important;	text-decoration:none; padding:7px; color:#000;}
+.navYellow a:hover		{display:block;	background-color:#FFC !important;	text-decoration:none; padding:7px; color:#000;}
+.navYellow a:active		{display:block;	background-color:#FFC !important;	text-decoration:none; padding:7px; color:#000;}
 
 #button{
     background-color:#<?php echo $b1_color;?>;

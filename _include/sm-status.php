@@ -5,8 +5,8 @@ $sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 $site=plugins_url( __FILE__ );
 
 // -- deactivate cron 
-register_deactivation_hook(__FILE__, 'my_deactivation');
-function my_deactivation() {wp_clear_scheduled_hook('my_hourly_event');}
+//register_deactivation_hook(__FILE__, 'my_deactivation');
+//function my_deactivation() {wp_clear_scheduled_hook('my_hourly_event');}
 /////////////////////////////////////////////////////////////////////////////
 
 include(plugin_dir_path( __FILE__ ) . "sm-build-db.php");
@@ -15,7 +15,7 @@ include(plugin_dir_path( __FILE__ ) . "sm-functions.php"); // load functions
 include(plugin_dir_path( __FILE__ ) . "sm-styles.php");
 ?>
 <div id='body' align='center'>
-<a name='skedtop'></a>
+<a name="skedtop" class='SM-anchor'>top of page</a>
 <?php
 
 $username=$_SESSION['username'];
@@ -38,8 +38,8 @@ if($protect!="" && $loginValid!="admin"){
 				if($client_password==$DB_client_password_check){
 					$_SESSION['loginClient']="y";
 					echo "<br><br>";
-					SM_greenBox("Logging In...", 400, 21);
-					SM_redirect(SM_permalink(), 500);
+					SM_greenBox("Logging In...", "100%", 21);
+					SM_redirect(SM_permalink()."&amp;#skedtop", 500);
 					$success="y";
 					SM_foot();
 				}else{
@@ -48,8 +48,8 @@ if($protect!="" && $loginValid!="admin"){
 			}
 		}
 		if($success!="y"){
-			if($not_valid=='y'){echo"<br><br>";SM_redBox("Not Valid!", 400, 21);}?>
-			<form id="form1" name="form1" method="post" action="<?php echo SM_permalink();?>&amp;op=login&amp;">
+			if($not_valid=='y'){echo"<br><br>";SM_redBox("Not Valid!", "100%", 21);}?>
+			<form id="form1" name="form1" method="post" action="<?php echo SM_permalink();?>&amp;op=login&amp;#skedtop">
 			<table class='cc800' style='width:400px; margin-top:21px;'>
 			<tr><td class='pad7'><span class='header'><img src='<?php echo $sm_btns_dir;?>btn_login32_reg.png' class='btn' alt='Private Schedule'>Private Schedule</span></td></tr>
 			<tr><td class='blueBanner1'>This Schedule is Locked</td></tr>
