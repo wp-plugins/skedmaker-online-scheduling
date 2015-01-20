@@ -7,7 +7,7 @@
 Plugin Name: Skedmaker
 Plugin URI: http://www.skedmaker.com/?op=skedmaker&amp;
 Description: Online Appointment Scheduling
-Version: 0.94
+Version: 0.95
 Author URI: http://www.skedmaker.com/
 */
 
