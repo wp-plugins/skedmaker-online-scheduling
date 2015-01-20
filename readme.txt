@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: .94
+Stable tag: .95
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,12 @@ Edit the color scheme of Skedmaker to fit your WordPress theme by selecting from
 = How do I change the language? =
 Sorry, Skedmaker is currently only available in English. Future updates will support other languages.
 
+= Why am I getting a 404 error or "Page not found"? =
+1. If you are getting some sort of page not found errors, check your WordPress "Permalink Settings".
+2. In the Admin Dashboard Menu, click "Settings" then "Permalinks".
+3. Select the "Default" option or "Post Name" option.
+4. If you are still having issues, contact me and I will help you to get it to work.
+
 = How do I suggest a new feature to add to Skedmaker? =
 visit http://www.skedmaker.com and select "Contact" to send us your comments and suggestions.
 
@@ -108,6 +114,10 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .95 =
+* Fix glitch on 15-minute interval settings.
+* Work on permalink settings in functions file.
+
 = .94 =
 * Fix some issues with CSS that were causing a bad display on some themes.
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package DB Explorer
- * @version 0.94
+ * @version 0.95
  */
 /*
 Plugin Name: Skedmaker

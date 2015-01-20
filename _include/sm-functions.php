@@ -199,6 +199,8 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_ID=SM_d($row['ID']);
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
+	}else{
+		$SM_permalink="?";
 	}
 	return $SM_permalink;
 }}
@@ -436,7 +438,7 @@ if(!function_exists('SM_emailNewTaken')){function SM_emailNewTaken($newemail){
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //-- Build the setting for an individual day -- DEFAULT DAYS
 //////////////////////////////////////////////////////////////////////////////////////////////////
-if(!function_exists('SM_day_settings')){function SM_day_settings($weekday, $error_weekday_Open, $error_weekday_Break, $error_weekday_Return, $error_weekday_Close, $errorMessage){
+if(!function_exists('SM_day_settings')){function SM_day_settings($weekday, $error_weekday_Open, $error_weekday_Break, $error_weekday_Return, $error_weekday_Close, $errorMessage, $error_length_open, $error_length_close){
 	$sm_btns_dir=plugin_dir_url(dirname( __FILE__) )."/_btns/";
 	$posted_weekday=$_POST['this_weekday'];
 	if ($_SERVER['REQUEST_METHOD']=='POST' && $posted_weekday==$weekday){
@@ -506,14 +508,25 @@ if($weekday_live=='y'){
 <tr><td class='label200'>Length of Appointments:</b></td>
 <td class='pad7'><select name="<?php echo $weekday;?>_increment" id="<?php echo $weekday;?>_increment" class='form_select'><?php SM_increment($weekday_increment);?></select></td>
 </tr>
+<?php if($error_length_open=="y" || $error_length_closed=="y"){?>
+<tr><td class='label200'>&nbsp;</td>
+<td class='pad7'><span class='redText'>Length and minutes are not valid.</td>
+</tr>
+<?php } ?>
 
-<tr><td class='label200'>Multiple Appointments:</b></td>
+<tr><td class='label200'>Multiple Appointments:</td>
 <td class='pad7'><select name="<?php echo $weekday;?>_multiple" id="<?php echo $weekday;?>_multiple" class='form_select'><?php SM_multiple($weekday_multiple); ?></select> per timeframe</td>
 </tr>
 
 <tr><td class='label200'><?php SM_check_text("First Appointment:", $error_weekday_Open);?></td>
 <td class='pad7'><select name="<?php echo $weekday;?>_openhour" id="<?php echo $weekday;?>_openhour" class='form_select'><?php SM_hours($weekday_openhour,0);?></select>
 <select name="<?php echo $weekday;?>_openminute" id="<?php echo $weekday;?>_openminute" class='form_select'><?php SM_minutes($weekday_openminute,0);?></select></td>
+
+<?php if($error_length_open=="y"){?>
+<tr><td class='label200'>&nbsp;</td>
+<td class='pad7'><span class='redText'>Length and minutes are not valid.</td>
+</tr>
+<?php } ?>
 </tr>
 
 <tr><td class='label200'><?php SM_check_text("Break Starts:", $error_weekday_Break);?></td>
@@ -530,6 +543,11 @@ if($weekday_live=='y'){
 <td class='pad7'><select name="<?php echo $weekday;?>_closehour" id="<?php echo $weekday;?>_closehour" class='form_select'><?php SM_hours($weekday_closehour,0);?></select>
 <select name="<?php echo $weekday;?>_closeminute" id="<?php echo $weekday;?>_closeminute" class='form_select'><?php SM_minutes($weekday_closeminute,0);?></select></td>
 </tr>
+<?php if($error_length_closed=="y"){?>
+<tr><td class='label200'>&nbsp;</td>
+<td class='pad7'><span class='redText'>Length and minutes are not valid.</td>
+</tr>
+<?php } ?>
 
 <tr><td class='label200'><td class='pad7'><input type="submit" name="button" id="button" value="Save Changes to <?php echo ucwords($weekday);?>" /></td></tr>
 </table>
@@ -1409,13 +1427,13 @@ if(!function_exists('SM_create_hours')){function SM_create_hours($year, $month, 
 //	echo "S:".SM_apt($S)."<bR>";
 //	echo "E:".SM_apt($E)."<bR>";
 //	echo "dayTS:".SM_apt($dayTS)."<bR>";
-	
+
 	//=================================================
 	//------- HOUR -----------------
 	//=================================================
 	if($increment=="hour"){					$add_the_time="+1 hour";
 	}else if($increment=="halfhour"){		$add_the_time="+30 minutes";
-	}else if($increment=="quarterhour"){	$add_the_time="+15 minutes";
+	}else if($increment=="quarter"){	$add_the_time="+15 minutes";
 	}else{
 		for($do=2; $do<25; $do++){
 			if($increment==$do."hours"){
@@ -1484,7 +1502,7 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 	}else{
 		if($increment=="hour"){$add_time="+1 hour";}
 		else if($increment=="halfhour"){$add_time="+30 minutes";}
-		else if($increment=="quarterhour"){$add_time="+15 minutes";}
+		else if($increment=="quarter"){$add_time="+15 minutes";}
 		else{$add_time="+".$increment;}
 		$time_end=SM_timeText(strtotime($add_time, $dayTS));
 	}
