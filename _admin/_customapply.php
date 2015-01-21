@@ -343,8 +343,12 @@ for($loopMonth=$use_for_loop_month; $loopMonth<13; $loopMonth++){
 
 		// -- NOT A CUSTOM
 		if($isCustom<=0){ 
-			echo "<td style='width:450px;' class='pad7'><div class='navMenuRound' style='display:hide; cursor:pointer'><a href='#'  class='sked' style='vertical-align:center; cursor:pointer'><input name='$year-$loopMonth-$day_num' type='checkbox' style='width:25px; margin-left:7px; cursor:pointer;' id='$year-$loopMonth-$day_num' value='$year-$loopMonth-$day_num'/>";
-			echo "<label for='$year-$loopMonth-$day_num'>Check to apply '".$customName."' to this day</label></a></div></td>";
+			echo "<td style='width:450px;' class='pad7'>";
+//			echo "<div class='navMenuRound' style='display:hide; cursor:pointer'><a href='#'  class='sked' style='vertical-align:center; cursor:pointer'>";
+			echo "<input name='$year-$loopMonth-$day_num' type='checkbox' style='width:25px; margin-left:7px; cursor:pointer;' id='$year-$loopMonth-$day_num' value='$year-$loopMonth-$day_num'/>";
+			echo "<label for='$year-$loopMonth-$day_num'>Check to apply '".$customName."' to this day</label>";
+//			echo "</a></div>";
+			echo "</td>";
 			echo "<td class='list_right' style='width:50px; border-left:0px;'><input type='submit' name='button' id='button' value='Save' /></td></tr>";
 		// -- ALREADY SET TO A CUSTOM
 		}else{
