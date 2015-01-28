@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['v']=='requirements'){
 	$requirephone=$_POST['requirephone'];
 	$requiremessage=$_POST['requiremessage'];
 	$requirenumberinparty=$_POST['requirenumberinparty'];
-	$partymax=SM_e($_POST['partymax']);
-	if($requirenumberinparty=='y'){if(!is_numeric($partymax)){$errorMessage='partymax';}}
+//	$partymax=SM_e($_POST['partymax']);
+//	if($requirenumberinparty=='y'){if(!is_numeric($partymax)){$errorMessage='partymax';}}
 
 	if($errorMessage==""){
 		$saveIt=mysql_query("UPDATE skedmaker_users SET requirevalidation='$requirevalidation', requireregistration='$requireregistration', requirename='$requirename', requireemail='$requireemail', requireconfirm='$requireconfirm', requirephone='$requirephone', requiremessage='$requiremessage', requirenumberinparty='$requirenumberinparty', partymax='$partymax'");	
@@ -90,17 +90,22 @@ Adding a check to these items will make sure they have been filled in before the
 <tr><td class='label50'><input name="requirenumberinparty" type="checkbox" id="requirenumberinparty" value="y" <?php if ($requirenumberinparty=="y") {?> checked='checked' <?php }?>/></td>
 <td class='pad7'><label for="requirenumberinparty"><b>Require Number in Party</b></label></td></tr>
 <tr><td class='pad7'>&nbsp;</td>
-<td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Your clients must select the number of people who will be at the appointment.</span></td>
+<td style='padding:0px 14px 14px 7px;'><span class="smallG12">Your clients must select the number of people who will be at the appointment. <br />
+  For Default Day settings, 
+  the number of clients allowed per appointment is set in the &quot;Multiple Appointments&quot; field.<br />
+  For Custom Day settings, 
+  the number of clients allowed per appointment is set in each individual &quot;# Apts&quot; field. for each time frame.<br />
+  </span></td>
 </tr>
-</table>
 
+<!-- 
 <table class='cc100'>
 <tr><td class='label100' style='width:50px;'><input name="partymax" type="text" id="partymax" value='<?php echo $partymax?>' size="10" maxlength="7" class='form_textfield' style='width:50px;'/></td>
 <td class='pad7' style='width:700px;'><?php if($errorMessage=='partymax'){echo "<span class='redText'>Maximum Number Allowed in Party</span>";}else{echo "<b>Maximum Number Allowed in Party</b>";}?></td></tr>
 <tr><td class='pad7'>&nbsp;</td>
 <td style='padding:0px 14px 14px 7px;'><span class='smallG12'>Set the number of clients you will allow in a single party.</span></td>
 </tr>
-
+-->
 <tr><td class='pad7'>&nbsp;</td><td class='pad7'><input type="submit" name="button" id="button" value="Save Changes to Booking Requirements" /></td></tr>
 </table>
 <br />

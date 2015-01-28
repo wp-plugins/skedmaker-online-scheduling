@@ -1500,11 +1500,9 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 		if($this_total_taken==""){$this_total_taken=1;}
 		$total_taken+=$this_total_taken;
 	}
-	
+
 	//======= REMAINING
 	$remaining=$max_apts-$total_taken;
-
-
 
 	//======= TIMES
 	$time_start=SM_timeText_noampm($dayTS);
