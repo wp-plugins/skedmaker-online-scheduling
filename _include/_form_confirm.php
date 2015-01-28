@@ -236,7 +236,16 @@ if(wp_is_mobile()){
 	</td>
 	<td class='pad7b2' style='width:85%;'>
 	<select name='num_in_party' class='form_select'>
-	<?php for($x=1; $x<=$partymax; $x++){ ?>
+	<?php 
+    $result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+	while($row=mysql_fetch_array($result)){
+		$this_total_taken=SM_d($row['numberinparty']);
+		if($this_total_taken==""){$this_total_taken=1;}
+		$total_taken+=$this_total_taken;
+	}
+
+	$remaining=$partymax-$total_taken;
+	for($x=1; $x<=$remaining; $x++){ ?>
 	<option value="<?php echo $x;?>" <?php if($x==$num_in_party){ ?> selected="selected" <?php } ?> ><?php echo $x;?></option>
 	<?php } ?>
 	</select>

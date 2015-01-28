@@ -1488,12 +1488,23 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 		$this_page=SM_permalink()."&amp;op=confirm&amp;ts=".$dayTS.$URLdc.$URLtc."&amp;#skedtop";
 	}
 
-	//======= get number taken
-	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
-	$total_taken=mysql_num_rows($countIt);
+//======= get number taken OLD!!!! save it though in case needed again
+//	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+//	$total_taken=mysql_num_rows($countIt);
+	//======= REMAINING
+//	$remaining=$max_apts-$total_taken;
 
+	$result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+	while($row=mysql_fetch_array($result)){
+		$this_total_taken=SM_d($row['numberinparty']);
+		if($this_total_taken==""){$this_total_taken=1;}
+		$total_taken+=$this_total_taken;
+	}
+	
 	//======= REMAINING
 	$remaining=$max_apts-$total_taken;
+
+
 
 	//======= TIMES
 	$time_start=SM_timeText_noampm($dayTS);
