@@ -4,7 +4,7 @@ Donate link: http://www.skedmaker.com/?op=wordpress
 Tags: scheduling online, appointments, booking, planner, datebook, scheduler, schedule, plugin, calendar
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: .95
+Stable tag: .96
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -114,6 +114,9 @@ visit http://www.skedmaker.com and select "Contact" to send us your comments and
 
 
 == Changelog ==
+= .96 =
+* Fix permalink function that was creating 404 errors/page not found on some sites
+
 = .95 =
 * Fix glitch on 15-minute interval settings.
 * Work on permalink settings in functions file.

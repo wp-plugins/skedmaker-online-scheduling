@@ -1,13 +1,13 @@
 <?php
 /**
  * @package DB Explorer
- * @version 0.95
+ * @version 0.96
  */
 /*
 Plugin Name: Skedmaker
 Plugin URI: http://www.skedmaker.com/?op=skedmaker&amp;
 Description: Online Appointment Scheduling
-Version: 0.95
+Version: 0.96
 Author URI: http://www.skedmaker.com/
 */
 

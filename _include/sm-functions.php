@@ -178,11 +178,11 @@ if(!function_exists('SM_validate_account')){function SM_validate_account(){
 }}
 
 if(!function_exists('SM_permalink')){function SM_permalink(){
-	$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
-	$uses_perm=mysql_num_rows($countIt);
+	$countIt=@mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='/%postname%/' LIMIT 1");
+	$uses_perm=@mysql_num_rows($countIt);
 
-	$countIt=mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
-	$uses_default=mysql_num_rows($countIt);
+	$countIt=@mysql_query("SELECT * FROM wp_options WHERE option_name='permalink_structure' AND option_value='' LIMIT 1");
+	$uses_default=@mysql_num_rows($countIt);
 
 	// check if using permalinks
 	if($uses_perm>0){
@@ -2377,7 +2377,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	global $loginValid;
 	 ?>
      </div>
-     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .95 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
+     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .94 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 }}
