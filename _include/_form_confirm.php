@@ -34,8 +34,6 @@ if(wp_is_mobile()){
 		$today_multiple=$sundaymultiple;
 	}
 	
-	echo $today_multiple;
-
 	if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 		$errorMessage="";
 		$errorMessage=SM_uni_check();
@@ -160,7 +158,7 @@ if(wp_is_mobile()){
 				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>";
 				if($num_in_party>1){$bodyData.="<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>";}
 				$bodyData.="<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
-				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;#skedtop'>Click here if you need to cancel this appointment</a></td></tr>
+				<tr><td class='pad7' colspan='2'><a href='".get_site_url().$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;#skedtop'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
 				$biz_info=SM_biz_info();
