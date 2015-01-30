@@ -16,7 +16,25 @@ if(wp_is_mobile()){
 	$timecode=$_GET['tc'];
 	$view=$_GET['v'];
 	$showApt=SM_apt($ts);
+
 	$multipleWeekday=strtolower(date('l', $ts));
+	if($multipleWeekday=="monday"){
+		$today_multiple=$mondaymultiple;
+	}else if($multipleWeekday=="tuesday"){
+		$today_multiple=$tuesdaymultiple;
+	}else if($multipleWeekday=="wednesday"){
+		$today_multiple=$wednesdaymultiple;
+	}else if($multipleWeekday=="thursday"){
+		$today_multiple=$thrusdaymultiple;
+	}else if($multipleWeekday=="friday"){
+		$today_multiple=$fridaymultiple;
+	}else if($multipleWeekday=="saturday"){
+		$today_multiple=$saturdaymultiple;
+	}else if($multipleWeekday=="sunday"){
+		$today_multiple=$sundaymultiple;
+	}
+	
+	echo $today_multiple;
 
 	if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="confirm"){
 		$errorMessage="";
@@ -57,7 +75,8 @@ if(wp_is_mobile()){
 			$num_in_party=SM_e($num_in_party);
 			$client_content=SM_e($client_content);
 
-			if($numberinparty=="" || $numberinparty<1){$numberinparty=1;}
+//			if($numberinparty=="" || $numberinparty<1){$numberinparty=1;}
+			if($num_in_party==""){$num_in_party="1";}
 
 			$DBcode=SM_code();
 			$canCode=$DBcode;
@@ -127,7 +146,7 @@ if(wp_is_mobile()){
 					if($client_name==""){$client_name="n/a";}
 				}
 				if($client_phone==""){$client_phone="n/a";}
-				if($num_in_party==""){$num_in_party="1";}
+//				if($num_in_party==""){$num_in_party="1";}
 				if($client_content==""){$client_content="n/a";}
 
 				$bodyData="<table class='cc800'>
@@ -138,9 +157,9 @@ if(wp_is_mobile()){
 				<tr><td class='label150'>Name:</td><td class='pad7' style='width:650px;'>".SM_d($client_name)."</td></tr>
 				<tr><td class='label150'>Appointment:</td><td class='pad7' style='width:650px;'>".$showApt."</td></tr>
 				<tr><td class='label150'>E-mail:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_email)."</span></td></tr>
-				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>
-				<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>
-				<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
+				<tr><td class='label150'>Phone:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_phone)."</span></td></tr>";
+				if($num_in_party>1){$bodyData.="<tr><td class='label150'># in Party:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($num_in_party)."</span></td></tr>";}
+				$bodyData.="<tr><td class='label150'>Message:</td><td class='pad7' style='width:650px;'><span style='font-weight:normal'>".SM_d($client_content)."</span></td></tr>
 				<tr><td class='pad7' colspan='2'><a href='".$SM_permalink."&amp;op=cancel&amp;aptc=".$DBcode."&amp;#skedtop'>Click here if you need to cancel this appointment</a></td></tr>
 				<tr><td class='pad7' colspan='2'><span class='redText'>".$cancelpolicy."</span></td></tr>
 				</table>";
@@ -237,15 +256,17 @@ if(wp_is_mobile()){
 	<td class='pad7b2' style='width:85%;'>
 	<select name='num_in_party' class='form_select'>
 	<?php 
-    $result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+	$result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
 	while($row=mysql_fetch_array($result)){
 		$this_total_taken=SM_d($row['numberinparty']);
 		if($this_total_taken==""){$this_total_taken=1;}
 		$total_taken+=$this_total_taken;
 	}
 
-	$remaining=$partymax-$total_taken;
-	for($x=1; $x<=$remaining; $x++){ ?>
+	//======= REMAINING
+	$remaining=$today_multiple-$total_taken;
+	for($x=1; $x<=$remaining; $x++){ 
+	?>
 	<option value="<?php echo $x;?>" <?php if($x==$num_in_party){ ?> selected="selected" <?php } ?> ><?php echo $x;?></option>
 	<?php } ?>
 	</select>
