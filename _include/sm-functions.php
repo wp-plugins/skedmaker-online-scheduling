@@ -200,11 +200,10 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
 	}else{
-		$SM_permalink="?";
+		$SM_permalink=get_site_url()."?";
 	}
 	return $SM_permalink;
 }}
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //-- Individual item for admin menu
@@ -1488,11 +1487,9 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 		$this_page=SM_permalink()."&amp;op=confirm&amp;ts=".$dayTS.$URLdc.$URLtc."&amp;#skedtop";
 	}
 
-//======= get number taken OLD!!!! save it though in case needed again
+	//======= get number taken
 //	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
 //	$total_taken=mysql_num_rows($countIt);
-	//======= REMAINING
-//	$remaining=$max_apts-$total_taken;
 
 	$result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
 	while($row=mysql_fetch_array($result)){
@@ -2313,7 +2310,6 @@ if(!function_exists('SM_purge_past_confirm')){function SM_purge_past_confirm(){
 	}
 }}
 
-
 //-- Purge button to delete all past appointments shown on _appointmetns.php
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_purge_reminders_btn')){function SM_purge_reminders_btn(){
@@ -2343,7 +2339,7 @@ if(!function_exists('SM_purge_reminders_check')){function SM_purge_reminders_che
 		$countPast=mysql_query("SELECT * FROM skedmaker_sendreminders");
 		$total=mysql_num_rows($countPast);
 		if($total==1){$apt_word="reminder";}else{$apt_word="reminders";}
-		
+
 		echo "<br><br>";
 		SM_title("Purge Reminder History", "btn_purge32_reg.png", "");
 		?>
@@ -2357,7 +2353,7 @@ if(!function_exists('SM_purge_reminders_check')){function SM_purge_reminders_che
         <td width='150px' align='right' class='pad7'><input type="submit" name="purge" id="purge" value="Purge Reminder History" /></td>
         <tr><td></table>
         </form>
-<?php die();      
+<?php die();
 	}
 }}
 
