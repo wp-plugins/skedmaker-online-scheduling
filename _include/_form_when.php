@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 		$total=mysql_num_rows(mysql_query("SELECT * FROM skedmaker_sked WHERE email='$findemail' AND startdate>'$today' LIMIT 1"));
 		if($total>0){
 			$result=mysql_query("SELECT * FROM skedmaker_sked WHERE email='$findemail' AND startdate>'$today'");
-			while($row = mysql_fetch_array($result)) {
+			while($row = mysql_fetch_array($result)){
 				$aptCode=SM_d($row['code']);
 				$aptDate=SM_apt(SM_d($row['startdate']));
 				$apt_cancel="<a href='".SM_permalink()."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
@@ -33,9 +33,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 			/////// EMAIL IT
 			if(SM_emailIt(SM_d($findemail), "$adminemail", "", "Appointment Reminder", $bodyData)==false){}
 			$success="y";
-
 		}
-
 	?>
 		<table class='cc100' style='border-collapse:separate;'>
         <tr><td class='blueBanner1'>Reminder Sent</td></tr>
