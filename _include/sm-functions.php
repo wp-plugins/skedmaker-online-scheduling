@@ -200,11 +200,10 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}	
 	}else{
-		$SM_permalink="?";
+		$SM_permalink=get_site_url()."?";
 	}
 	return $SM_permalink;
 }}
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //-- Individual item for admin menu
@@ -1489,8 +1488,15 @@ if(!function_exists('SM_create_timeframes')){function SM_create_timeframes($max_
 	}
 
 	//======= get number taken
-	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
-	$total_taken=mysql_num_rows($countIt);
+//	$countIt=mysql_query("SELECT * FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+//	$total_taken=mysql_num_rows($countIt);
+
+	$result=mysql_query("SELECT numberinparty FROM skedmaker_sked WHERE startdate='$dayTS'") or die(mysql_error());
+	while($row=mysql_fetch_array($result)){
+		$this_total_taken=SM_d($row['numberinparty']);
+		if($this_total_taken==""){$this_total_taken=1;}
+		$total_taken+=$this_total_taken;
+	}
 
 	//======= REMAINING
 	$remaining=$max_apts-$total_taken;
@@ -2304,7 +2310,6 @@ if(!function_exists('SM_purge_past_confirm')){function SM_purge_past_confirm(){
 	}
 }}
 
-
 //-- Purge button to delete all past appointments shown on _appointmetns.php
 //////////////////////////////////////////////////////////////////////////////////////////////////
 if(!function_exists('SM_purge_reminders_btn')){function SM_purge_reminders_btn(){
@@ -2334,7 +2339,7 @@ if(!function_exists('SM_purge_reminders_check')){function SM_purge_reminders_che
 		$countPast=mysql_query("SELECT * FROM skedmaker_sendreminders");
 		$total=mysql_num_rows($countPast);
 		if($total==1){$apt_word="reminder";}else{$apt_word="reminders";}
-		
+
 		echo "<br><br>";
 		SM_title("Purge Reminder History", "btn_purge32_reg.png", "");
 		?>
@@ -2348,7 +2353,7 @@ if(!function_exists('SM_purge_reminders_check')){function SM_purge_reminders_che
         <td width='150px' align='right' class='pad7'><input type="submit" name="purge" id="purge" value="Purge Reminder History" /></td>
         <tr><td></table>
         </form>
-<?php die();      
+<?php die();
 	}
 }}
 
@@ -2377,7 +2382,7 @@ if(!function_exists('SM_foot')){function SM_foot(){
 	global $loginValid;
 	 ?>
      </div>
-     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .94 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
+     <table style='width:100%; border:0px; margin-top:14px;'><tr><td class='pad7' style='text-align:center;'><span class='smallG' style='font-weight:normal;'>Skedmaker WordPress Plugin version .96 © Copyright Skedmaker Online Scheduling</span></td></tr></table>
 	<?php 
 	if($loginValid=="admin"){die();}
 }}

@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 				$apt_cancel="<a href='".SM_permalink()."&amp;op=cancel&amp;aptc=".$aptCode."&amp;' class='sked'>".$aptDate."</a>";
 				$apt_data.=$apt_cancel."<br>";
 			}
-
 			$bodyData="<table class='cc800' style='border-collapse:separate;'>
 			<tr><td class='pad7'><span class='header'>".$sitename."</td></tr>
 			<tr><td class='blueBanner2'><b>Below is the list you requested of your upcoming appointments.</b>
@@ -34,7 +33,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && $_GET['op']=="when"){
 			/////// EMAIL IT
 			if(SM_emailIt(SM_d($findemail), "$adminemail", "", "Appointment Reminder", $bodyData)==false){}
 			$success="y";
+
 		}
+
 	?>
 		<table class='cc100' style='border-collapse:separate;'>
         <tr><td class='blueBanner1'>Reminder Sent</td></tr>
