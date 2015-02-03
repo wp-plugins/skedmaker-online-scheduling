@@ -210,7 +210,7 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 		$full_url=curPageURL();
 		$url_bits=explode("?",$full_url);
 		$main_url=$url_bits[0];
-		$SM_permalink=$main_url/"?";
+		$SM_permalink=$main_url."?";
 		//$SM_permalink=get_site_url()."?";
 	}
 	return $SM_permalink;
