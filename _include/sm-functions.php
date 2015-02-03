@@ -200,14 +200,14 @@ if(!function_exists('SM_permalink')){function SM_permalink(){
 			$SM_permalink=get_site_url()."/?page_id=".$SM_ID;				
 		}
 	}else{
-		function curPageURL() {
+		function SM_curPageURL(){
 			$isHTTPS = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on");
 			$port = (isset($_SERVER["SERVER_PORT"]) && ((!$isHTTPS && $_SERVER["SERVER_PORT"] != "80") || ($isHTTPS && $_SERVER["SERVER_PORT"] != "443")));
 			$port = ($port) ? ':'.$_SERVER["SERVER_PORT"] : '';
 			$url = ($isHTTPS ? 'https://' : 'http://').$_SERVER["SERVER_NAME"].$port.$_SERVER["REQUEST_URI"];
 			return $url;
 		}
-		$full_url=curPageURL();
+		$full_url=SM_curPageURL();
 		$url_bits=explode("?",$full_url);
 		$main_url=$url_bits[0];
 		$SM_permalink=$main_url."?";
